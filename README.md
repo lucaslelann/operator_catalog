@@ -1,2 +1,3 @@
-# operator_encyclopaedia
-Compilation of Tercen operators
+# Tercen operators encyclopaedia
+
+A compilation of Tercen operators.
