@@ -2,72 +2,72 @@
  
 ## max_operator  {-}
 
-Description: NA 
+Description: `max` operator returns the max of a set of data points. 
 
 Link: https://github.com/tercen/max_operator 
  
 ## upperandlowerbounds_operator  {-}
 
-Description: NA 
+Description: `upperandlowerbounds` operator computes an upper and lower bound values as a fraction of a given data point. 
 
 Link: https://github.com/tercen/upperandlowerbounds_operator 
  
 ## median_operator  {-}
 
-Description: NA 
+Description: `Median` operator returns the median of a set of data points. 
 
 Link: https://github.com/tercen/median_operator 
  
 ## percentile_operator  {-}
 
-Description: NA 
+Description: `percentile` operator returns the percentile of a set of data points. 
 
 Link: https://github.com/tercen/percentile_operator 
  
 ## sd_operator  {-}
 
-Description: NA 
+Description: `sd` operator computes the standard deviation of a set of data points. 
 
 Link: https://github.com/tercen/sd_operator 
  
 ## cv_operator  {-}
 
-Description: NA 
+Description: `cv` operator calculates the coefficient of variance on a set of input values. 
 
 Link: https://github.com/tercen/cv_operator 
  
 ## pearson_operator  {-}
 
-Description: NA 
+Description: `pearson` operator performs a person correlation of two input sets of data per cell 
 
 Link: https://github.com/tercen/pearson_operator 
  
 ## sum_operator  {-}
 
-Description: NA 
+Description: `sum` operator computes the sum of a set of data points. 
 
 Link: https://github.com/tercen/sum_operator 
  
 ## count_operator  {-}
 
-Description: NA 
+Description: `count` operator counts the number of data points. 
 
 Link: https://github.com/tercen/count_operator 
  
 ## IQR_operator  {-}
 
-Description: NA 
+Description: The `IQR` operator returns the interquartile range of a set of data points. 
 
 Link: https://github.com/tercen/IQR_operator 
  
 ## mean_operator  {-}
 
-Description: NA 
+Description: `mean` operator computes the mean of a set of data points. 
 
 Link: https://github.com/tercen/mean_operator 
  
 ## mean_sd_operator  {-}
 
-Description: NA 
+Description: `mean sd` operator computes the mean and standard deviation of a set of data points. 
 
 Link: https://github.com/tercen/mean_sd_operator 

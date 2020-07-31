@@ -2,7 +2,7 @@
  
 ## boxplot_shiny_operator  {-}
 
-Description: NA 
+Description: The `Boxplot Shiny operator` is an operator to represent data as boxplots in Tercen. 
 
 Link: https://github.com/tercen/boxplot_shiny_operator 
  

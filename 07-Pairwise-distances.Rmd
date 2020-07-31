@@ -2,12 +2,12 @@
  
 ## RMSD_operator  {-}
 
-Description: NA 
+Description: `RMSD` operator returns the Relative Mean Square Deviation of two variables. 
 
 Link: https://github.com/tercen/RMSD_operator 
  
 ## pairwise_RMSD_operator  {-}
 
-Description: NA 
+Description: The `pairwise_RMSD` operator returns the Relative Mean Squared Deviation computed between pairs of variables. 
 
 Link: https://github.com/tercen/pairwise_RMSD_operator 

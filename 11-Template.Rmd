@@ -2,24 +2,24 @@
  
 ## template_docker_operator  {-}
 
-Description: Template 
+Description: NA 
 
 Link: https://github.com/tercen/template_docker_operator 
  
 ## templateR_operator  {-}
 
-Description: Template 
+Description: NA 
 
 Link: https://github.com/tercen/templateR_operator 
  
 ## shiny_docker_operator  {-}
 
-Description: Template 
+Description: NA 
 
 Link: https://github.com/tercen/shiny_docker_operator 
  
 ## template_shiny_operator  {-}
 
-Description: Template 
+Description: The `Template Shiny operator` is a template repository for the creation of Shiny operators in Tercen. 
 
 Link: https://github.com/tercen/template_shiny_operator 

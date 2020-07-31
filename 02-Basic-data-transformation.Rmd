@@ -2,18 +2,18 @@
  
 ## shift_operator  {-}
 
-Description: shift operator performs a shift by a constant value. 
+Description: `shift` operator performs a shift by a constant value. 
 
 Link: https://github.com/tercen/shift_operator 
  
 ## asinh_operator  {-}
 
-Description: NA 
+Description: `asinh` operator performs an inverse hyperbolic sine of values. 
 
 Link: https://github.com/tercen/asinh_operator 
  
 ## signchange_operator  {-}
 
-Description: NA 
+Description: `signchange` operator negates the data value, i.e. sign changes 
 
 Link: https://github.com/tercen/signchange_operator 

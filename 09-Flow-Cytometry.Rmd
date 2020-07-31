@@ -2,19 +2,19 @@
  
 ## oldflowsom_operator  {-}
 
-Description: obsolete 
+Description: `flowsom` operator performs the SOM (self organizing maps) in the `flowSOM` R package. 
 
 Link: https://github.com/tercen/oldflowsom_operator 
  
 ## rphenograph_operator  {-}
 
-Description: NA 
+Description: `rephenograph` operator performs a phenotype clustering in the `Rphenograph` R package. 
 
 Link: https://github.com/tercen/rphenograph_operator 
  
 ## cytonorm_operator  {-}
 
-Description: NA 
+Description: The `Cytonorm` operator normalizes cytometry data between mutliple batches. 
 
 Link: https://github.com/tercen/cytonorm_operator 
  
@@ -26,30 +26,30 @@ Link: https://github.com/tercen/flowsomtuning_operator
  
 ## diffcyt_operator  {-}
 
-Description: NA 
+Description: `diffcyt` operator a differential analysis of flow cyto data and indicates which marker and cluster combinations are relevant. 
 
 Link: https://github.com/tercen/diffcyt_operator 
  
 ## flowai_operator  {-}
 
-Description: NA 
+Description: `flowai` operator performs quality control on flowcytometry data. 
 
 Link: https://github.com/tercen/flowai_operator 
  
 ## somflow_operator  {-}
 
-Description: NA 
+Description: `somflow` operator performs the SOM (self organizing maps) in the `FlowSOM` R package. 
 
 Link: https://github.com/tercen/somflow_operator 
  
 ## flowsom_operator  {-}
 
-Description: NA 
+Description: `FlowSOM` operator for flow cytometry data. 
 
 Link: https://github.com/tercen/flowsom_operator 
  
 ## flowsom_mst_shiny_operator  {-}
 
-Description: NA 
+Description: The `FlowSOM_MST` operator for flow cytometry data creates the Minimum Spanning Tree based on FlowSOM clustering. 
 
 Link: https://github.com/tercen/flowsom_mst_shiny_operator 

@@ -2,37 +2,37 @@
  
 ## sample_operator  {-}
 
-Description: NA 
+Description: `Sample` operator returns a sample of the specified size from the set of data points using either with or without replacement. 
 
 Link: https://github.com/tercen/sample_operator 
  
 ## subtract_operator  {-}
 
-Description: NA 
+Description: `subtract` operator computes the subtract of two data points. 
 
 Link: https://github.com/tercen/subtract_operator 
  
 ## constant_operator  {-}
 
-Description: constant operator allows for a value equal to a constant to be generated 
+Description: `constant` operator allows for a value equal to a constant to be generated 
 
 Link: https://github.com/tercen/constant_operator 
  
 ## product_operator  {-}
 
-Description: NA 
+Description: `product` operator computes the product (i.e. multiplication) of a set of points. 
 
 Link: https://github.com/tercen/product_operator 
  
 ## randomlabel_operator  {-}
 
-Description: NA 
+Description: The `Random label` operator returns a random label per column. It allows one to subsample or downsample the data. 
 
 Link: https://github.com/tercen/randomlabel_operator 
  
 ## topn_operator  {-}
 
-Description: NA 
+Description: `topn` operator returns  data points. 
 
 Link: https://github.com/tercen/topn_operator 
  
@@ -44,18 +44,18 @@ Link: https://github.com/tercen/annotation_operator
  
 ## wordcount_operator  {-}
 
-Description: NA 
+Description: `Word count` operator count the occurences of each words in one or more documents. 
 
 Link: https://github.com/tercen/wordcount_operator 
  
 ## ratio_operator  {-}
 
-Description: NA 
+Description: `ratio` operator computes the ratio of two data points. 
 
 Link: https://github.com/tercen/ratio_operator 
  
 ## seqlen_operator  {-}
 
-Description: NA 
+Description: `Seqlen` operator creates a sequence annotation for a data series 
 
 Link: https://github.com/tercen/seqlen_operator 
