@@ -1,0 +1,84 @@
+﻿name,url,tags,category,type,description
+shift_operator,https://github.com/tercen/shift_operator,data transformation,Data transformation,R,shift operator performs a shift by a constant value.
+max_operator,https://github.com/tercen/max_operator,basic statistics,Basic statistics,R,NA
+sample_operator,https://github.com/tercen/sample_operator,sampling,Basic operations,R,NA
+asinh_operator,https://github.com/tercen/asinh_operator,data transformation,Data transformation,R,NA
+upperandlowerbounds_operator,https://github.com/tercen/upperandlowerbounds_operator,basic statistics,Basic statistics,R,NA
+snca_operator,https://github.com/tercen/snca_operator,NA,NA,R,snca operator calculates a single non compartamental model for a dose/time series.
+subtract_operator,https://github.com/tercen/subtract_operator,operation,Basic operations,R,NA
+median_operator,https://github.com/tercen/median_operator,basic statistics,Basic statistics,R,NA
+pca_operator,https://github.com/tercen/pca_operator,"dimensionality reduction, flow cytometry, genomics",Dimensionality reduction and clustering,R,NA
+percentile_operator,https://github.com/tercen/percentile_operator,basic statistics,Basic statistics,R,NA
+oldflowsom_operator,https://github.com/tercen/oldflowsom_operator,flow cytometry,Flow Cytometry,R,obsolete
+rphenograph_operator,https://github.com/tercen/rphenograph_operator,clustering,Flow Cytometry,R,NA
+calcnormfactors_operator,https://github.com/tercen/calcnormfactors_operator,NA,NA,R,NA
+anova_operator,https://github.com/tercen/anova_operator,"statistics, linear model, test",Statistical testing,R,NA
+sd_operator,https://github.com/tercen/sd_operator,basic statistics,Basic statistics,R,NA
+boxplot_shiny_operator,https://github.com/tercen/boxplot_shiny_operator,data visualisation,Data visualisation,shiny,NA
+cytonorm_operator,https://github.com/tercen/cytonorm_operator,flow cytometry,Flow Cytometry,R,NA
+foldchange_operator,https://github.com/tercen/foldchange_operator,NA,NA,R,NA
+cv_operator,https://github.com/tercen/cv_operator,basic statistics,Basic statistics,R,NA
+MEM_operator,https://github.com/tercen/MEM_operator,NA,NA,R,NA
+signchange_operator,https://github.com/tercen/signchange_operator,data transformation,Data transformation,R,NA
+basechange_operator,https://github.com/tercen/basechange_operator,NA,NA,R,NA
+gfr_operator,https://github.com/tercen/gfr_operator,NA,NA,R,NA
+damacy_operator,https://github.com/tercen/damacy_operator,NA,NA,R,NA
+constant_operator,https://github.com/tercen/constant_operator,operation,Basic operations,R,constant operator allows for a value equal to a constant to be generated
+pearson_operator,https://github.com/tercen/pearson_operator,basic statistics,Basic statistics,R,NA
+product_operator,https://github.com/tercen/product_operator,operation,Basic operations,R,NA
+readxl_operator,https://github.com/tercen/readxl_operator,file conversion,file conversion,R,NA
+log_operator,https://github.com/tercen/log_operator,data transformation,Data transformation,R,NA
+impute_operator,https://github.com/tercen/impute_operator,data transformation,Data transformation,R,NA
+nca_operator,https://github.com/tercen/nca_operator,NA,NA,R,NA
+vsn_operator,https://github.com/tercen/vsn_operator,NA,NA,R,NA
+density_operator,https://github.com/tercen/density_operator,NA,NA,R,NA
+scale_operator,https://github.com/tercen/scale_operator,data transformation,Data transformation,R,NA
+MDS_operator,https://github.com/tercen/MDS_operator,"clustering, dimensionality reduction",Dimensionality reduction and clustering,R,NA
+flowsomtuning_operator,https://github.com/tercen/flowsomtuning_operator,flow cytometry,Flow Cytometry,R,NA
+diffcyt_operator,https://github.com/tercen/diffcyt_operator,flow cytometry,Flow Cytometry,R,NA
+flowai_operator,https://github.com/tercen/flowai_operator,flow cytometry,Flow Cytometry,R,NA
+umap_operator,https://github.com/tercen/umap_operator,"clustering, dimensionality reduction",Dimensionality reduction and clustering,R,NA
+normalyzer_operator,https://github.com/tercen/normalyzer_operator,"RNAseq, genomics",RNA sequencing,R,NA
+sum_operator,https://github.com/tercen/sum_operator,basic statistics,Basic statistics,R,NA
+randomlabel_operator,https://github.com/tercen/randomlabel_operator,annotation,Basic operations,R,NA
+topn_operator,https://github.com/tercen/topn_operator,operation,Basic operations,R,NA
+RMSD_operator,https://github.com/tercen/RMSD_operator,"distance, error",Pairwise distances,R,NA
+annotation_operator,https://github.com/tercen/annotation_operator,annotation,Basic operations,R,NA
+fcs_operator,https://github.com/tercen/fcs_operator,NA,NA,R,NA
+neighbourhood_operator,https://github.com/tercen/neighbourhood_operator,NA,NA,R,NA
+ttest_operator,https://github.com/tercen/ttest_operator,"statistics, test",Statistical testing,R,NA
+fgsea_operator,https://github.com/tercen/fgsea_operator,"RNAseq, genomics",RNA sequencing,R,NA
+lm_operator,https://github.com/tercen/lm_operator,"statistics, linear model, test",Statistical testing,R,NA
+somflow_operator,https://github.com/tercen/somflow_operator,flow cytometry,Flow Cytometry,R,NA
+twogroupttest_operator,https://github.com/tercen/twogroupttest_operator,"statistics, test",Statistical testing,R,NA
+count_operator,https://github.com/tercen/count_operator,basic statistics,Basic statistics,R,NA
+wordcount_operator,https://github.com/tercen/wordcount_operator,operation,Basic operations,R,NA
+ratio_operator,https://github.com/tercen/ratio_operator,operation,Basic operations,R,NA
+tsne_operator,https://github.com/tercen/tsne_operator,"dimensionality reduction, flow cytometry, genomics",Dimensionality reduction and clustering,R,NA
+flowsom_operator,https://github.com/tercen/flowsom_operator,flow cytometry,Flow Cytometry,R,NA
+IQR_operator,https://github.com/tercen/IQR_operator,basic statistics,Basic statistics,R,NA
+mean_operator,https://github.com/tercen/mean_operator,basic statistics,Basic statistics,R,NA
+negative_operator,https://github.com/tercen/negative_operator,data transformation,Data transformation,R,NA
+seqlen_operator,https://github.com/tercen/seqlen_operator,annotation,Basic operations,R,NA
+pairwise_RMSD_operator,https://github.com/tercen/pairwise_RMSD_operator,"distance, error",Pairwise distances,R,NA
+mean_sd_operator,https://github.com/tercen/mean_sd_operator,basic statistics,Basic statistics,R,NA
+template_docker_operator,https://github.com/tercen/template_docker_operator,template,Template,Docker,Template
+atsne_docker_operator,https://github.com/tercen/atsne_docker_operator,"dimensionality reduction, flow cytometry, genomics",Dimensionality reduction and clustering,Docker,NA
+shiny_heatmap_operator,https://github.com/tercen/shiny_heatmap_operator,data visualisation,Data visualisation,Shiny,NA
+scRNAseq_normalisation_operator,https://github.com/tercen/scRNAseq_normalisation_operator,scRNAseq,RNA sequencing,R,NA
+scRNAseq_QC_operator,https://github.com/tercen/scRNAseq_QC_operator,scRNAseq,RNA sequencing,R,NA
+fast_tSNE_operator,https://github.com/tercen/fast_tSNE_operator,"dimensionality reduction, flow cytometry, genomics",Dimensionality reduction and clustering,R,NA
+templateR_operator,https://github.com/tercen/templateR_operator,template,Template,R,Template
+worldmap_shiny_docker_operator,https://github.com/tercen/worldmap_shiny_docker_operator,"map, visualisation",Data visualisation,Docker,NA
+mixed_model_operator,https://github.com/tercen/mixed_model_operator,"statistics, linear model, test",Statistical testing,R,NA
+venn_shiny_operator,https://github.com/tercen/venn_shiny_operator,"overlap, visualisation",Data visualisation,Shiny,NA
+shiny_boxplot_operator,https://github.com/tercen/shiny_boxplot_operator,"distribution, visualisation",Data visualisation,Shiny,NA
+cellplot_shiny_operator,https://github.com/tercen/cellplot_shiny_operator,"genomics, clustering",Data visualisation,Shiny,NA
+rfImp_operator,https://github.com/tercen/rfImp_operator,NA,NA,R,NA
+flowsom_mst_shiny_operator,https://github.com/tercen/flowsom_mst_shiny_operator,"flow cytometry, data visualisation",Flow Cytometry,R,NA
+shiny_docker_operator,https://github.com/tercen/shiny_docker_operator,template,Template,Docker,Template
+template_shiny_operator,https://github.com/tercen/template_shiny_operator,template,Template,Shiny,Template
+clusterx2_operator,https://github.com/tercen/clusterx2_operator,"clustering, dimensionality reduction",Dimensionality reduction and clustering,R,NA
+scRNAseq_feature_selection_operator,https://github.com/tercen/scRNAseq_feature_selection_operator,scRNAseq,RNA sequencing,R,NA
+DESeq2_two_conditions_operator,https://github.com/tercen/DESeq2_two_conditions_operator,scRNAseq,RNA sequencing,R,NA
+fast_tSNE_docker_operator,https://github.com/tercen/fast_tSNE_docker_operator,"dimensionality reduction, flow cytometry, genomics",Dimensionality reduction and clustering,R,NA
