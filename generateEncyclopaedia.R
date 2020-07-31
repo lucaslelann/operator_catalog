@@ -14,9 +14,6 @@ dat$description <- sapply(dat$ï..name, function(x) {
   }
 })
 
-
-unique(dat$category)
-
 chapters <- c("Basic statistics",
               "Basic data transformation",
               "Basic operations",
