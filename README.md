@@ -1,5 +1,7 @@
 # Tercen operators encyclopaedia
 
+https://tercen.github.io/operator_encyclopaedia/
+
 A compilation of Tercen operators, automatically generated.
 
 ```r
