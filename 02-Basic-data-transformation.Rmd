@@ -1,0 +1,19 @@
+# Basic data transformation 
+ 
+## shift_operator  {-}
+
+Description: shift operator performs a shift by a constant value. 
+
+Link: https://github.com/tercen/shift_operator 
+ 
+## asinh_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/asinh_operator 
+ 
+## signchange_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/signchange_operator 

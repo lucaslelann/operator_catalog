@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Dimensionality reduction and clustering | App builder’s guide to Tercen</title>
+  <meta name="description" content="This is a app builder’s guide to Tercen" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Dimensionality reduction and clustering | App builder’s guide to Tercen" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a app builder’s guide to Tercen" />
+  <meta name="github-repo" content="tercen/appbuilders-guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Dimensionality reduction and clustering | App builder’s guide to Tercen" />
+  
+  <meta name="twitter:description" content="This is a app builder’s guide to Tercen" />
+  
+
+<meta name="author" content="Tercen support document" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pairwise-distances.html"/>
+<link rel="next" href="flow-cytometry.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>1</b> Basic statistics</a><ul>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#max_operator"><i class="fa fa-check"></i>max_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#upperandlowerbounds_operator"><i class="fa fa-check"></i>upperandlowerbounds_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#median_operator"><i class="fa fa-check"></i>median_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#percentile_operator"><i class="fa fa-check"></i>percentile_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#sd_operator"><i class="fa fa-check"></i>sd_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#cv_operator"><i class="fa fa-check"></i>cv_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#pearson_operator"><i class="fa fa-check"></i>pearson_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#sum_operator"><i class="fa fa-check"></i>sum_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#count_operator"><i class="fa fa-check"></i>count_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#iqr_operator"><i class="fa fa-check"></i>IQR_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#mean_operator"><i class="fa fa-check"></i>mean_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#mean_sd_operator"><i class="fa fa-check"></i>mean_sd_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html"><i class="fa fa-check"></i><b>2</b> Basic data transformation</a><ul>
+<li class="chapter" data-level="" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html#shift_operator"><i class="fa fa-check"></i>shift_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html#asinh_operator"><i class="fa fa-check"></i>asinh_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html#signchange_operator"><i class="fa fa-check"></i>signchange_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-operations.html"><a href="basic-operations.html"><i class="fa fa-check"></i><b>3</b> Basic operations</a><ul>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#sample_operator"><i class="fa fa-check"></i>sample_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#subtract_operator"><i class="fa fa-check"></i>subtract_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#constant_operator"><i class="fa fa-check"></i>constant_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#product_operator"><i class="fa fa-check"></i>product_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#randomlabel_operator"><i class="fa fa-check"></i>randomlabel_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#topn_operator"><i class="fa fa-check"></i>topn_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#annotation_operator"><i class="fa fa-check"></i>annotation_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#wordcount_operator"><i class="fa fa-check"></i>wordcount_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#ratio_operator"><i class="fa fa-check"></i>ratio_operator</a></li>
+<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#seqlen_operator"><i class="fa fa-check"></i>seqlen_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="file-conversion.html"><a href="file-conversion.html"><i class="fa fa-check"></i><b>4</b> File conversion</a><ul>
+<li><a href="file-conversion.html#section"></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="statistical-testing.html"><a href="statistical-testing.html"><i class="fa fa-check"></i><b>5</b> Statistical testing</a><ul>
+<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#anova_operator"><i class="fa fa-check"></i>anova_operator</a></li>
+<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#ttest_operator"><i class="fa fa-check"></i>ttest_operator</a></li>
+<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#lm_operator"><i class="fa fa-check"></i>lm_operator</a></li>
+<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#twogroupttest_operator"><i class="fa fa-check"></i>twogroupttest_operator</a></li>
+<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#mixed_model_operator"><i class="fa fa-check"></i>mixed_model_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data visualisation</a><ul>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplot_shiny_operator"><i class="fa fa-check"></i>boxplot_shiny_operator</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#shiny_heatmap_operator"><i class="fa fa-check"></i>shiny_heatmap_operator</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#worldmap_shiny_docker_operator"><i class="fa fa-check"></i>worldmap_shiny_docker_operator</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#venn_shiny_operator"><i class="fa fa-check"></i>venn_shiny_operator</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#shiny_boxplot_operator"><i class="fa fa-check"></i>shiny_boxplot_operator</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#cellplot_shiny_operator"><i class="fa fa-check"></i>cellplot_shiny_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="pairwise-distances.html"><a href="pairwise-distances.html"><i class="fa fa-check"></i><b>7</b> Pairwise distances</a><ul>
+<li class="chapter" data-level="" data-path="pairwise-distances.html"><a href="pairwise-distances.html#rmsd_operator"><i class="fa fa-check"></i>RMSD_operator</a></li>
+<li class="chapter" data-level="" data-path="pairwise-distances.html"><a href="pairwise-distances.html#pairwise_rmsd_operator"><i class="fa fa-check"></i>pairwise_RMSD_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html"><i class="fa fa-check"></i><b>8</b> Dimensionality reduction and clustering</a><ul>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#pca_operator"><i class="fa fa-check"></i>pca_operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#mds_operator"><i class="fa fa-check"></i>MDS_operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#umap_operator"><i class="fa fa-check"></i>umap_operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#tsne_operator"><i class="fa fa-check"></i>tsne_operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#atsne_docker_operator"><i class="fa fa-check"></i>atsne_docker_operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#fast_tsne_operator"><i class="fa fa-check"></i>fast_tSNE_operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#clusterx2_operator"><i class="fa fa-check"></i>clusterx2_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="flow-cytometry.html"><a href="flow-cytometry.html"><i class="fa fa-check"></i><b>9</b> Flow Cytometry</a><ul>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#oldflowsom_operator"><i class="fa fa-check"></i>oldflowsom_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#rphenograph_operator"><i class="fa fa-check"></i>rphenograph_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#cytonorm_operator"><i class="fa fa-check"></i>cytonorm_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsomtuning_operator"><i class="fa fa-check"></i>flowsomtuning_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#diffcyt_operator"><i class="fa fa-check"></i>diffcyt_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowai_operator"><i class="fa fa-check"></i>flowai_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#somflow_operator"><i class="fa fa-check"></i>somflow_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsom_operator"><i class="fa fa-check"></i>flowsom_operator</a></li>
+<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsom_mst_shiny_operator"><i class="fa fa-check"></i>flowsom_mst_shiny_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="rna-sequencing.html"><a href="rna-sequencing.html"><i class="fa fa-check"></i><b>10</b> RNA sequencing</a><ul>
+<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#normalyzer_operator"><i class="fa fa-check"></i>normalyzer_operator</a></li>
+<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#fgsea_operator"><i class="fa fa-check"></i>fgsea_operator</a></li>
+<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#scrnaseq_normalisation_operator"><i class="fa fa-check"></i>scRNAseq_normalisation_operator</a></li>
+<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#scrnaseq_qc_operator"><i class="fa fa-check"></i>scRNAseq_QC_operator</a></li>
+<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#scrnaseq_feature_selection_operator"><i class="fa fa-check"></i>scRNAseq_feature_selection_operator</a></li>
+<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#deseq2_two_conditions_operator"><i class="fa fa-check"></i>DESeq2_two_conditions_operator</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="template.html"><a href="template.html"><i class="fa fa-check"></i><b>11</b> Template</a><ul>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template_docker_operator"><i class="fa fa-check"></i>template_docker_operator</a></li>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#templater_operator"><i class="fa fa-check"></i>templateR_operator</a></li>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#shiny_docker_operator"><i class="fa fa-check"></i>shiny_docker_operator</a></li>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template_shiny_operator"><i class="fa fa-check"></i>template_shiny_operator</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">App builder’s guide to Tercen</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dimensionality-reduction-and-clustering" class="section level1">
+<h1><span class="header-section-number">8</span> Dimensionality reduction and clustering</h1>
+<div id="pca_operator" class="section level2 unnumbered">
+<h2>pca_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/pca_operator" class="uri">https://github.com/tercen/pca_operator</a></p>
+</div>
+<div id="mds_operator" class="section level2 unnumbered">
+<h2>MDS_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/MDS_operator" class="uri">https://github.com/tercen/MDS_operator</a></p>
+</div>
+<div id="umap_operator" class="section level2 unnumbered">
+<h2>umap_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/umap_operator" class="uri">https://github.com/tercen/umap_operator</a></p>
+</div>
+<div id="tsne_operator" class="section level2 unnumbered">
+<h2>tsne_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/tsne_operator" class="uri">https://github.com/tercen/tsne_operator</a></p>
+</div>
+<div id="atsne_docker_operator" class="section level2 unnumbered">
+<h2>atsne_docker_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/atsne_docker_operator" class="uri">https://github.com/tercen/atsne_docker_operator</a></p>
+</div>
+<div id="fast_tsne_operator" class="section level2 unnumbered">
+<h2>fast_tSNE_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/fast_tSNE_operator" class="uri">https://github.com/tercen/fast_tSNE_operator</a></p>
+</div>
+<div id="clusterx2_operator" class="section level2 unnumbered">
+<h2>clusterx2_operator</h2>
+<p>Description: NA</p>
+<p>Link: <a href="https://github.com/tercen/clusterx2_operator" class="uri">https://github.com/tercen/clusterx2_operator</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pairwise-distances.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flow-cytometry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

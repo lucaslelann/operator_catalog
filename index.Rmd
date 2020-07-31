@@ -1,0 +1,16 @@
+---
+title: "Tercen Operator encyclopedia"
+author: "Tercen team"
+site: bookdown::bookdown_site
+documentclass: book
+output: bookdown::gitbook
+bibliography: 
+biblio-style: apalike
+link-citations: yes
+github-repo: tercen/operator_encyclopaedia
+description: "This is a compilation of Tercen operators"
+---
+
+# Preface {-}
+
+Operator encyclopedia.

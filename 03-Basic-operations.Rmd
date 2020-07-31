@@ -1,0 +1,61 @@
+# Basic operations 
+ 
+## sample_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/sample_operator 
+ 
+## subtract_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/subtract_operator 
+ 
+## constant_operator  {-}
+
+Description: constant operator allows for a value equal to a constant to be generated 
+
+Link: https://github.com/tercen/constant_operator 
+ 
+## product_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/product_operator 
+ 
+## randomlabel_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/randomlabel_operator 
+ 
+## topn_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/topn_operator 
+ 
+## annotation_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/annotation_operator 
+ 
+## wordcount_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/wordcount_operator 
+ 
+## ratio_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/ratio_operator 
+ 
+## seqlen_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/seqlen_operator 

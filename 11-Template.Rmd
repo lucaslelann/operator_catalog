@@ -1,0 +1,25 @@
+# Template 
+ 
+## template_docker_operator  {-}
+
+Description: Template 
+
+Link: https://github.com/tercen/template_docker_operator 
+ 
+## templateR_operator  {-}
+
+Description: Template 
+
+Link: https://github.com/tercen/templateR_operator 
+ 
+## shiny_docker_operator  {-}
+
+Description: Template 
+
+Link: https://github.com/tercen/shiny_docker_operator 
+ 
+## template_shiny_operator  {-}
+
+Description: Template 
+
+Link: https://github.com/tercen/template_shiny_operator 

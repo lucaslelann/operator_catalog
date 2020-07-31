@@ -1,0 +1,31 @@
+# Statistical testing 
+ 
+## anova_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/anova_operator 
+ 
+## ttest_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/ttest_operator 
+ 
+## lm_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/lm_operator 
+ 
+## twogroupttest_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/twogroupttest_operator 
+ 
+## mixed_model_operator  {-}
+
+Description: NA 
+
+Link: https://github.com/tercen/mixed_model_operator 
