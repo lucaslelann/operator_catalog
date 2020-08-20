@@ -1,0 +1,92 @@
+name,tags
+/tercen/shiny_operator2,basic statistics
+/tercen/upperandlowerbounds_operator,simple statistics; Pharma
+/tercen/snca_operator,Pharmacokinetic; Pharma
+/tercen/median_operator,basic statistics
+/tercen/shift_operator,simple statistics
+/tercen/max_operator,basic statistics
+/tercen/sample_operator,basic statistics
+/tercen/percentile_operator,basic statistics
+/tercen/oldflowsom_operator,clustering; flow cytometry
+/tercen/subtract_operator,simple arithmetic
+/tercen/asinh_operator,simple statistics
+/tercen/pca_operator,multivariate statistics
+/tercen/rphenograph_operator,clustering; flow cytometry
+/tercen/foldchange_operator,simple statistics
+/tercen/calcnormfactors_operator,normalization; rnaseq
+/tercen/sd_operator,basic statistics
+/tercen/boxplot_shiny_operator,plot
+/tercen/cytonorm_operator,basic statistics
+/tercen/basechange_operator,simple statistics; Pharma
+/tercen/shiny_operator,NA
+/tercen/anova_operator,basic statistics
+/tercen/cv_operator,basic statistics
+/tercen/MEM_operator,flow cytometry
+/tercen/operator_encyclopaedia,NA
+/tercen/signchange_operator,simple statistics
+/tercen/gfr_operator,simple statistics; Pharma
+/tercen/normalyzer_operator,normalization
+/tercen/sum_operator,simple arithmetic
+/tercen/randomlabel_operator,sampling
+/tercen/topn_operator,basic statistics
+/tercen/damacy_operator,NA
+/tercen/constant_operator,basic statistics
+/tercen/pearson_operator,simple statistics
+/tercen/product_operator,simple arithmetic
+/tercen/hclust_operator,multivariate statistics
+/tercen/logfoldchange_operator,simple statistics
+/tercen/clusterx_operator,multivariate statistics
+/tercen/atsne_operator,multivariate statistics
+/tercen/log_operator,simple statistics
+/tercen/readxl_operator,excel; import
+/tercen/nca_operator,Pharmacokinetic; Pharma
+/tercen/vsn_operator,normalization; rnaseq
+/tercen/density_operator,basic statistics
+/tercen/scale_operator,simple statistics
+/tercen/MDS_operator,multivariate statistics
+/tercen/flowsomtuning_operator,flowcytometry; rnaseq
+/tercen/diffcyt_operator,flowcytometry; rnaseq
+/tercen/flowai_operator,flowcytometry
+/tercen/umap_operator,flowcytometry; rnaseq
+/tercen/impute_operator,basic statistics
+/tercen/somflow_operator,clustering; flow cytometry
+/tercen/myname_operator,NA
+/tercen/twogroupttest_operator,simple statistics
+/tercen/count_operator,simple statistics
+/tercen/wordcount_operator,basic statistics
+/tercen/RMSD_operator,basic statistics
+/tercen/annotation_operator,basic statistics
+/tercen/negative_operator,simple statistics
+/tercen/seqlen_operator,basic statistics
+/tercen/fcs_operator,import
+/tercen/IQR_operator,basic statistics
+/tercen/flowsom_operator,flow cytometry
+/tercen/neighbourhood_operator,flowcytometry; image flowcytometry
+/tercen/ttest_operator,simple statistics
+/tercen/fgsea_operator,enrichment
+/tercen/lm_operator,linear model
+/tercen/mean_operator,basic statistics
+/tercen/negative_operator,simple statistics
+/tercen/seqlen_operator,basic statistics
+/tercen/pairwise_RMSD_operator,basic statistics
+/tercen/mean_sd_operator,basic statistics
+/tercen/template_docker_operator,basic statistics
+/tercen/atsne_docker_operator,multivariate statistics
+/tercen/templateR_operator,basic statistics
+/tercen/worldmap_shiny_docker_operator,map
+/tercen/shiny_heatmap_operator,heatmap
+/tercen/mixed_model_operator,
+/tercen/venn_shiny_operator,basic statistics
+/tercen/shiny_boxplot_operator,basic statistics
+/tercen/fast_tSNE_operator,dimensionality reduction
+/tercen/optics11_operator,
+/tercen/template_shiny_operator,template
+/tercen/cellplot_shiny_operator,basic statistics
+/tercen/rfImp_operator,multivariate analysis
+/tercen/worldmap_shiny_operator,map
+/tercen/flowsom_mst_shiny_operator,flowsom
+/tercen/shiny_docker_operator,basic statistics
+/tercen/clusterx2_operator,multivariate statistics
+/tercen/DESeq2_two_conditions_operator,RNA-seq; differential expression; genomics
+/tercen/fast_tSNE_docker_operator,basic statistics
+/tercen/median_operator-1,basic statistics
