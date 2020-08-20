@@ -13,4 +13,33 @@ for (n in npages) {
   Sys.sleep(1)
 }
 
+# get tags
 
+
+op.list
+
+library("rjson")
+json_file <- "http://api.worldbank.org/country?per_page=10&region=OED&lendingtype=LNX&format=json"
+json_data <- fromJSON(paste(readLines(json_file), collapse=""))
+
+
+tags <- sapply(op.list, function(x) {
+  
+  raw <- try(fromJSON(
+    paste(readLines(
+      paste0("https://raw.githubusercontent.com",x,"/master/operator.json")
+      ), collapse = "")
+  ))
+  
+  if(class(raw) == "try-error") {
+    return(NA)
+  } else {
+    tags <- try(raw$tags)
+    if(class(tags) == "try-error") tags <- NA
+    return(paste0(tags, collapse="; "))
+  }
+  
+})
+
+df <- data.frame(name = names(tags), tags = tags)
+write.csv(df, file = "./data/all-tags.csv", quote = FALSE, row.names = FALSE)
