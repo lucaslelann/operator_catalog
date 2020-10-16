@@ -1,45 +1,28 @@
-library(rvest)
-npages <- 1:5
-op.list <- NULL
-for (n in npages) {
-  
-  URL <- paste0("https://github.com/tercen?language=&page=", n, "&q=operator&type=")
-  scrap <- xml2::read_html(URL)
-  links <- scrap %>%
-    html_nodes("[itemprop='name codeRepository']") %>%
-    html_attr("href") 
-  
-  op.list <- c(op.list, links)
-  Sys.sleep(1)
-}
+library(gh)
 
-# get tags
+tk <- readLines("./scripts/ghtoken")
+n_pages <- 7
+repos <- do.call(rbind, lapply(seq_len(n_pages), function(x) {
+  repo_list <- gh("GET /users/tercen/repos", page = x, .token = tk)
+  repo_names <- vapply(repo_list, "[[", "", "name")
+  repo_url <- vapply(repo_list, "[[", "", "html_url")
+  repo_issues <- vapply(repo_list, "[[", 1, "open_issues")
+  return(data.frame(repo_names, repo_url, repo_issues))
+}))
 
+tstamp <- format(Sys.time(), "%Y%m%d-%H%M")
+out.name <-  paste0("./data/", tstamp, "-repos.csv")
+write.csv(df, file = out.name, quote = FALSE, row.names = FALSE)
 
-op.list
+library("base64enc")
 
-library("rjson")
-json_file <- "http://api.worldbank.org/country?per_page=10&region=OED&lendingtype=LNX&format=json"
-json_data <- fromJSON(paste(readLines(json_file), collapse=""))
-
-
-tags <- sapply(op.list, function(x) {
-  
-  raw <- try(fromJSON(
-    paste(readLines(
-      paste0("https://raw.githubusercontent.com",x,"/master/operator.json")
-      ), collapse = "")
-  ))
-  
-  if(class(raw) == "try-error") {
-    return(NA)
-  } else {
-    tags <- try(raw$tags)
-    if(class(tags) == "try-error") tags <- NA
-    return(paste0(tags, collapse="; "))
-  }
-  
+repo_list <- repos$repo_names[grep("_operator", repos$repo_names)]
+op_readmes <- lapply(repo_list, function(x) {
+  ct <- gh(paste0("GET /repos/tercen/", x, "/readme"), .token = tk)
+  decoded <- rawToChar(base64decode(ct$content))
+  return(decoded)
 })
 
-df <- data.frame(name = names(tags), tags = tags)
-write.csv(df, file = "./data/all-tags.csv", quote = FALSE, row.names = FALSE)
+
+names(op_readmes) <- repo_list
+save(op_readmes, file = "./data/op_readmes.rda")

@@ -1,5 +1,4 @@
 ### script to generate markdown page
-
 dat <- read.table("./data/operator_list.csv", header = TRUE, sep = ",")
 head(dat)
 
