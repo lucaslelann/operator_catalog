@@ -9,11 +9,11 @@
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `col`        | documentid, this the documentid of the file
 
 Output relations|.
----|---
+:---|:---
 a tercen table   | tableid, for every tablid there is a documentid relation 
 
 ##### Details
@@ -37,11 +37,11 @@ see the `readRDS()` function in base R.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`        | is the documentId 
 
 Output relations|.
----|---
+:---|:---
  
 
 ##### Details
@@ -65,11 +65,11 @@ The operator import excel document to tercen.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `col`        | factor, document ID
 
 Output relations|.
----|---
+:---|:---
 `name`        | factor, sequence name
 `position`    | numeric, position of amino or nucleic acid in the sequence
 `letter`      | factor, letter corresponding to an amino or nucleic acid
@@ -97,11 +97,11 @@ Transform zipped fcs files to tercen dataset.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `documentId`        | is the documentId, a zip file
 
 Output relations|.
----|---
+:---|:---
 `filename`          | character, the name of the fcs file
 `channels`          | numeric, one variable per channel in the fcs file
 
@@ -129,11 +129,11 @@ Flow Cytometry Standard is a data file standard for the reading and writing of d
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `documentId`        | is the documentId 
 
 Output relations|.
----|---
+:---|:---
 `documentId`          | character, the id of the document
 
 ##### Details

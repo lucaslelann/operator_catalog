@@ -19,7 +19,7 @@ for(i in seq_along(tag_map$category)) {
   
   cat(
     paste("#", chap, "\n"),
-    paste0("\n\n#", df[cat_id, ]$README), # ADD URL
+    paste0("\n\n#", gsub("---", ":---", df[cat_id, ]$README)), # ADD URL
     file = paste0(
       formatC(i, width = 2, format = "d", flag = "0"), "-", gsub(" ", "-", chap), ".Rmd"
     )
@@ -29,3 +29,4 @@ for(i in seq_along(tag_map$category)) {
 
 
 bookdown::render_book(input = "index.Rmd", output_dir = "docs")
+

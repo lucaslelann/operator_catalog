@@ -10,14 +10,14 @@
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables
 `col`   | represents the observations
 `label`   | represents the clusters
 `y-axis`| is the value of the measurement
 
 Output relations|.
----|---
+:---|:---
 `metrics`        | character, name of the clustering metric
 `value`        | numeric, value of the clustering metric
 
@@ -41,13 +41,13 @@ This operator is based on the [clusterCrit R function](https://www.rdocumentatio
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`        | factor, variables to cluster
 `col`        | factor, variables to cluster (`dist_to` variable from a `dist` operator) 
 `y-axis`        | numeric, pairwise distance (`dist` variable from a `dist` operator)
 
 Output relations|.
----|---
+:---|:---
 `presence`        | numeric, to be projected on y-axis
 `tree_dim1`        | factor, to be projected on rows
 `tree_dim2`        | factor, to be projected on columns
@@ -62,14 +62,14 @@ Output relations|.
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the observations (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 
 Input parameters|.
----|---
+:---|:---
 `xdim`   | Width of the grid
 `ydim`   | Hight of the grid
 `rlen`| Number of times to loop over the training data for each MST
@@ -79,7 +79,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|---
+:---|:---
 `mapping_node_num`| numeric, per column (e.g. per cell)
 `mapping_node_label`| character, per column (e.g. per cell)
 
@@ -104,14 +104,14 @@ see the `flowSOM::SOM` function of the R package for the documentation,
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the observations (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 
 Input parameters|.
----|---
+:---|:---
 `xdim`   | Width of the grid
 `ydim`   | Hight of the grid
 `rlen`| Number of times to loop over the training data for each MST
@@ -121,7 +121,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|---
+:---|:---
 `mapping_node_num`| numeric, per column (e.g. per cell)
 `mapping_node_label`| character, per column (e.g. per cell)
 
@@ -146,14 +146,14 @@ see the `rphenograph::SOM` function of the R package for the documentation,
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the observations (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 
 Input parameters|.
----|---
+:---|:---
 `xdim`   | Width of the grid
 `ydim`   | Hight of the grid
 `rlen`| Number of times to loop over the training data for each MST
@@ -163,7 +163,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|--- 
+:---|:--- 
 `mapping_node_label`| character, per column (e.g. per cell)
 
 ##### Details

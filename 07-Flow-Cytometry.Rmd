@@ -10,13 +10,13 @@
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the clusters (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 Input parameters|.
----|---
+:---|:---
 `nclust`   | Number of clusters to make (default = `NULL`)
 `maxMeta`   | Maximal number of cluster (ignored if `nclust` is not `NULL`)
 `seed`   | Random seed
@@ -29,7 +29,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|---
+:---|:---
 `cluster`| character, cluster label
 
 ##### Details
@@ -57,14 +57,14 @@ https://bioconductor.org/packages/FlowSOM/
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the clusters (e.g. cells) 
 `colors`   | represents the groups (e.g. flowSOM clusters) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 Output relations|.
----|---
+:---|:---
 `mem`| numeric, mem scores per row and per color (e.g. per channel/marker and per flowSOM clusters)
 `cluster`| character, cluster value
 
@@ -91,14 +91,14 @@ https://github.com/cytolab/mem
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the observations (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 
 Input parameters|.
----|---
+:---|:---
 `xdim`   | Width of the grid
 `ydim`   | Hight of the grid
 `rlen`| Number of times to loop over the training data for each MST
@@ -108,7 +108,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|---
+:---|:---
 `mapping_node_num`| numeric, per column (e.g. per cell)
 `mapping_node_label`| character, per column (e.g. per cell)
 
@@ -133,14 +133,14 @@ see the `flowSOM::SOM` function of the R package for the documentation,
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the observations (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 
 Input parameters|.
----|---
+:---|:---
 `xdim`   | Width of the grid
 `ydim`   | Hight of the grid
 `rlen`| Number of times to loop over the training data for each MST
@@ -150,7 +150,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|---
+:---|:---
 `mapping_node_num`| numeric, per column (e.g. per cell)
 `mapping_node_label`| character, per column (e.g. per cell)
 
@@ -175,14 +175,14 @@ see the `rphenograph::SOM` function of the R package for the documentation,
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `row`   | represents the variables (e.g. channels, markers)
 `col`   | represents the observations (e.g. cells) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 
 Input parameters|.
----|---
+:---|:---
 `xdim`   | Width of the grid
 `ydim`   | Hight of the grid
 `rlen`| Number of times to loop over the training data for each MST
@@ -192,7 +192,7 @@ Input parameters|.
 `dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
 
 Output relations|.
----|--- 
+:---|:--- 
 `mapping_node_label`| character, per column (e.g. per cell)
 
 ##### Details

@@ -3,7 +3,9 @@ title: "Tercen Operator encyclopedia"
 author: "Tercen team"
 site: bookdown::bookdown_site
 documentclass: book
-output: bookdown::gitbook
+output: 
+  bookdown::gitbook:
+    number_sections: false
 bibliography: 
 biblio-style: apalike
 link-citations: yes

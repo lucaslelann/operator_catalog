@@ -10,20 +10,20 @@
 ## Usage
 
 | Input projection | Description                      |
-| ---------------- | -------------------------------- |
+| :---:---:---:---:---- | :---:---:---:---:---:---:---:---:---:----- |
 | `row`            | Gene name/identifier             |
 | `column`         | Sample name/identifier           |
 | `color`          | Represents the groups to compare |
 | `y-axis`         | Sequence counts                  |
 
 | Input parameters | Description                                                                              |
-| -----------------| ---------------------------------------------------------------------------------------- |
+| :---:---:---:---:-----| :---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---- |
 | `alpha`          | Numeric, adjusted _p value_ cutoff for independent filtering (default = 0.1)             |
 | `LFC_shrinkage`  | Logical, whether the returned log fold-change values should be shrinked (default = TRUE) |
 | `shrinkage_type` | "normal", "apeglm" or "ashr", Type of shrinkage estimator to use (default = "normal")    |
 
 |  Output relations  | Description                                                                |
-| ------------------ | -------------------------------------------------------------------------- |
+| :---:---:---:---:---:--- | :---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:---:----- |
 | `pvalue`           | numeric, p-value calculated per gene                                       |
 | `padj`             | numeric, p-value calculated per gene after adjusting for multiple testing  |
 | `baseMean`         | numeric, mean of normalized counts for all the samples                     |

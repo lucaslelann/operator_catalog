@@ -10,11 +10,11 @@
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`        | single character column
 
 Output relations|.
----|---
+:---|:---
 `col1`          | numeric or character
 `col2`          | numeric or character
 `etc..`          | multiple columns

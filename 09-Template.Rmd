@@ -10,7 +10,7 @@ The `Template Shiny operator` is a template repository for the creation of Shiny
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `x-axis`        | type, description 
 `y-axis`        | type, description 
 `row`           | type, description 
@@ -19,7 +19,7 @@ Input projection|.
 `labels`        | type, description 
 
 Output relations|.
----|---
+:---|:---
 `Operator view`        | view of the Shiny application
 
 ##### Details

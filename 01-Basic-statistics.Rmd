@@ -8,12 +8,12 @@
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `color`   | represents the groups to compare
 `y-axis`| measurement value
 
 Output relations|.
----|---
+:---|:---
 `pr`| numeric, p-value calculated per cell
 
 ##### Details
@@ -57,15 +57,15 @@ shiny::runApp(port=3044, launch.browser = TRUE)
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 none |
 
 Input parameters|.
----|---
+:---|:---
 `value` | numeric, the constant value to be generated, default is 0
 
 Output relations|.
----|---
+:---|:---
 `constant`| numeric, one constant is generated per cell
 
 ##### Details
@@ -91,12 +91,12 @@ https://tercen.com/operator/p/8d8febb97ed4b09c2ddf52795c961e68
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `y-axis`| values to be used for the calculation of the cv, per cell
 
 
 Output relations|.
----|---
+:---|:---
 `cv`| numeric, coefficient of variation result per cell
 
 ##### Details
@@ -127,11 +127,11 @@ The `Cytonorm` operator normalizes cytometry data between mutliple batches.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `value`        | numeric, median of the input data
 
 ##### Details
@@ -154,12 +154,12 @@ https://github.com/saeyslab/CytoNorm
 
 ##### Usage
 Input projection|.
----|---
+:---|:---
 `x-axis`  | indicates the values of the x
 `y-axis`  | indicates the values of the y
 
 Output relations|.
----|---
+:---|:---
 `density`| numeric, density calculation, calculated per cell
 
 ##### Details
@@ -199,11 +199,11 @@ git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git 
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | is the input data for the imputation, per cell 
 
 Output relations|.
----|---
+:---|:---
 `impute`        | numeric, a copy of the input data with NA replaces with zeros 
 
 ##### Details
@@ -227,11 +227,11 @@ The `IQR` operator returns the interquartile range of a set of data points.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `iqr`        | numeric, median of the input data
 
 ##### Details
@@ -259,11 +259,11 @@ https://en.wikipedia.org/wiki/Interquartile_range
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `max`        | numeric, max of the input data
 
 ##### Details
@@ -288,13 +288,13 @@ Based on the [max R function](https://stat.ethz.ch/R-manual/R-devel/library/base
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`        | factor, observations 
 `column`     | factor, variables 
 `y-axis`     | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `mean_imputed`        | numeric, measurements with imputed values
 
 ##### Details
@@ -318,11 +318,11 @@ See [Mean substitution on Wikipedia](https://en.wikipedia.org/wiki/Imputation_(s
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | is the input data for the mean, per cell 
 
 Output relations|.
----|---
+:---|:---
 `mean`          | numeric, mean of the input values
 
 ##### Details
@@ -347,11 +347,11 @@ The operator takes all the values of a cell and calculates their mean. The compu
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `mean`       | numeric, mean of the input data
 `sd`         | numeric, standard deviation of the input data
 
@@ -377,11 +377,11 @@ The operator takes all the values of a cell and calculates their mean and standa
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `median`        | numeric, median of the input data
 
 ##### Details
@@ -409,13 +409,13 @@ The `pairwise_RMSD` operator returns the Relative Mean Squared Deviation compute
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`        | factor, input variables 
 `col`        | factor, observations 
 `.y`        | numeric, measurements
 
 Output relations|.
----|---
+:---|:---
 `rmsd`        | numeric, RMSD
 `to`        | numeric, variable to be projected against the initial one for pairwise distance visualisation
 
@@ -436,15 +436,15 @@ Output relations|.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell
 
 Input parameters|.
----|---
+:---|:---
 `percentile` | numeric, the percentile to use, default is 0.01, 1% percentile
 
 Output relations|.
----|---
+:---|:---
 `percentile`    | numeric, percentile of the input data
 
 ##### Details
@@ -506,12 +506,12 @@ inside the `doc` there is a `dev_commands.md` file which contains useful develop
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `x-axis`        | numeric, input data, per cell 
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `rmsd`        | numeric, RMSD of the input data
 
 ##### Details
@@ -534,11 +534,11 @@ Output relations|.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell
 
 Output relations|.
----|---
+:---|:---
 `rounded`        | numeric, rounded input data
 
  
@@ -551,17 +551,17 @@ Output relations|.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`      | numeric, input data
 `cols`        | numeric, observations, the sample factor(s) 
 
 Input parameters|.
----|---
+:---|:---
 `size`   | numeric, the fraction to sample, default is 1 (100% percent)
 `replace` | boolean, should replacement be used? , default is false (no replacement)
 
 Output relations|.
----|---
+:---|:---
 `sample`        | numeric, sample of the input data
 
 ##### Details
@@ -584,11 +584,11 @@ See the `sample` function in base R.
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | is the input data for the sd, per cell 
 
 Output relations|.
----|---
+:---|:---
 `sd`          | numeric, sd of the input values
 
 ##### Details
@@ -614,12 +614,12 @@ The operator takes all the values of a cell and calculates their standard deviat
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 `x-axis`        | numeric, input data, ordering of the data series
 
 Output relations|.
----|---
+:---|:---
 `seq`         | numeric, sequence of the input data
 
 ##### Details
@@ -769,11 +769,11 @@ inside the `doc` there is a `dev_commands.md` file which contains useful develop
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `y-axis`        | numeric, input data, per cell 
 
 Output relations|.
----|---
+:---|:---
 `elements`       | numeric, choosen elements of the input data
 
 ##### Details
@@ -814,11 +814,11 @@ shiny::runApp(port=3044, launch.browser = TRUE)
 ##### Usage
 
 Input projection|.
----|---
+:---|:---
 `row`        | is the documentId 
 
 Output relations|.
----|---
+:---|:---
 `count`          | numeric, mean of the input values
 `word`          | character, the word
 `documentId`          | character, the id of the document
