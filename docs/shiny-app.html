@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Template | Tercen Operator encyclopedia</title>
+  <title>2 Shiny app | Tercen Operator encyclopedia</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Template | Tercen Operator encyclopedia" />
+  <meta property="og:title" content="2 Shiny app | Tercen Operator encyclopedia" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Template | Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="2 Shiny app | Tercen Operator encyclopedia" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rna-sequencing.html"/>
-
+<link rel="prev" href="basic-statistics.html"/>
+<link rel="next" href="data-wrangling.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -226,16 +226,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="template" class="section level1">
-<h1><span class="header-section-number">12</span> Template</h1>
-<div id="template-shiny-operator-for-tercen" class="section level2">
-<h2><span class="header-section-number">12.1</span> Template Shiny operator for Tercen</h2>
-<div id="description-38" class="section level5">
-<h5><span class="header-section-number">12.1.0.0.1</span> Description</h5>
-<p>The <code>Template Shiny operator</code> is a template repository for the creation of Shiny operators in Tercen.</p>
+<div id="shiny-app" class="section level1">
+<h1><span class="header-section-number">2</span> Shiny app</h1>
+<p>A simple shiny tercen operator :
+- display an histrogram
+- compute the mean</p>
+<pre><code>devtools::install_github(&quot;tercen/teRcen&quot;)
+
+shiny::runApp(port=3044, launch.browser = FALSE)</code></pre>
+<div id="template-docker-operator" class="section level2">
+<h2><span class="header-section-number">2.1</span> Template Docker Operator</h2>
 </div>
-<div id="usage-38" class="section level5">
-<h5><span class="header-section-number">12.1.0.0.2</span> Usage</h5>
+<div id="for-all-operators" class="section level2">
+<h2><span class="header-section-number">2.2</span> For all operators</h2>
+<ul>
+<li><p>Replace repository URL</p></li>
+<li><p>Replace version number in files</p></li>
+</ul>
+</div>
+<div id="for-r-operators" class="section level2">
+<h2><span class="header-section-number">2.3</span> For R operators</h2>
+<ul>
+<li>isWebApp: false</li>
+</ul>
+</div>
+<div id="for-shiny-operators" class="section level2">
+<h2><span class="header-section-number">2.4</span> For Shiny operators</h2>
+<ul>
+<li>isWebApp: true</li>
+</ul>
+</div>
+<div id="build-the-image-1" class="section level2">
+<h2><span class="header-section-number">2.5</span> Build the image</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="shiny-app.html#cb11-1"></a><span class="va">VERSION=</span>0.10.0.1</span>
+<span id="cb11-2"><a href="shiny-app.html#cb11-2"></a><span class="ex">docker</span> build -t tercen/shiny_docker_operator:<span class="va">$VERSION</span> .</span>
+<span id="cb11-3"><a href="shiny-app.html#cb11-3"></a><span class="ex">docker</span> push tercen/shiny_docker_operator:<span class="va">$VERSION</span></span>
+<span id="cb11-4"><a href="shiny-app.html#cb11-4"></a><span class="fu">git</span> add -A <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit -m <span class="st">&quot;</span><span class="va">$VERSION</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> tag  <span class="va">$VERSION</span>  <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push --tags</span></code></pre></div>
+</div>
+<div id="introduction-1" class="section level2">
+<h2><span class="header-section-number">2.6</span> Introduction</h2>
+<p>This is a template repository.</p>
+<p>Use this template repository during the first step of developing a tercen operator (in R) on github.</p>
+<p>An overview of steps for developing an operator are:</p>
+<ol style="list-style-type: decimal">
+<li>create a github repo</li>
+<li>install tercen_studio</li>
+<li>login to tercen_studio</li>
+<li>git clone the newly created repo</li>
+<li>start developing in R in tercen_studio</li>
+<li>add R packages to the repo</li>
+<li>push to the github repo</li>
+<li>go to tercen and install the operator</li>
+</ol>
+<p>For step 1, when creating the repo on github, you will notice the option to use a template repository, choose the <code>templateR_operator</code> repository and select it as the template repository.</p>
+<p>After creation, you now have a new repository with all the convenient files for making a new operator (in R) for tercen.</p>
+<p>Use <code>tercen_studio</code> to clone the new repository and start programming in <code>tercen_studio</code></p>
+<p>it includes the skeleton files</p>
+<ul>
+<li><code>main.R</code></li>
+<li><code>workspace.R</code></li>
+<li><code>operator.json</code></li>
+<li><code>README_template.md</code></li>
+<li><code>doc</code> directory</li>
+</ul>
+<p>please remember to change the <code>README_template.md</code> to <code>README.template.md</code></p>
+<p>inside the <code>doc</code> there is a <code>dev_commands.md</code> file which contains useful development command lines.</p>
+</div>
+<div id="topn-operator" class="section level2">
+<h2><span class="header-section-number">2.7</span> topn operator</h2>
+<div id="description-19" class="section level5">
+<h5><span class="header-section-number">2.7.0.0.1</span> Description</h5>
+<p><code>topn</code> operator returns data points.</p>
+</div>
+<div id="usage-19" class="section level5">
+<h5><span class="header-section-number">2.7.0.0.2</span> Usage</h5>
 <table>
 <thead>
 <tr class="header">
@@ -245,28 +309,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>x-axis</code></td>
-<td>type, description</td>
-</tr>
-<tr class="even">
 <td><code>y-axis</code></td>
-<td>type, description</td>
-</tr>
-<tr class="odd">
-<td><code>row</code></td>
-<td>type, description</td>
-</tr>
-<tr class="even">
-<td><code>column</code></td>
-<td>type, description</td>
-</tr>
-<tr class="odd">
-<td><code>colors</code></td>
-<td>type, description</td>
-</tr>
-<tr class="even">
-<td><code>labels</code></td>
-<td>type, description</td>
+<td>numeric, input data, per cell</td>
 </tr>
 </tbody>
 </table>
@@ -279,23 +323,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Operator view</code></td>
-<td>view of the Shiny application</td>
+<td><code>elements</code></td>
+<td>numeric, choosen elements of the input data</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="details-36" class="section level5">
-<h5><span class="header-section-number">12.1.0.0.3</span> Details</h5>
-<p>The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.</p>
+<div id="details-18" class="section level5">
+<h5><span class="header-section-number">2.7.0.0.3</span> Details</h5>
+<p>The operator takes all the values of a cell and returns the top n elements.</p>
 </div>
-<div id="references-35" class="section level4">
-<h4><span class="header-section-number">12.1.0.1</span> References</h4>
-<div id="see-also-34" class="section level5">
-<h5><span class="header-section-number">12.1.0.1.1</span> See Also</h5>
-<p><a href="https://github.com/tercen/templateR_operator">templateR_operator</a></p>
+<div id="references-18" class="section level4">
+<h4><span class="header-section-number">2.7.0.1</span> References</h4>
+<div id="see-also-18" class="section level5">
+<h5><span class="header-section-number">2.7.0.1.1</span> See Also</h5>
+</div>
+</div>
+<div id="examples-13" class="section level4">
+<h4><span class="header-section-number">2.7.0.2</span> Examples</h4>
+</div>
+</div>
+<div id="setup-packrat-3" class="section level2">
+<h2><span class="header-section-number">2.8</span> Setup packrat</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="shiny-app.html#cb12-1"></a>packrat<span class="op">::</span><span class="kw">init</span>(<span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">use.cache =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="shiny-app.html#cb13-1"></a>shiny<span class="op">::</span><span class="kw">runApp</span>(<span class="dt">port=</span><span class="dv">3044</span>, <span class="dt">launch.browser =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="word-count-operator" class="section level2">
+<h2><span class="header-section-number">2.9</span> Word count operator</h2>
+<div id="description-20" class="section level5">
+<h5><span class="header-section-number">2.9.0.0.1</span> Description</h5>
+<p><code>Word count</code> operator count the occurences of each words in one or more documents.</p>
+</div>
+<div id="usage-20" class="section level5">
+<h5><span class="header-section-number">2.9.0.0.2</span> Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th>Input projection</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>row</code></td>
+<td>is the documentId</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Output relations</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>count</code></td>
+<td>numeric, mean of the input values</td>
+</tr>
+<tr class="even">
+<td><code>word</code></td>
+<td>character, the word</td>
+</tr>
+<tr class="odd">
+<td><code>documentId</code></td>
+<td>character, the id of the document</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-19" class="section level5">
+<h5><span class="header-section-number">2.9.0.0.3</span> Details</h5>
+<p>The operator count the occurences of each words in one or more documents.</p>
+</div>
+<div id="references-19" class="section level4">
+<h4><span class="header-section-number">2.9.0.1</span> References</h4>
+<div id="see-also-19" class="section level5">
+<h5><span class="header-section-number">2.9.0.1.1</span> See Also</h5>
+</div>
+</div>
+<div id="examples-14" class="section level4">
+<h4><span class="header-section-number">2.9.0.2</span> Examples</h4>
 
-</div>
 </div>
 </div>
 </div>
@@ -304,8 +414,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="rna-sequencing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="basic-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

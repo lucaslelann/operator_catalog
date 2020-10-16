@@ -1,0 +1,10 @@
+type,tag,category
+standard,basic statistics,Basic statistics
+standard,data wrangling,Data wrangling
+standard,import,File import
+standard,test,Statistical testing
+standard,visualisation,Data visualisation
+standard,clustering,Dimensionality reduction and clustering
+standard,flow cytometry,Flow Cytometry
+standard,RNA-seq,RNA sequencing
+standard,template,Template

@@ -1,10 +1,10 @@
-# Tercen operators encyclopaedia
+# Tercen operators catalog
 
 ### Description
 
-A catalog of all Tercen opeartors can be found here:
+A catalog of all Tercen operators can be found here:
 
-https://tercen.github.io/operator_encyclopaedia/
+https://tercen.github.io/operator_catalog/
 
 This catalog is automatically generated.
 
@@ -19,6 +19,6 @@ source("./scripts/retrieveOperators.R")
 The next script gets relevant information from operators repositories and generates the book.
 
 ```r
-source("./generateEncyclopaedia.R")
+source("./generateCatalog.R")
 bookdown::render_book(input = "index.Rmd", output_dir = "docs")
 ```

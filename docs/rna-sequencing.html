@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 RNA sequencing | Tercen Operator encyclopedia</title>
+  <title>11 RNA sequencing | Tercen Operator encyclopedia</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 RNA sequencing | Tercen Operator encyclopedia" />
+  <meta property="og:title" content="11 RNA sequencing | Tercen Operator encyclopedia" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 RNA sequencing | Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="11 RNA sequencing | Tercen Operator encyclopedia" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -49,8 +49,73 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -66,91 +131,83 @@
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>1</b> Basic statistics</a><ul>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#max_operator"><i class="fa fa-check"></i>max_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#upperandlowerbounds_operator"><i class="fa fa-check"></i>upperandlowerbounds_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#median_operator"><i class="fa fa-check"></i>median_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#percentile_operator"><i class="fa fa-check"></i>percentile_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#sd_operator"><i class="fa fa-check"></i>sd_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#cv_operator"><i class="fa fa-check"></i>cv_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#pearson_operator"><i class="fa fa-check"></i>pearson_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#sum_operator"><i class="fa fa-check"></i>sum_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#count_operator"><i class="fa fa-check"></i>count_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#iqr_operator"><i class="fa fa-check"></i>IQR_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#mean_operator"><i class="fa fa-check"></i>mean_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#mean_sd_operator"><i class="fa fa-check"></i>mean_sd_operator</a></li>
+<li class="chapter" data-level="1.1" data-path="basic-statistics.html"><a href="basic-statistics.html#anova-operator"><i class="fa fa-check"></i><b>1.1</b> anova operator</a></li>
+<li class="chapter" data-level="1.2" data-path="basic-statistics.html"><a href="basic-statistics.html#setup-packrat"><i class="fa fa-check"></i><b>1.2</b> Setup packrat</a></li>
+<li class="chapter" data-level="1.3" data-path="basic-statistics.html"><a href="basic-statistics.html#constant-operator"><i class="fa fa-check"></i><b>1.3</b> constant operator</a></li>
+<li class="chapter" data-level="1.4" data-path="basic-statistics.html"><a href="basic-statistics.html#cv-operator"><i class="fa fa-check"></i><b>1.4</b> cv operator</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="basic-statistics.html"><a href="basic-statistics.html#cytonorm-operator"><i class="fa fa-check"></i><b>1.4.1</b> Cytonorm operator</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html"><i class="fa fa-check"></i><b>2</b> Basic data transformation</a><ul>
-<li class="chapter" data-level="" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html#shift_operator"><i class="fa fa-check"></i>shift_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html#asinh_operator"><i class="fa fa-check"></i>asinh_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-data-transformation.html"><a href="basic-data-transformation.html#signchange_operator"><i class="fa fa-check"></i>signchange_operator</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-statistics.html"><a href="basic-statistics.html#density-operator"><i class="fa fa-check"></i><b>1.5</b> density operator</a></li>
+<li class="chapter" data-level="1.6" data-path="basic-statistics.html"><a href="basic-statistics.html#fast-t-sne-docker-operator"><i class="fa fa-check"></i><b>1.6</b> Fast t-SNE Docker Operator</a></li>
+<li class="chapter" data-level="1.7" data-path="basic-statistics.html"><a href="basic-statistics.html#build-the-image"><i class="fa fa-check"></i><b>1.7</b> Build the image</a></li>
+<li class="chapter" data-level="1.8" data-path="basic-statistics.html"><a href="basic-statistics.html#impute-operator"><i class="fa fa-check"></i><b>1.8</b> impute operator</a></li>
+<li class="chapter" data-level="1.9" data-path="basic-statistics.html"><a href="basic-statistics.html#iqr-operator"><i class="fa fa-check"></i><b>1.9</b> IQR operator</a></li>
+<li class="chapter" data-level="1.10" data-path="basic-statistics.html"><a href="basic-statistics.html#max-operator"><i class="fa fa-check"></i><b>1.10</b> max operator</a></li>
+<li class="chapter" data-level="1.11" data-path="basic-statistics.html"><a href="basic-statistics.html#mean-imputation-operator"><i class="fa fa-check"></i><b>1.11</b> Mean imputation operator</a></li>
+<li class="chapter" data-level="1.12" data-path="basic-statistics.html"><a href="basic-statistics.html#mean-operator"><i class="fa fa-check"></i><b>1.12</b> mean operator</a></li>
+<li class="chapter" data-level="1.13" data-path="basic-statistics.html"><a href="basic-statistics.html#mean-sd-operator"><i class="fa fa-check"></i><b>1.13</b> mean sd operator</a></li>
+<li class="chapter" data-level="1.14" data-path="basic-statistics.html"><a href="basic-statistics.html#median-operator"><i class="fa fa-check"></i><b>1.14</b> Median operator</a></li>
+<li class="chapter" data-level="1.15" data-path="basic-statistics.html"><a href="basic-statistics.html#pairwise-rmsd-operator"><i class="fa fa-check"></i><b>1.15</b> Pairwise RMSD operator</a></li>
+<li class="chapter" data-level="1.16" data-path="basic-statistics.html"><a href="basic-statistics.html#percentile-operator"><i class="fa fa-check"></i><b>1.16</b> Percentile operator</a></li>
+<li class="chapter" data-level="1.17" data-path="basic-statistics.html"><a href="basic-statistics.html#introduction"><i class="fa fa-check"></i><b>1.17</b> Introduction</a></li>
+<li class="chapter" data-level="1.18" data-path="basic-statistics.html"><a href="basic-statistics.html#rmsd-operator"><i class="fa fa-check"></i><b>1.18</b> RMSD operator</a></li>
+<li class="chapter" data-level="1.19" data-path="basic-statistics.html"><a href="basic-statistics.html#round-operator"><i class="fa fa-check"></i><b>1.19</b> Round operator</a></li>
+<li class="chapter" data-level="1.20" data-path="basic-statistics.html"><a href="basic-statistics.html#sample-operator"><i class="fa fa-check"></i><b>1.20</b> Sample operator</a></li>
+<li class="chapter" data-level="1.21" data-path="basic-statistics.html"><a href="basic-statistics.html#sd-operator"><i class="fa fa-check"></i><b>1.21</b> sd operator</a></li>
+<li class="chapter" data-level="1.22" data-path="basic-statistics.html"><a href="basic-statistics.html#seqlen-operator"><i class="fa fa-check"></i><b>1.22</b> Seqlen operator</a></li>
+<li class="chapter" data-level="1.23" data-path="basic-statistics.html"><a href="basic-statistics.html#setup-packrat-1"><i class="fa fa-check"></i><b>1.23</b> Setup packrat</a></li>
+<li class="chapter" data-level="1.24" data-path="basic-statistics.html"><a href="basic-statistics.html#shiny_docker_operator"><i class="fa fa-check"></i><b>1.24</b> shiny_docker_operator</a></li>
+<li class="chapter" data-level="1.25" data-path="basic-statistics.html"><a href="basic-statistics.html#build"><i class="fa fa-check"></i><b>1.25</b> Build</a></li>
+<li class="chapter" data-level="1.26" data-path="basic-statistics.html"><a href="basic-statistics.html#setup-packrat-2"><i class="fa fa-check"></i><b>1.26</b> Setup packrat</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basic-operations.html"><a href="basic-operations.html"><i class="fa fa-check"></i><b>3</b> Basic operations</a><ul>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#sample_operator"><i class="fa fa-check"></i>sample_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#subtract_operator"><i class="fa fa-check"></i>subtract_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#constant_operator"><i class="fa fa-check"></i>constant_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#product_operator"><i class="fa fa-check"></i>product_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#randomlabel_operator"><i class="fa fa-check"></i>randomlabel_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#topn_operator"><i class="fa fa-check"></i>topn_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#annotation_operator"><i class="fa fa-check"></i>annotation_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#wordcount_operator"><i class="fa fa-check"></i>wordcount_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#ratio_operator"><i class="fa fa-check"></i>ratio_operator</a></li>
-<li class="chapter" data-level="" data-path="basic-operations.html"><a href="basic-operations.html#seqlen_operator"><i class="fa fa-check"></i>seqlen_operator</a></li>
+<li class="chapter" data-level="2" data-path="shiny-app.html"><a href="shiny-app.html"><i class="fa fa-check"></i><b>2</b> Shiny app</a><ul>
+<li class="chapter" data-level="2.1" data-path="shiny-app.html"><a href="shiny-app.html#template-docker-operator"><i class="fa fa-check"></i><b>2.1</b> Template Docker Operator</a></li>
+<li class="chapter" data-level="2.2" data-path="shiny-app.html"><a href="shiny-app.html#for-all-operators"><i class="fa fa-check"></i><b>2.2</b> For all operators</a></li>
+<li class="chapter" data-level="2.3" data-path="shiny-app.html"><a href="shiny-app.html#for-r-operators"><i class="fa fa-check"></i><b>2.3</b> For R operators</a></li>
+<li class="chapter" data-level="2.4" data-path="shiny-app.html"><a href="shiny-app.html#for-shiny-operators"><i class="fa fa-check"></i><b>2.4</b> For Shiny operators</a></li>
+<li class="chapter" data-level="2.5" data-path="shiny-app.html"><a href="shiny-app.html#build-the-image-1"><i class="fa fa-check"></i><b>2.5</b> Build the image</a></li>
+<li class="chapter" data-level="2.6" data-path="shiny-app.html"><a href="shiny-app.html#introduction-1"><i class="fa fa-check"></i><b>2.6</b> Introduction</a></li>
+<li class="chapter" data-level="2.7" data-path="shiny-app.html"><a href="shiny-app.html#topn-operator"><i class="fa fa-check"></i><b>2.7</b> topn operator</a></li>
+<li class="chapter" data-level="2.8" data-path="shiny-app.html"><a href="shiny-app.html#setup-packrat-3"><i class="fa fa-check"></i><b>2.8</b> Setup packrat</a></li>
+<li class="chapter" data-level="2.9" data-path="shiny-app.html"><a href="shiny-app.html#word-count-operator"><i class="fa fa-check"></i><b>2.9</b> Word count operator</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="file-conversion.html"><a href="file-conversion.html"><i class="fa fa-check"></i><b>4</b> File conversion</a><ul>
-<li><a href="file-conversion.html#section"></a></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#separate-operator"><i class="fa fa-check"></i><b>3.1</b> Separate operator</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="statistical-testing.html"><a href="statistical-testing.html"><i class="fa fa-check"></i><b>5</b> Statistical testing</a><ul>
-<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#anova_operator"><i class="fa fa-check"></i>anova_operator</a></li>
-<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#ttest_operator"><i class="fa fa-check"></i>ttest_operator</a></li>
-<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#lm_operator"><i class="fa fa-check"></i>lm_operator</a></li>
-<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#twogroupttest_operator"><i class="fa fa-check"></i>twogroupttest_operator</a></li>
-<li class="chapter" data-level="" data-path="statistical-testing.html"><a href="statistical-testing.html#mixed_model_operator"><i class="fa fa-check"></i>mixed_model_operator</a></li>
+<li class="chapter" data-level="4" data-path="file-import.html"><a href="file-import.html"><i class="fa fa-check"></i><b>4</b> File import</a><ul>
+<li class="chapter" data-level="4.1" data-path="file-import.html"><a href="file-import.html#readrds-operator"><i class="fa fa-check"></i><b>4.1</b> readRDS operator</a></li>
+<li class="chapter" data-level="4.2" data-path="file-import.html"><a href="file-import.html#read-excel-file-operator"><i class="fa fa-check"></i><b>4.2</b> Read excel file operator</a></li>
+<li class="chapter" data-level="4.3" data-path="file-import.html"><a href="file-import.html#read-fasta-operator"><i class="fa fa-check"></i><b>4.3</b> Read FASTA operator</a></li>
+<li class="chapter" data-level="4.4" data-path="file-import.html"><a href="file-import.html#fcs-zip-operator"><i class="fa fa-check"></i><b>4.4</b> FCS ZIP operator</a></li>
+<li class="chapter" data-level="4.5" data-path="file-import.html"><a href="file-import.html#read-fcs-operator"><i class="fa fa-check"></i><b>4.5</b> Read FCS operator</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data visualisation</a><ul>
-<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplot_shiny_operator"><i class="fa fa-check"></i>boxplot_shiny_operator</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#shiny_heatmap_operator"><i class="fa fa-check"></i>shiny_heatmap_operator</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#worldmap_shiny_docker_operator"><i class="fa fa-check"></i>worldmap_shiny_docker_operator</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#venn_shiny_operator"><i class="fa fa-check"></i>venn_shiny_operator</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#shiny_boxplot_operator"><i class="fa fa-check"></i>shiny_boxplot_operator</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#cellplot_shiny_operator"><i class="fa fa-check"></i>cellplot_shiny_operator</a></li>
+<li class="chapter" data-level="5" data-path="statistical-testing.html"><a href="statistical-testing.html"><i class="fa fa-check"></i><b>5</b> Statistical testing</a></li>
+<li class="chapter" data-level="6" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>6</b> </a></li>
+<li class="chapter" data-level="7" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>7</b> Data visualisation</a></li>
+<li class="chapter" data-level="8" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>8</b> </a></li>
+<li class="chapter" data-level="9" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html"><i class="fa fa-check"></i><b>9</b> Dimensionality reduction and clustering</a><ul>
+<li class="chapter" data-level="9.1" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#clustering-metrics-operator"><i class="fa fa-check"></i><b>9.1</b> Clustering metrics operator</a></li>
+<li class="chapter" data-level="9.2" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#hierarchical-clustering-tree-operator"><i class="fa fa-check"></i><b>9.2</b> Hierarchical clustering tree operator</a></li>
+<li class="chapter" data-level="9.3" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#flowsom-operator"><i class="fa fa-check"></i><b>9.3</b> flowsom operator</a></li>
+<li class="chapter" data-level="9.4" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#rphenograph-operator"><i class="fa fa-check"></i><b>9.4</b> rphenograph operator</a></li>
+<li class="chapter" data-level="9.5" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#somflow-operator"><i class="fa fa-check"></i><b>9.5</b> somflow operator</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="pairwise-distances.html"><a href="pairwise-distances.html"><i class="fa fa-check"></i><b>7</b> Pairwise distances</a><ul>
-<li class="chapter" data-level="" data-path="pairwise-distances.html"><a href="pairwise-distances.html#rmsd_operator"><i class="fa fa-check"></i>RMSD_operator</a></li>
-<li class="chapter" data-level="" data-path="pairwise-distances.html"><a href="pairwise-distances.html#pairwise_rmsd_operator"><i class="fa fa-check"></i>pairwise_RMSD_operator</a></li>
+<li class="chapter" data-level="10" data-path="flow-cytometry.html"><a href="flow-cytometry.html"><i class="fa fa-check"></i><b>10</b> Flow Cytometry</a><ul>
+<li class="chapter" data-level="10.1" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsom-operator-1"><i class="fa fa-check"></i><b>10.1</b> FlowSOM operator</a></li>
+<li class="chapter" data-level="10.2" data-path="flow-cytometry.html"><a href="flow-cytometry.html#mem-operator"><i class="fa fa-check"></i><b>10.2</b> MEM operator</a></li>
+<li class="chapter" data-level="10.3" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsom-operator-2"><i class="fa fa-check"></i><b>10.3</b> flowsom operator</a></li>
+<li class="chapter" data-level="10.4" data-path="flow-cytometry.html"><a href="flow-cytometry.html#rphenograph-operator-1"><i class="fa fa-check"></i><b>10.4</b> rphenograph operator</a></li>
+<li class="chapter" data-level="10.5" data-path="flow-cytometry.html"><a href="flow-cytometry.html#somflow-operator-1"><i class="fa fa-check"></i><b>10.5</b> somflow operator</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html"><i class="fa fa-check"></i><b>8</b> Dimensionality reduction and clustering</a><ul>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#pca_operator"><i class="fa fa-check"></i>pca_operator</a></li>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#mds_operator"><i class="fa fa-check"></i>MDS_operator</a></li>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#umap_operator"><i class="fa fa-check"></i>umap_operator</a></li>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#tsne_operator"><i class="fa fa-check"></i>tsne_operator</a></li>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#atsne_docker_operator"><i class="fa fa-check"></i>atsne_docker_operator</a></li>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#fast_tsne_operator"><i class="fa fa-check"></i>fast_tSNE_operator</a></li>
-<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#clusterx2_operator"><i class="fa fa-check"></i>clusterx2_operator</a></li>
+<li class="chapter" data-level="11" data-path="rna-sequencing.html"><a href="rna-sequencing.html"><i class="fa fa-check"></i><b>11</b> RNA sequencing</a><ul>
+<li class="chapter" data-level="11.1" data-path="rna-sequencing.html"><a href="rna-sequencing.html#deseq2_two_conditions-operator"><i class="fa fa-check"></i><b>11.1</b> DESeq2_two_conditions operator</a></li>
+<li class="chapter" data-level="11.2" data-path="rna-sequencing.html"><a href="rna-sequencing.html#description-37"><i class="fa fa-check"></i><b>11.2</b> Description</a></li>
+<li class="chapter" data-level="11.3" data-path="rna-sequencing.html"><a href="rna-sequencing.html#usage-37"><i class="fa fa-check"></i><b>11.3</b> Usage</a></li>
+<li class="chapter" data-level="11.4" data-path="rna-sequencing.html"><a href="rna-sequencing.html#details-35"><i class="fa fa-check"></i><b>11.4</b> Details</a></li>
+<li class="chapter" data-level="11.5" data-path="rna-sequencing.html"><a href="rna-sequencing.html#references-34"><i class="fa fa-check"></i><b>11.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="flow-cytometry.html"><a href="flow-cytometry.html"><i class="fa fa-check"></i><b>9</b> Flow Cytometry</a><ul>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#oldflowsom_operator"><i class="fa fa-check"></i>oldflowsom_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#rphenograph_operator"><i class="fa fa-check"></i>rphenograph_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#cytonorm_operator"><i class="fa fa-check"></i>cytonorm_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsomtuning_operator"><i class="fa fa-check"></i>flowsomtuning_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#diffcyt_operator"><i class="fa fa-check"></i>diffcyt_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowai_operator"><i class="fa fa-check"></i>flowai_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#somflow_operator"><i class="fa fa-check"></i>somflow_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsom_operator"><i class="fa fa-check"></i>flowsom_operator</a></li>
-<li class="chapter" data-level="" data-path="flow-cytometry.html"><a href="flow-cytometry.html#flowsom_mst_shiny_operator"><i class="fa fa-check"></i>flowsom_mst_shiny_operator</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="rna-sequencing.html"><a href="rna-sequencing.html"><i class="fa fa-check"></i><b>10</b> RNA sequencing</a><ul>
-<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#normalyzer_operator"><i class="fa fa-check"></i>normalyzer_operator</a></li>
-<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#fgsea_operator"><i class="fa fa-check"></i>fgsea_operator</a></li>
-<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#scrnaseq_normalisation_operator"><i class="fa fa-check"></i>scRNAseq_normalisation_operator</a></li>
-<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#scrnaseq_qc_operator"><i class="fa fa-check"></i>scRNAseq_QC_operator</a></li>
-<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#scrnaseq_feature_selection_operator"><i class="fa fa-check"></i>scRNAseq_feature_selection_operator</a></li>
-<li class="chapter" data-level="" data-path="rna-sequencing.html"><a href="rna-sequencing.html#deseq2_two_conditions_operator"><i class="fa fa-check"></i>DESeq2_two_conditions_operator</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="template.html"><a href="template.html"><i class="fa fa-check"></i><b>11</b> Template</a><ul>
-<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template_docker_operator"><i class="fa fa-check"></i>template_docker_operator</a></li>
-<li class="chapter" data-level="" data-path="template.html"><a href="template.html#templater_operator"><i class="fa fa-check"></i>templateR_operator</a></li>
-<li class="chapter" data-level="" data-path="template.html"><a href="template.html#shiny_docker_operator"><i class="fa fa-check"></i>shiny_docker_operator</a></li>
-<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template_shiny_operator"><i class="fa fa-check"></i>template_shiny_operator</a></li>
+<li class="chapter" data-level="12" data-path="template.html"><a href="template.html"><i class="fa fa-check"></i><b>12</b> Template</a><ul>
+<li class="chapter" data-level="12.1" data-path="template.html"><a href="template.html#template-shiny-operator-for-tercen"><i class="fa fa-check"></i><b>12.1</b> Template Shiny operator for Tercen</a></li>
 </ul></li>
 </ul>
 
@@ -170,36 +227,111 @@
 
             <section class="normal" id="section-">
 <div id="rna-sequencing" class="section level1">
-<h1><span class="header-section-number">10</span> RNA sequencing</h1>
-<div id="normalyzer_operator" class="section level2 unnumbered">
-<h2>normalyzer_operator</h2>
-<p>Description: NA</p>
-<p>Link: <a href="https://github.com/tercen/normalyzer_operator" class="uri">https://github.com/tercen/normalyzer_operator</a></p>
+<h1><span class="header-section-number">11</span> RNA sequencing</h1>
+<div id="deseq2_two_conditions-operator" class="section level2">
+<h2><span class="header-section-number">11.1</span> DESeq2_two_conditions operator</h2>
 </div>
-<div id="fgsea_operator" class="section level2 unnumbered">
-<h2>fgsea_operator</h2>
-<p>Description: <code>fgsea</code> operator performs a fast gene set enrichment analysis.</p>
-<p>Link: <a href="https://github.com/tercen/fgsea_operator" class="uri">https://github.com/tercen/fgsea_operator</a></p>
+<div id="description-37" class="section level2">
+<h2><span class="header-section-number">11.2</span> Description</h2>
+<p><code>DESeq2_two_conditions</code> tests for differential gene expression in samples from two conditions using the <code>DESeq2</code> package from BioConductor (Love, et al, Genome Biology, 2014).</p>
 </div>
-<div id="scrnaseq_normalisation_operator" class="section level2 unnumbered">
-<h2>scRNAseq_normalisation_operator</h2>
-<p>Description: NA</p>
-<p>Link: <a href="https://github.com/tercen/scRNAseq_normalisation_operator" class="uri">https://github.com/tercen/scRNAseq_normalisation_operator</a></p>
+<div id="usage-37" class="section level2">
+<h2><span class="header-section-number">11.3</span> Usage</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Input projection</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>row</code></td>
+<td>Gene name/identifier</td>
+</tr>
+<tr class="even">
+<td><code>column</code></td>
+<td>Sample name/identifier</td>
+</tr>
+<tr class="odd">
+<td><code>color</code></td>
+<td>Represents the groups to compare</td>
+</tr>
+<tr class="even">
+<td><code>y-axis</code></td>
+<td>Sequence counts</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>alpha</code></td>
+<td>Numeric, adjusted <em>p value</em> cutoff for independent filtering (default = 0.1)</td>
+</tr>
+<tr class="even">
+<td><code>LFC_shrinkage</code></td>
+<td>Logical, whether the returned log fold-change values should be shrinked (default = TRUE)</td>
+</tr>
+<tr class="odd">
+<td><code>shrinkage_type</code></td>
+<td>“normal”, “apeglm” or “ashr”, Type of shrinkage estimator to use (default = “normal”)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Output relations</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pvalue</code></td>
+<td>numeric, p-value calculated per gene</td>
+</tr>
+<tr class="even">
+<td><code>padj</code></td>
+<td>numeric, p-value calculated per gene after adjusting for multiple testing</td>
+</tr>
+<tr class="odd">
+<td><code>baseMean</code></td>
+<td>numeric, mean of normalized counts for all the samples</td>
+</tr>
+<tr class="even">
+<td><code>log2FoldChange</code></td>
+<td>numeric, shrunken log2 fold-change between the two groups to compare</td>
+</tr>
+<tr class="odd">
+<td><code>minus_log10_padj</code></td>
+<td>numeric, negative log10 transformation of padj for more intuitive plotting</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="scrnaseq_qc_operator" class="section level2 unnumbered">
-<h2>scRNAseq_QC_operator</h2>
-<p>Description: NA</p>
-<p>Link: <a href="https://github.com/tercen/scRNAseq_QC_operator" class="uri">https://github.com/tercen/scRNAseq_QC_operator</a></p>
+<div id="details-35" class="section level2">
+<h2><span class="header-section-number">11.4</span> Details</h2>
+<p>The operator uses the <code>DESeq2</code> package from BioConductor.</p>
 </div>
-<div id="scrnaseq_feature_selection_operator" class="section level2 unnumbered">
-<h2>scRNAseq_feature_selection_operator</h2>
-<p>Description: NA</p>
-<p>Link: <a href="https://github.com/tercen/scRNAseq_feature_selection_operator" class="uri">https://github.com/tercen/scRNAseq_feature_selection_operator</a></p>
-</div>
-<div id="deseq2_two_conditions_operator" class="section level2 unnumbered">
-<h2>DESeq2_two_conditions_operator</h2>
-<p>Description: <code>DESeq2_two_conditions</code> tests for differential gene expression in samples from two conditions using the <code>DESeq2</code> package from BioConductor (Love, et al, Genome Biology, 2014).</p>
-<p>Link: <a href="https://github.com/tercen/DESeq2_two_conditions_operator" class="uri">https://github.com/tercen/DESeq2_two_conditions_operator</a></p>
+<div id="references-34" class="section level2">
+<h2><span class="header-section-number">11.5</span> References</h2>
+<p>Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550. doi: 10.1186/s13059-014-0550-8.</p>
+<p>See <a href="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html">“Analyzing RNA-seq data with DESeq2”</a> for further information on DESeq2 by Love, et al.</p>
 
 </div>
 </div>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Template | Tercen Operator encyclopedia</title>
+  <title>4 File import | Tercen Operator encyclopedia</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Template | Tercen Operator encyclopedia" />
+  <meta property="og:title" content="4 File import | Tercen Operator encyclopedia" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Template | Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="4 File import | Tercen Operator encyclopedia" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rna-sequencing.html"/>
-
+<link rel="prev" href="data-wrangling.html"/>
+<link rel="next" href="statistical-testing.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -226,16 +226,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="template" class="section level1">
-<h1><span class="header-section-number">12</span> Template</h1>
-<div id="template-shiny-operator-for-tercen" class="section level2">
-<h2><span class="header-section-number">12.1</span> Template Shiny operator for Tercen</h2>
-<div id="description-38" class="section level5">
-<h5><span class="header-section-number">12.1.0.0.1</span> Description</h5>
-<p>The <code>Template Shiny operator</code> is a template repository for the creation of Shiny operators in Tercen.</p>
+<div id="file-import" class="section level1">
+<h1><span class="header-section-number">4</span> File import</h1>
+<div id="readrds-operator" class="section level2">
+<h2><span class="header-section-number">4.1</span> readRDS operator</h2>
+<div id="description-22" class="section level5">
+<h5><span class="header-section-number">4.1.0.0.1</span> Description</h5>
+<p><code>readRDS</code> operator imports rdsdata files</p>
 </div>
-<div id="usage-38" class="section level5">
-<h5><span class="header-section-number">12.1.0.0.2</span> Usage</h5>
+<div id="usage-22" class="section level5">
+<h5><span class="header-section-number">4.1.0.0.2</span> Usage</h5>
 <table>
 <thead>
 <tr class="header">
@@ -245,28 +245,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>x-axis</code></td>
-<td>type, description</td>
-</tr>
-<tr class="even">
-<td><code>y-axis</code></td>
-<td>type, description</td>
-</tr>
-<tr class="odd">
-<td><code>row</code></td>
-<td>type, description</td>
-</tr>
-<tr class="even">
-<td><code>column</code></td>
-<td>type, description</td>
-</tr>
-<tr class="odd">
-<td><code>colors</code></td>
-<td>type, description</td>
-</tr>
-<tr class="even">
-<td><code>labels</code></td>
-<td>type, description</td>
+<td><code>col</code></td>
+<td>documentid, this the documentid of the file</td>
 </tr>
 </tbody>
 </table>
@@ -279,23 +259,232 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Operator view</code></td>
-<td>view of the Shiny application</td>
+<td>a tercen table</td>
+<td>tableid, for every tablid there is a documentid relation</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="details-36" class="section level5">
-<h5><span class="header-section-number">12.1.0.0.3</span> Details</h5>
-<p>The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.</p>
+<div id="details-21" class="section level5">
+<h5><span class="header-section-number">4.1.0.0.3</span> Details</h5>
+<p>The operator takes the documentIds (i.e. the RDS data file) and converts them to a tercen table.</p>
 </div>
-<div id="references-35" class="section level4">
-<h4><span class="header-section-number">12.1.0.1</span> References</h4>
-<div id="see-also-34" class="section level5">
-<h5><span class="header-section-number">12.1.0.1.1</span> See Also</h5>
-<p><a href="https://github.com/tercen/templateR_operator">templateR_operator</a></p>
+<div id="references-21" class="section level4">
+<h4><span class="header-section-number">4.1.0.1</span> References</h4>
+<p>see the <code>readRDS()</code> function in base R.</p>
+<div id="see-also-21" class="section level5">
+<h5><span class="header-section-number">4.1.0.1.1</span> See Also</h5>
+<p><a href="https://github.com/tercen/readxls_operator">readxls_operator</a>
+#### Examples</p>
+</div>
+</div>
+</div>
+<div id="read-excel-file-operator" class="section level2">
+<h2><span class="header-section-number">4.2</span> Read excel file operator</h2>
+<div id="description-23" class="section level5">
+<h5><span class="header-section-number">4.2.0.0.1</span> Description</h5>
+</div>
+<div id="usage-23" class="section level5">
+<h5><span class="header-section-number">4.2.0.0.2</span> Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th>Input projection</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>row</code></td>
+<td>is the documentId</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Output relations</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div id="details-22" class="section level5">
+<h5><span class="header-section-number">4.2.0.0.3</span> Details</h5>
+<p>The operator import excel document to tercen.</p>
+</div>
+<div id="references-22" class="section level4">
+<h4><span class="header-section-number">4.2.0.1</span> References</h4>
+<div id="see-also-22" class="section level5">
+<h5><span class="header-section-number">4.2.0.1.1</span> See Also</h5>
+</div>
+</div>
+<div id="examples-15" class="section level4">
+<h4><span class="header-section-number">4.2.0.2</span> Examples</h4>
+</div>
+</div>
+<div id="read-fasta-operator" class="section level2">
+<h2><span class="header-section-number">4.3</span> Read FASTA operator</h2>
+<div id="description-24" class="section level5">
+<h5><span class="header-section-number">4.3.0.0.1</span> Description</h5>
+<p><code>read_fasta</code> operator reads a FASTA file into Tercen.</p>
+</div>
+<div id="usage-24" class="section level5">
+<h5><span class="header-section-number">4.3.0.0.2</span> Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th>Input projection</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>col</code></td>
+<td>factor, document ID</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Output relations</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td>factor, sequence name</td>
+</tr>
+<tr class="even">
+<td><code>position</code></td>
+<td>numeric, position of amino or nucleic acid in the sequence</td>
+</tr>
+<tr class="odd">
+<td><code>letter</code></td>
+<td>factor, letter corresponding to an amino or nucleic acid</td>
+</tr>
+<tr class="even">
+<td><code>value</code></td>
+<td>numeric, numeric value associated to an amino or nucleic acid</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-23" class="section level5">
+<h5><span class="header-section-number">4.3.0.0.3</span> Details</h5>
+<p>This opeartor reads a FASTA file and returns a table with one row per sequence per letter. Columns correspond to the sequence <code>name</code> (extracted from identifier lines starting with <code>&gt;</code>), <code>position</code> on the sequence (starting from <code>1</code> at the beginning of the sequence), the <code>letter</code> (corresponding to an amino or nucleic acid), and a <code>value</code> (corresponding to a numeric encoding of letters for visualisation purposes).</p>
+</div>
+<div id="references-23" class="section level5">
+<h5><span class="header-section-number">4.3.0.0.4</span> References</h5>
+<p><a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA format on Wikipedia</a>.</p>
+</div>
+<div id="see-also-23" class="section level5">
+<h5><span class="header-section-number">4.3.0.0.5</span> See Also</h5>
+<p><a href="https://github.com/tercen/msa_operator">msa_operator</a></p>
+</div>
+</div>
+<div id="fcs-zip-operator" class="section level2">
+<h2><span class="header-section-number">4.4</span> FCS ZIP operator</h2>
+<div id="description-25" class="section level5">
+<h5><span class="header-section-number">4.4.0.0.1</span> Description</h5>
+<p>Transform zipped fcs files to tercen dataset.</p>
+</div>
+<div id="usage-25" class="section level5">
+<h5><span class="header-section-number">4.4.0.0.2</span> Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th>Input projection</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>documentId</code></td>
+<td>is the documentId, a zip file</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Output relations</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>filename</code></td>
+<td>character, the name of the fcs file</td>
+</tr>
+<tr class="even">
+<td><code>channels</code></td>
+<td>numeric, one variable per channel in the fcs file</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-24" class="section level5">
+<h5><span class="header-section-number">4.4.0.0.3</span> Details</h5>
+<p>Extracts a ZIP archive of fcs files and tranforms them to tercen datasets.</p>
+<p>Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.</p>
+</div>
+<div id="references-24" class="section level4">
+<h4><span class="header-section-number">4.4.0.1</span> References</h4>
+<div id="see-also-24" class="section level5">
+<h5><span class="header-section-number">4.4.0.1.1</span> See Also</h5>
+</div>
+</div>
+<div id="examples-16" class="section level4">
+<h4><span class="header-section-number">4.4.0.2</span> Examples</h4>
+</div>
+</div>
+<div id="read-fcs-operator" class="section level2">
+<h2><span class="header-section-number">4.5</span> Read FCS operator</h2>
+<div id="description-26" class="section level5">
+<h5><span class="header-section-number">4.5.0.0.1</span> Description</h5>
+<p><code>read_fcs</code> operator transforms FCS files to Tercen datasets.</p>
+</div>
+<div id="usage-26" class="section level5">
+<h5><span class="header-section-number">4.5.0.0.2</span> Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th>Input projection</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>documentId</code></td>
+<td>is the documentId</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Output relations</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>documentId</code></td>
+<td>character, the id of the document</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-25" class="section level5">
+<h5><span class="header-section-number">4.5.0.0.3</span> Details</h5>
+<p>Transforms FCS files to Tercen dataset.</p>
+<p>The Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.</p>
 
-</div>
 </div>
 </div>
 </div>
@@ -304,8 +493,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="rna-sequencing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-wrangling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -26,3 +26,17 @@ op_readmes <- lapply(repo_list, function(x) {
 
 names(op_readmes) <- repo_list
 save(op_readmes, file = "./data/op_readmes.rda")
+
+library(jsonlite)
+op_jsons <- lapply(repo_list, function(x) {
+  ct <- try(gh(paste0("GET /repos/tercen/", x, "/contents/operator.json"), .token = tk))
+  if(class(ct) == "try-error") {
+    out <- NA
+  } else {
+    decoded <- rawToChar(base64decode(ct$content))
+    out <- fromJSON(decoded) 
+  }
+  return(out)
+})
+names(op_jsons) <- repo_list
+save(op_jsons, file = "./data/op_jsonss.rda")

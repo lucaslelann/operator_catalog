@@ -1,0 +1,209 @@
+# Flow Cytometry 
+ 
+
+## FlowSOM operator
+
+##### Description
+
+`FlowSOM` operator for flow cytometry data.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Input parameters|.
+---|---
+`nclust`   | Number of clusters to make (default = `NULL`)
+`maxMeta`   | Maximal number of cluster (ignored if `nclust` is not `NULL`)
+`seed`   | Random seed
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|---
+`cluster`| character, cluster label
+
+##### Details
+
+The operator is a wrapper for the `FlowSOM` function of the `FlowSOM` R/Bioconductor package.
+
+#### References
+
+https://bioconductor.org/packages/FlowSOM/
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+[flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
+ 
+
+## MEM operator
+
+##### Description
+
+`Marker Enrichment Modeling` operator for flow cytometry data.
+
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`colors`   | represents the groups (e.g. flowSOM clusters) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Output relations|.
+---|---
+`mem`| numeric, mem scores per row and per color (e.g. per channel/marker and per flowSOM clusters)
+`cluster`| character, cluster value
+
+##### Details
+
+The operator is a wrapper for the `MEM` function of the `MEM` R package.
+
+#### References
+
+https://github.com/cytolab/mem
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+[flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
+
+ 
+
+## flowsom operator
+
+#### Description
+`flowsom` operator performs the SOM (self organizing maps) in the `flowSOM` R package.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+
+Input parameters|.
+---|---
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|---
+`mapping_node_num`| numeric, per column (e.g. per cell)
+`mapping_node_label`| character, per column (e.g. per cell)
+
+##### Details
+The operator is the `SOM` function of the `flowSOM` R package.
+
+
+#### References
+see the `flowSOM::SOM` function of the R package for the documentation, 
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+#### Examples
+ 
+
+## rphenograph operator
+
+#### Description
+`rephenograph` operator performs a phenotype clustering in the `Rphenograph` R package.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+
+Input parameters|.
+---|---
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|---
+`mapping_node_num`| numeric, per column (e.g. per cell)
+`mapping_node_label`| character, per column (e.g. per cell)
+
+##### Details
+The operator is the `rphenograph` function of the `Rphenograh` R package.
+
+
+#### References
+see the `rphenograph::SOM` function of the R package for the documentation, 
+
+
+##### See Also
+
+
+#### Examples
+ 
+
+## somflow operator
+
+#### Description
+`somflow` operator performs the SOM (self organizing maps) in the `FlowSOM` R package.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+
+Input parameters|.
+---|---
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|--- 
+`mapping_node_label`| character, per column (e.g. per cell)
+
+##### Details
+The operator is the `SOM` function of the `flowSOM` R package.
+
+
+#### References
+see the `FlowSOM::SOM` function of the R package for the documentation, 
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+#### Examples

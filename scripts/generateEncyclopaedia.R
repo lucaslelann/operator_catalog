@@ -1,37 +1,25 @@
 ### script to generate markdown page
-dat <- read.table("./data/operator_list.csv", header = TRUE, sep = ",")
-head(dat)
 
-dat$description <- sapply(dat$ï..name, function(x) {
-  raw <- try(readLines(paste0("https://raw.githubusercontent.com/tercen/",x,"/master/README.md")))
-  if(class(raw) == "try-error") {
-    return(NA)
-  } else {
-    desc <- try(raw[(grep("Description", raw) + 1):(grep("Usage", raw) - 1)])
-    if(class(desc) == "try-error") desc <- NA
-    return(paste0(desc, collapse=""))
-  }
-})
+df <- data.frame(
+  name = names(op_readmes),
+  README = unlist(op_readmes),
+  tags = unlist(lapply(op_jsons[names(op_readmes)], function(x) paste0(x["tags"][[1]], collapse = ";")))
+)
 
-chapters <- c("Basic statistics",
-              "Basic data transformation",
-              "Basic operations",
-              "File conversion",
-              "Statistical testing",
-              "Data visualisation",
-              "Pairwise distances",
-              "Dimensionality reduction and clustering",
-              "Flow Cytometry",
-              "RNA sequencing",
-              "Template")
+tag_map <- read.table("./tag_list.csv", sep=",", header = TRUE)
+tag_map
 
-for(i in seq_along(chapters)) {
-  chap <- chapters[i]
-  d <- dat[dat$category == chap & !is.na(dat$category), ]
+
+for(i in seq_along(tag_map$category)) {
+  
+  chap <- tag_map$category[i]
+  cat_tag <- tag_map[tag_map$category == chap, ]$tag
+  cat_id <- grep(cat_tag, df$tags)
+  # df[cat_id, ]$README
   
   cat(
     paste("#", chap, "\n"),
-    paste("\n##", d$ï..name, " {-}\n\nDescription:", d$description, "\n\nLink:", d$url, "\n"),
+    paste0("\n\n#", df[cat_id, ]$README), # ADD URL
     file = paste0(
       formatC(i, width = 2, format = "d", flag = "0"), "-", gsub(" ", "-", chap), ".Rmd"
     )
@@ -40,16 +28,4 @@ for(i in seq_along(chapters)) {
 }
 
 
-
-## 
-
-## 
-
-## 
-
-## 
-
-##                     
-
-## Template
-
+bookdown::render_book(input = "index.Rmd", output_dir = "docs")

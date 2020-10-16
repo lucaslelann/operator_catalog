@@ -1,73 +1,835 @@
 # Basic statistics 
  
-## max_operator  {-}
 
-Description: `max` operator returns the max of a set of data points. 
+## anova operator
 
-Link: https://github.com/tercen/max_operator 
+#### Description
+`anova` operator performs an analaysis of variance of the data
+
+##### Usage
+Input projection|.
+---|---
+`color`   | represents the groups to compare
+`y-axis`| measurement value
+
+Output relations|.
+---|---
+`pr`| numeric, p-value calculated per cell
+
+##### Details
+`anova` operator performs an analaysis of variance of the data
+
+
+#### References
+see https://en.wikipedia.org/wiki/Analysis_of_variance
+
+
+##### See Also
+[ttest](https://github.com/tercen/ttest_operator), [rfImp](https://github.com/tercen/rfImp_operator)
+
+#### Examples
+
+
  
-## upperandlowerbounds_operator  {-}
 
-Description: `upperandlowerbounds` operator computes an upper and lower bound values as a fraction of a given data point. 
+## Setup packrat 
 
-Link: https://github.com/tercen/upperandlowerbounds_operator 
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+```R
+shiny::runApp(port=3044, launch.browser = TRUE)
+```
+
  
-## median_operator  {-}
 
-Description: `Median` operator returns the median of a set of data points. 
 
-Link: https://github.com/tercen/median_operator 
+
+
+
  
-## percentile_operator  {-}
 
-Description: `percentile` operator returns the percentile of a set of data points. 
+## constant operator
 
-Link: https://github.com/tercen/percentile_operator 
+#### Description
+`constant` operator allows for a value equal to a constant to be generated
+
+##### Usage
+Input projection|.
+---|---
+none |
+
+Input parameters|.
+---|---
+`value` | numeric, the constant value to be generated, default is 0
+
+Output relations|.
+---|---
+`constant`| numeric, one constant is generated per cell
+
+##### Details
+A `constant` value is generated for all the data. All factors are therefore associated with this constant. A typical use of this operator is when you require to generate fixed boundary values to be used as a grid line in a later (i.e. downstream) step. The grid line is created in a `layer` using the `h-grid view type`. An example would be to create a zero grid line, where the`constant`operator is used to generate a zero value and a zero line is then available for later visuals.
+
+#### References
+
+##### See Also
+
+#### Examples
+
+https://tercen.com/operator/p/8d8febb97ed4b09c2ddf52795c961e68
+
+
  
-## sd_operator  {-}
-
-Description: `sd` operator computes the standard deviation of a set of data points. 
-
-Link: https://github.com/tercen/sd_operator 
  
-## cv_operator  {-}
-
-Description: `cv` operator calculates the coefficient of variance on a set of input values. 
-
-Link: https://github.com/tercen/cv_operator 
  
-## pearson_operator  {-}
 
-Description: `pearson` operator performs a person correlation of two input sets of data per cell 
+## cv operator
 
-Link: https://github.com/tercen/pearson_operator 
+#### Description
+`cv` operator calculates the coefficient of variance on a set of input values.
+
+##### Usage
+Input projection|.
+---|---
+`y-axis`| values to be used for the calculation of the cv, per cell
+
+
+Output relations|.
+---|---
+`cv`| numeric, coefficient of variation result per cell
+
+##### Details
+The coefficcient of variation is a measure of variaton, it is equivalent to standard deviation divided by the mean.
+```r
+cv = sd/mean
+```
+The `cv` is returned as a fraction.
+
+#### References
+see the https://en.wikipedia.org/wiki/Coefficient_of_variation
+
+
+##### See Also
+[sd](https://github.com/tercen/sd_operator), [mean](https://github.com/tercen/mean_operator)
+
+#### Examples
+
+
  
-## sum_operator  {-}
 
-Description: `sum` operator computes the sum of a set of data points. 
+### Cytonorm operator
 
-Link: https://github.com/tercen/sum_operator 
+##### Description
+
+The `Cytonorm` operator normalizes cytometry data between mutliple batches.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`value`        | numeric, median of the input data
+
+##### Details
+
+
+#### References
+
+https://github.com/saeyslab/CytoNorm
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+[flowai_operator](https://github.com/tercen/flowai_operator)
  
-## count_operator  {-}
 
-Description: `count` operator counts the number of data points. 
+## density operator
 
-Link: https://github.com/tercen/count_operator 
+#### Description
+`density` operator performs a density caculations on x and y input values.
+
+##### Usage
+Input projection|.
+---|---
+`x-axis`  | indicates the values of the x
+`y-axis`  | indicates the values of the y
+
+Output relations|.
+---|---
+`density`| numeric, density calculation, calculated per cell
+
+##### Details
+A density calculation is performed per cell with the input values defined by the x and y-axis, the result are `density` values associated with each cell. The `density` operator is typically used in a pairwise plot and the returned `density` values are usually used as a coloring in a pairwise plot of the original input values. 
+
+
+#### References
+
+##### See Also
+
+#### Examples
+
+
+
+
  
-## IQR_operator  {-}
-
-Description: The `IQR` operator returns the interquartile range of a set of data points. 
-
-Link: https://github.com/tercen/IQR_operator 
  
-## mean_operator  {-}
-
-Description: `mean` operator computes the mean of a set of data points. 
-
-Link: https://github.com/tercen/mean_operator 
  
-## mean_sd_operator  {-}
 
-Description: `mean sd` operator computes the mean and standard deviation of a set of data points. 
+## Fast t-SNE Docker Operator
 
-Link: https://github.com/tercen/mean_sd_operator 
+## Build the image
+
+```bash
+VERSION=0.0.1
+docker build -t tercen/fast_tSNE_docker_operator:$VERSION .
+docker push tercen/fast_tSNE_docker_operator:$VERSION
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+```
+ 
+
+## impute operator
+
+##### Description
+`impute` operator replaces NA with zero.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data for the imputation, per cell 
+
+Output relations|.
+---|---
+`impute`        | numeric, a copy of the input data with NA replaces with zeros 
+
+##### Details
+The operator takes all the values of a cell and replaces it with the mean and if all values are NA then it is replaced with zero. The imputation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+ 
+
+## IQR operator
+
+##### Description
+
+The `IQR` operator returns the interquartile range of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`iqr`        | numeric, median of the input data
+
+##### Details
+
+The operator takes all the values of a cell and returns the IQR value. The computation is done per cell and a single value is returned for each of the input cell.
+
+#### References
+
+https://en.wikipedia.org/wiki/Interquartile_range
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+[sd_operator](https://github.com/tercen/sd_operator)
+[cv_operator](https://github.com/tercen/cv_operator)
+
+ 
+
+## max operator
+
+##### Description
+
+`max` operator returns the maximum of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`max`        | numeric, max of the input data
+
+##### Details
+
+The operator takes all the values of a cell and returns the value which is the maximum. The computation is done per cell (one value is returned for each input cell).
+
+##### References
+
+Based on the [max R function](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Extremes.html).
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
+ 
+
+## Mean imputation operator
+
+##### Description
+
+`mean_imputation` operator replaces missing values by the column mean.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | factor, observations 
+`column`     | factor, variables 
+`y-axis`     | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`mean_imputed`        | numeric, measurements with imputed values
+
+##### Details
+
+The operator replaces missing values (`NA`) by the column mean.
+
+##### References
+
+See [Mean substitution on Wikipedia](https://en.wikipedia.org/wiki/Imputation_(statistics)#Mean_substitution).
+
+##### See also
+
+[impute_operator](https://github.com/tercen/impute_operator)
+ 
+
+## mean operator
+
+##### Description
+`mean` operator computes the mean of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data for the mean, per cell 
+
+Output relations|.
+---|---
+`mean`          | numeric, mean of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their mean. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+ 
+
+## mean sd operator
+
+##### Description
+`mean sd` operator computes the mean and standard deviation of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`mean`       | numeric, mean of the input data
+`sd`         | numeric, standard deviation of the input data
+
+##### Details
+The operator takes all the values of a cell and calculates their mean and standard deviation. The computation is done per cell. There are two value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+ 
+
+## Median operator
+
+##### Description
+`Median` operator returns the median of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`median`        | numeric, median of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+#### Examples
+ 
+
+#```R 
+packrat::init(options = list(use.cache = TRUE)) 
+``` 
+
+## Pairwise RMSD operator
+
+##### Description
+
+The `pairwise_RMSD` operator returns the Relative Mean Squared Deviation computed between pairs of variables.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | factor, input variables 
+`col`        | factor, observations 
+`.y`        | numeric, measurements
+
+Output relations|.
+---|---
+`rmsd`        | numeric, RMSD
+`to`        | numeric, variable to be projected against the initial one for pairwise distance visualisation
+
+##### Details
+
+##### References
+
+##### See Also
+
+##### Examples
+ 
+
+## Percentile operator
+
+##### Description
+`percentile` operator returns the percentile of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell
+
+Input parameters|.
+---|---
+`percentile` | numeric, the percentile to use, default is 0.01, 1% percentile
+
+Output relations|.
+---|---
+`percentile`    | numeric, percentile of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the precentile value. The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/max_operator), [sum_operator](https://github.com/tercen/min_operator)
+
+
+#### Examples
+ 
+
+## Introduction
+
+This is a template repository.
+
+Use this template repository during the first step of developing a tercen operator (in R) on github.
+
+An overview of steps for developing an operator are:
+
+1. create a github repo
+2. install tercen_studio
+3. login to tercen_studio
+4. git clone the newly created repo
+5. start developing in R in tercen_studio
+6. add R packages to the repo
+7. push to the github repo
+8. go to tercen and install the operator
+
+For step 1, when creating the repo on github, you will notice the option to use a template repository, choose the `templateR_operator` repository and select it as the template repository.
+
+After creation, you now have a new repository with all the convenient files for making a new operator (in R) for tercen.
+
+Use `tercen_studio` to clone the new repository and start programming in `tercen_studio`
+
+it includes the skeleton files 
+
+* `main.R`
+* `workspace.R`
+* `operator.json`
+* `README_template.md`
+* `doc` directory
+
+please remember to change the `README_template.md` to  `README.template.md`
+
+inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
+ 
+
+## RMSD operator
+
+##### Description
+
+`RMSD` operator returns the Relative Mean Square Deviation of two variables.
+
+##### Usage
+
+Input projection|.
+---|---
+`x-axis`        | numeric, input data, per cell 
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`rmsd`        | numeric, RMSD of the input data
+
+##### Details
+
+#### References
+
+##### See Also
+
+[lm_operator](https://github.com/tercen/lm_operator)
+
+#### Examples
+ 
+
+## Round operator
+
+##### Description
+
+`Round` operator implements different number rounding methods.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell
+
+Output relations|.
+---|---
+`rounded`        | numeric, rounded input data
+
+ 
+
+## Sample operator
+
+##### Description
+`Sample` operator returns a sample of the specified size from the set of data points using either with or without replacement.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`      | numeric, input data
+`cols`        | numeric, observations, the sample factor(s) 
+
+Input parameters|.
+---|---
+`size`   | numeric, the fraction to sample, default is 1 (100% percent)
+`replace` | boolean, should replacement be used? , default is false (no replacement)
+
+Output relations|.
+---|---
+`sample`        | numeric, sample of the input data
+
+##### Details
+The operator randomly selects columns (i.e. samples)
+
+#### References
+See the `sample` function in base R.
+
+
+##### See Also
+
+#### Examples
+ 
+
+## sd operator
+
+##### Description
+`sd` operator computes the standard deviation of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data for the sd, per cell 
+
+Output relations|.
+---|---
+`sd`          | numeric, sd of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their standard deviation. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator), [sum_operator](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+
+ 
+
+## Seqlen operator
+
+##### Description
+`Seqlen` operator creates a sequence annotation for a data series
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+`x-axis`        | numeric, input data, ordering of the data series
+
+Output relations|.
+---|---
+`seq`         | numeric, sequence of the input data
+
+##### Details
+The operator takes all the values of a cell ordered by the 'x-axis'and gives a sequence number to each data point in the cell.
+
+#### References
+
+
+##### See Also
+
+[topn_operator](https://github.com/tercen/topn_operator)
+
+#### Examples
+ 
+
+## Setup packrat 
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+```R
+shiny::runApp(port=3044, launch.browser = TRUE)
+```
+
+ 
+
+
+
+
+
+ 
+
+## shiny_docker_operator
+
+```
+https://github.com/tercen/shiny_docker_operator.git
+```
+
+## Build
+
+```bash
+VERSION=0.10.0.1
+docker build -t tercen/shiny_docker_operator:$VERSION .
+docker push tercen/shiny_docker_operator:$VERSION
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+```
+  
+
+## Setup packrat 
+
+```R
+ 
+packrat::init(options = list(use.cache = TRUE))
+   
+ 
+```
+
+# Shiny app
+
+A simple shiny tercen operator :
+ - display an histrogram
+ - compute the mean
+ 
+```
+devtools::install_github("tercen/teRcen")
+
+shiny::runApp(port=3044, launch.browser = FALSE)
+```
+
+ 
+
+
+
+
+
+ 
+
+## Template Docker Operator
+
+## For all operators
+
+* Replace repository URL
+
+* Replace version number in files
+
+## For R operators
+
+* isWebApp: false
+
+## For Shiny operators
+
+* isWebApp: true
+
+## Build the image
+
+```bash
+VERSION=0.10.0.1
+docker build -t tercen/shiny_docker_operator:$VERSION .
+docker push tercen/shiny_docker_operator:$VERSION
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+```
+ 
+
+## Introduction
+
+This is a template repository.
+
+Use this template repository during the first step of developing a tercen operator (in R) on github.
+
+An overview of steps for developing an operator are:
+
+1. create a github repo
+2. install tercen_studio
+3. login to tercen_studio
+4. git clone the newly created repo
+5. start developing in R in tercen_studio
+6. add R packages to the repo
+7. push to the github repo
+8. go to tercen and install the operator
+
+For step 1, when creating the repo on github, you will notice the option to use a template repository, choose the `templateR_operator` repository and select it as the template repository.
+
+After creation, you now have a new repository with all the convenient files for making a new operator (in R) for tercen.
+
+Use `tercen_studio` to clone the new repository and start programming in `tercen_studio`
+
+it includes the skeleton files 
+
+* `main.R`
+* `workspace.R`
+* `operator.json`
+* `README_template.md`
+* `doc` directory
+
+please remember to change the `README_template.md` to  `README.template.md`
+
+inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
+ 
+
+## topn operator
+
+##### Description
+
+`topn` operator returns  data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`elements`       | numeric, choosen elements of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the top n elements. 
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+ 
+
+## Setup packrat 
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+```R
+shiny::runApp(port=3044, launch.browser = TRUE)
+```
+
+ 
+
+
+
+
+
+ 
+
+## Word count operator
+
+##### Description
+`Word count` operator count the occurences of each words in one or more documents.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | is the documentId 
+
+Output relations|.
+---|---
+`count`          | numeric, mean of the input values
+`word`          | character, the word
+`documentId`          | character, the id of the document
+
+##### Details
+The operator count the occurences of each words in one or more documents.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples

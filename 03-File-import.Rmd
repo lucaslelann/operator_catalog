@@ -1,0 +1,143 @@
+# File import 
+ 
+
+## readRDS operator
+
+##### Description
+`readRDS` operator imports rdsdata files
+
+##### Usage
+
+Input projection|.
+---|---
+`col`        | documentid, this the documentid of the file
+
+Output relations|.
+---|---
+a tercen table   | tableid, for every tablid there is a documentid relation 
+
+##### Details
+
+The operator takes the documentIds (i.e. the RDS data file) and converts them to a tercen table.
+
+#### References
+
+see the `readRDS()` function in base R.
+
+##### See Also
+
+[readxls_operator](https://github.com/tercen/readxls_operator)
+#### Examples
+ 
+
+## Read excel file operator
+
+##### Description
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | is the documentId 
+
+Output relations|.
+---|---
+ 
+
+##### Details
+The operator import excel document to tercen.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+ 
+
+## Read FASTA operator
+
+##### Description
+
+`read_fasta` operator reads a FASTA file into Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`col`        | factor, document ID
+
+Output relations|.
+---|---
+`name`        | factor, sequence name
+`position`    | numeric, position of amino or nucleic acid in the sequence
+`letter`      | factor, letter corresponding to an amino or nucleic acid
+`value`       | numeric, numeric value associated to an amino or nucleic acid
+
+##### Details
+
+This opeartor reads a FASTA file and returns a table with one row per sequence per letter. Columns correspond to the sequence `name` (extracted from identifier lines starting with `>`), `position` on the sequence (starting from `1` at the beginning of the sequence), the `letter` (corresponding to an amino or nucleic acid), and a `value` (corresponding to a numeric encoding of letters for visualisation purposes).
+
+##### References
+
+[FASTA format on Wikipedia](https://en.wikipedia.org/wiki/FASTA_format).
+
+##### See Also
+
+[msa_operator](https://github.com/tercen/msa_operator)
+ 
+
+## FCS ZIP operator
+
+##### Description
+
+Transform zipped fcs files to tercen dataset.
+
+##### Usage
+
+Input projection|.
+---|---
+`documentId`        | is the documentId, a zip file
+
+Output relations|.
+---|---
+`filename`          | character, the name of the fcs file
+`channels`          | numeric, one variable per channel in the fcs file
+
+##### Details
+
+Extracts a ZIP archive of fcs files and tranforms them to tercen datasets.
+
+Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+ 
+
+## Read FCS operator
+
+##### Description
+
+`read_fcs` operator transforms FCS files to Tercen datasets.
+
+##### Usage
+
+Input projection|.
+---|---
+`documentId`        | is the documentId 
+
+Output relations|.
+---|---
+`documentId`          | character, the id of the document
+
+##### Details
+
+Transforms FCS files to Tercen dataset. 
+
+The Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.
