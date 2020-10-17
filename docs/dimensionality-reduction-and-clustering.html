@@ -207,13 +207,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplot-shiny-operator-for-tercen"><i class="fa fa-check"></i>Boxplot Shiny operator for Tercen</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#hierarchical-clustering-tree-operator"><i class="fa fa-check"></i>Hierarchical clustering tree operator</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#shiny-heatmap-tercen-operator"><i class="fa fa-check"></i>Shiny Heatmap Tercen operator</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#worldmap-docker-operator"><i class="fa fa-check"></i>Worldmap docker operator</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#shiny-world-map-tercen-operator"><i class="fa fa-check"></i>Shiny World Map Tercen operator</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html"><i class="fa fa-check"></i>Dimensionality reduction and clustering</a><ul>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#approximated-t-sne"><i class="fa fa-check"></i>Approximated t-SNE</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#clustering-metrics-operator"><i class="fa fa-check"></i>Clustering metrics operator</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#hierarchical-clustering-tree-operator-1"><i class="fa fa-check"></i>Hierarchical clustering tree operator</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#clusterx-operator"><i class="fa fa-check"></i>clusterx operator</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#clusterx-operator-1"><i class="fa fa-check"></i>clusterx operator</a></li>
+<li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#fast-t-sne-docker-operator"><i class="fa fa-check"></i>Fast t-SNE Docker Operator</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#fast-t-sne-operator"><i class="fa fa-check"></i>Fast t-SNE operator</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#hclust-operator"><i class="fa fa-check"></i>hclust operator</a></li>
 <li class="chapter" data-level="" data-path="dimensionality-reduction-and-clustering.html"><a href="dimensionality-reduction-and-clustering.html#mds-operator"><i class="fa fa-check"></i>MDS operator</a></li>
@@ -264,6 +267,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="forensics.html"><a href="forensics.html#forensic-parameters-operator"><i class="fa fa-check"></i>Forensic parameters operator</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="template.html"><a href="template.html"><i class="fa fa-check"></i>Template</a><ul>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#shiny-docker-operator"><i class="fa fa-check"></i>Shiny docker operator</a></li>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template-docker-operator"><i class="fa fa-check"></i>Template Docker Operator</a></li>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template-r-operator-for-tercen"><i class="fa fa-check"></i>Template R operator for Tercen</a></li>
 <li class="chapter" data-level="" data-path="template.html"><a href="template.html#template-shiny-operator-for-tercen"><i class="fa fa-check"></i>Template Shiny operator for Tercen</a></li>
 </ul></li>
 </ul>
@@ -285,9 +291,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="dimensionality-reduction-and-clustering" class="section level1">
 <h1>Dimensionality reduction and clustering</h1>
+<div id="approximated-t-sne" class="section level2">
+<h2>Approximated t-SNE</h2>
+<div id="description-60" class="section level5">
+<h5>Description</h5>
+<pre><code>https://github.com/tercen/atsne_docker_operator.git</code></pre>
+</div>
+<div id="build-1" class="section level5">
+<h5>Build</h5>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="dimensionality-reduction-and-clustering.html#cb8-1"></a><span class="va">VERSION=</span>1.1.11</span>
+<span id="cb8-2"><a href="dimensionality-reduction-and-clustering.html#cb8-2"></a><span class="ex">docker</span> build -t tercen/atsne:<span class="va">$VERSION</span> .</span>
+<span id="cb8-3"><a href="dimensionality-reduction-and-clustering.html#cb8-3"></a><span class="ex">docker</span> push tercen/atsne:<span class="va">$VERSION</span></span>
+<span id="cb8-4"><a href="dimensionality-reduction-and-clustering.html#cb8-4"></a><span class="co"># see operator.json :-- &quot;container&quot;: &quot;tercen/atsne:1.1.8&quot;</span></span>
+<span id="cb8-5"><a href="dimensionality-reduction-and-clustering.html#cb8-5"></a><span class="fu">git</span> add -A <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit -m <span class="st">&quot;</span><span class="va">$VERSION</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> tag -a <span class="va">$VERSION</span> -m <span class="st">&quot;++&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push :--tags</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="dimensionality-reduction-and-clustering.html#cb9-1"></a><span class="co"># renv cache ~/.local/share/renv</span></span>
+<span id="cb9-2"><a href="dimensionality-reduction-and-clustering.html#cb9-2"></a><span class="ex">docker</span> run -it :--rm :--entrypoint <span class="st">&quot;/bin/bash&quot;</span> tercen/atsne:1.1.11 </span></code></pre></div>
+</div>
+<div id="github-link-62" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/atsne_docker_operator">atsne_docker_operator on GitHub</a></p>
+</div>
+</div>
 <div id="clustering-metrics-operator" class="section level2">
 <h2>Clustering metrics operator</h2>
-<div id="description-59" class="section level5">
+<div id="description-61" class="section level5">
 <h5>Description</h5>
 <p><code>clustering_metrics</code> operator returns clustering metrics.</p>
 </div>
@@ -349,14 +376,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5>See Also</h5>
 <p><a href="https://github.com/tercen/hierarchical_clustering_operator">hierarchical_clustering_operator</a>, <a href="https://github.com/tercen/flowsom_operator">flowsom_operator</a>, <a href="https://github.com/tercen/clusterx_operator">clusterx_operator</a></p>
 </div>
-<div id="github-link-61" class="section level5">
+<div id="github-link-63" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/clustering_metrics_operator">clustering_metrics_operator on GitHub</a></p>
 </div>
 </div>
 <div id="hierarchical-clustering-tree-operator-1" class="section level2">
 <h2>Hierarchical clustering tree operator</h2>
-<div id="description-60" class="section level5">
+<div id="description-62" class="section level5">
 <h5>Description</h5>
 <p><code>clustering_tree</code> operator returns a hierarchical clustering tree to be projected in Tercen.</p>
 </div>
@@ -411,14 +438,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="github-link-62" class="section level5">
+<div id="github-link-64" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/clustering_tree_operator">clustering_tree_operator on GitHub</a></p>
 </div>
 </div>
 <div id="clusterx-operator" class="section level2">
 <h2>clusterx operator</h2>
-<div id="description-61" class="section level5">
+<div id="description-63" class="section level5">
 <h5>Description</h5>
 <p><code>clusterx</code> operator performs a fast clustering by automatic search and find of density peaks</p>
 </div>
@@ -502,14 +529,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-25" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-63" class="section level5">
+<div id="github-link-65" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/clusterx2_operator">clusterx2_operator on GitHub</a></p>
 </div>
 </div>
 <div id="clusterx-operator-1" class="section level2">
 <h2>clusterx operator</h2>
-<div id="description-62" class="section level5">
+<div id="description-64" class="section level5">
 <h5>Description</h5>
 <p><code>clusterx</code> operator performs a fast clustering by automatic search and find of density peaks</p>
 </div>
@@ -589,14 +616,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-26" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-64" class="section level5">
+<div id="github-link-66" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/clusterx_operator">clusterx_operator on GitHub</a></p>
 </div>
 </div>
+<div id="fast-t-sne-docker-operator" class="section level2">
+<h2>Fast t-SNE Docker Operator</h2>
+<div id="build-the-image" class="section level5">
+<h5>Build the image</h5>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="dimensionality-reduction-and-clustering.html#cb10-1"></a><span class="va">VERSION=</span>0.0.1</span>
+<span id="cb10-2"><a href="dimensionality-reduction-and-clustering.html#cb10-2"></a><span class="ex">docker</span> build -t tercen/fast_tSNE_docker_operator:<span class="va">$VERSION</span> .</span>
+<span id="cb10-3"><a href="dimensionality-reduction-and-clustering.html#cb10-3"></a><span class="ex">docker</span> push tercen/fast_tSNE_docker_operator:<span class="va">$VERSION</span></span>
+<span id="cb10-4"><a href="dimensionality-reduction-and-clustering.html#cb10-4"></a><span class="fu">git</span> add -A <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit -m <span class="st">&quot;</span><span class="va">$VERSION</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> tag  <span class="va">$VERSION</span>  <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push :--tags</span></code></pre></div>
+</div>
+<div id="github-link-67" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/fast_tSNE_docker_operator">fast_tSNE_docker_operator on GitHub</a></p>
+</div>
+</div>
 <div id="fast-t-sne-operator" class="section level2">
 <h2>Fast t-SNE operator</h2>
-<div id="description-63" class="section level5">
+<div id="description-65" class="section level5">
 <h5>Description</h5>
 <p>The <code>Fast t-SNE</code> operator performs the Fast Fourier Transform Interpolation-based t-SNE dimensionality reduction method.</p>
 </div>
@@ -652,14 +693,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://github.com/tercen/tsne_operator">tsne</a>
 <a href="https://github.com/tercen/pca_operator">pca</a></p>
 </div>
-<div id="github-link-65" class="section level5">
+<div id="github-link-68" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/fast_tSNE_operator">fast_tSNE_operator on GitHub</a></p>
 </div>
 </div>
 <div id="hclust-operator" class="section level2">
 <h2>hclust operator</h2>
-<div id="description-64" class="section level5">
+<div id="description-66" class="section level5">
 <h5>Description</h5>
 <p><code>hclust</code> operator performs a hierarchical clustering.</p>
 </div>
@@ -746,14 +787,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-27" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-66" class="section level5">
+<div id="github-link-69" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/hclust_operator">hclust_operator on GitHub</a></p>
 </div>
 </div>
 <div id="mds-operator" class="section level2">
 <h2>MDS operator</h2>
-<div id="description-65" class="section level5">
+<div id="description-67" class="section level5">
 <h5>Description</h5>
 <p><code>MDS</code> operator performs a Multidimensional Scaling analysis.</p>
 </div>
@@ -816,14 +857,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5>See Also</h5>
 <p><a href="https://github.com/tercen/pca_operator">pca_operator</a>, <a href="https://github.com/tercen/pairwise_distance_operator">pairwise_distance_operator</a></p>
 </div>
-<div id="github-link-67" class="section level5">
+<div id="github-link-70" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/mds_operator">mds_operator on GitHub</a></p>
 </div>
 </div>
 <div id="flowsom-operator" class="section level2">
 <h2>flowsom operator</h2>
-<div id="description-66" class="section level5">
+<div id="description-68" class="section level5">
 <h5>Description</h5>
 <p><code>flowsom</code> operator performs the SOM (self organizing maps) in the <code>flowSOM</code> R package.</p>
 </div>
@@ -923,14 +964,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-28" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-68" class="section level5">
+<div id="github-link-71" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/oldflowsom_operator">oldflowsom_operator on GitHub</a></p>
 </div>
 </div>
 <div id="pca-operator" class="section level2">
 <h2>pca operator</h2>
-<div id="description-67" class="section level5">
+<div id="description-69" class="section level5">
 <h5>Description</h5>
 <p><code>pca</code> operator performs principle component analysis.</p>
 </div>
@@ -1025,14 +1066,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-29" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-69" class="section level5">
+<div id="github-link-72" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/pca_operator">pca_operator on GitHub</a></p>
 </div>
 </div>
 <div id="rphenograph-operator" class="section level2">
 <h2>rphenograph operator</h2>
-<div id="description-68" class="section level5">
+<div id="description-70" class="section level5">
 <h5>Description</h5>
 <p><code>rephenograph</code> operator performs a phenotype clustering in the <code>Rphenograph</code> R package.</p>
 </div>
@@ -1131,14 +1172,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-30" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-70" class="section level5">
+<div id="github-link-73" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/rphenograph_operator">rphenograph_operator on GitHub</a></p>
 </div>
 </div>
 <div id="somflow-operator" class="section level2">
 <h2>somflow operator</h2>
-<div id="description-69" class="section level5">
+<div id="description-71" class="section level5">
 <h5>Description</h5>
 <p><code>somflow</code> operator performs the SOM (self organizing maps) in the <code>FlowSOM</code> R package.</p>
 </div>
@@ -1234,14 +1275,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-31" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-71" class="section level5">
+<div id="github-link-74" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/somflow_operator">somflow_operator on GitHub</a></p>
 </div>
 </div>
 <div id="tsne-operator" class="section level2">
 <h2>tsne operator</h2>
-<div id="description-70" class="section level5">
+<div id="description-72" class="section level5">
 <h5>Description</h5>
 <p><code>tsne</code> operator performs tSNE analysis.</p>
 </div>
@@ -1352,7 +1393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-32" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-72" class="section level5">
+<div id="github-link-75" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/tsne_operator">tsne_operator on GitHub</a></p>
 

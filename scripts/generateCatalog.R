@@ -9,7 +9,7 @@ for(i in seq_along(std_cat)) { #i <- seq_along(tag_map$category[tag_map$type == 
   cat_tag <- tag_map[tag_map$category == chap, ]$tag
   cat_id <- grep(paste0(cat_tag, collapse="|"), df$tags)
   
-  to_exclude <- grep("packrat|docker", df[cat_id, ]$README)
+  to_exclude <- grep("packrat", df[cat_id, ]$README)
   if(length(to_exclude) > 0) cat_id <- cat_id[-to_exclude]
     
   # reformat readme
