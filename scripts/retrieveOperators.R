@@ -25,7 +25,7 @@ op_readmes <- lapply(repo_list, function(x) {
 
 
 names(op_readmes) <- repo_list
-save(op_readmes, file = "./data/op_readmes.rda")
+save(op_readmes, file = paste0("./data/",tstamp,"-op_readmes.rda"))
 
 library(jsonlite)
 op_jsons <- lapply(repo_list, function(x) {
@@ -39,4 +39,12 @@ op_jsons <- lapply(repo_list, function(x) {
   return(out)
 })
 names(op_jsons) <- repo_list
-save(op_jsons, file = "./data/op_jsonss.rda")
+save(op_jsons, file = paste0("./data/",tstamp,"-op_jsons.rda"))
+
+df <- data.frame(
+  name = names(op_readmes),
+  README = unlist(op_readmes),
+  tags = unlist(lapply(op_jsons[names(op_readmes)], function(x) paste0(x["tags"][[1]], collapse = ";")))
+)
+save(df, file = "./data/op_data.rda")
+save(df, file = paste0("./data/",tstamp,"-op_data.rda"))

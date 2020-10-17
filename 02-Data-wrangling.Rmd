@@ -31,6 +31,77 @@ The operator takes the value defined by the y-axis and adds the value defined by
 
 [add_operator on GitHub](https://github.com/tercen/add_operator) 
 
+## asinh operator
+
+##### Description
+
+`asinh` operator performs an inverse hyperbolic sine on values
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis` | values required to be transformed by the asinh operator
+`row`    | channels, and scale values (optional)
+`col`    | event, for example
+
+Input parameters|.
+:---|:---
+`scale`  | numeric, the scaling factor to use before the asinh transformation, a NULL value indicates different scaling values per channel, default is 5
+
+Output relations|.
+:---|:---
+`asinh`| numeric, output transformation per `row` and `col`.
+
+##### Details
+
+Values are scaled first and then asinh transformation is performed. One data point per cell is required as input. 
+```r
+asinh(value/scale)
+```
+A scale of 5 is recommended for cytof measurement and 150 for flowcyto measurements.
+
+If a NULL scaling value is used then the scaling factor is give by the input cross-tab projection, the second factor defined in the `row` dimension indicates the scaling values to use per channel.
+
+##### References
+
+See the `base::asinh` [function of the R package for more information](https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions).
+
+
+##### GitHub link
+
+[asinh_operator on GitHub](https://github.com/tercen/asinh_operator) 
+
+## Base change operator
+
+##### Description
+
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`,`layer1`| data point to be compared with base
+`y-axis`,`layer2`| base value
+
+Input parameters|.
+:---|:---
+`percentage`   | logical, indicates if the basechange is retuend as a percentage
+
+Output relations|.
+:---|:---
+`basechange`| numeric, basechange value, per cell
+
+##### Details
+
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+
+##### GitHub link
+
+[basechange_operator on GitHub](https://github.com/tercen/basechange_operator) 
+
 ## calcnormfactors operator
 
 ##### Description
@@ -98,6 +169,68 @@ A random subset of each group is assigned a `pass` value: the size of the subset
 ##### GitHub link
 
 [downsample_operator on GitHub](https://github.com/tercen/downsample_operator) 
+
+## impute operator
+
+##### Description
+
+`impute` operator replaces NA with zero.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`        | is the input data for the imputation, per cell 
+
+Output relations|.
+:---|:---
+`impute`        | numeric, a copy of the input data with NA replaces with zeros 
+
+##### Details
+
+The operator takes all the values of a cell and replaces it with the mean and if all values are NA then it is replaced with zero. The imputation is done per cell. There is one value calculated and returned for each of the input cell.
+
+
+##### GitHub link
+
+[impute_operator on GitHub](https://github.com/tercen/impute_operator) 
+
+## log operator
+
+##### Description
+
+`log` operator performs a log of values
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis` | values to be logged
+
+Input parameters|.
+:---|:---
+`base` | numeric, log base, default is 10
+
+Output relations|.
+:---|:---
+`log`| numeric, log per data point
+
+##### Details
+
+A log of values is performed.
+
+##### References
+
+See the `base::log` function of the R package for the documentation.
+
+
+ 
+ 
+
+
+##### GitHub link
+
+[log_operator on GitHub](https://github.com/tercen/log_operator) 
 
 ## normalyzer_operator
 normalization methods from the NormalyzerDE package
@@ -276,6 +409,28 @@ The operator is based on the R functions `gsub` and `sub`.
 ##### GitHub link
 
 [replace_operator on GitHub](https://github.com/tercen/replace_operator) 
+
+## Round operator
+
+##### Description
+
+`Round` operator implements different number rounding methods.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`        | numeric, input data, per cell
+
+Output relations|.
+:---|:---
+`rounded`        | numeric, rounded input data
+
+
+
+##### GitHub link
+
+[round_operator on GitHub](https://github.com/tercen/round_operator) 
 
 ## Separate operator
 

@@ -1,0 +1,3463 @@
+name,README,tags
+add_operator,# add operator
+
+##### Description
+
+`add` operator adds two sets of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`           | is the initial value before addition
+`x-axis`           | is the value to be added to the initial value
+
+Output relations|.
+---|---
+`sum`          | numeric, sum value returned per cell
+
+##### Details
+
+The operator takes the value defined by the y-axis and adds the value defined by the x-axis. The computation is done per cell. There is one value calculated and returned for each data point.
+
+##### See Also
+
+[substract](https://github.com/tercen/substract_operator), [sum](https://github.com/tercen/sum_operator), [product](https://github.com/tercen/product_operator), [ratio](https://github.com/tercen/ratio_operator)
+,basic operations
+alignment_metrics_operator,# Alignment metrics operator
+
+##### Description
+
+`alignment_metrics` operator returns some metrics summarising a multiple sequence alignment.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | numeric, input data, per cell 
+`col`        | numeric, input data, per cell 
+`colors`        | numeric, input data, per cell 
+`y-axis`        | numeric, input data, per cell 
+
+Properties|.
+---|---
+`sequence_type`        | factor, sequence type (protein, dna, rna)
+`substitution_matrix`        | factor, substitution amtrix (default: BLOSUM62)
+`gap_vs_gap`        | factor, gap vs gap score (default: NA)
+
+Output relations|.
+---|---
+`conservation_score`        | numeric, conservation score at each position (column)
+`n_gaps`        | numeric, number of gaps at each position (column)
+`gap_proportion`        | numeric, conservation score at each position (column)
+
+##### See also
+
+[msa_operator](https://github.com/tercen/msa_operator)
+
+[dist_alignment_operator](https://github.com/tercen/dist_alignment_operator)
+
+[readfasta_operator](https://github.com/tercen/readfasta_operator)
+,bioinformatics
+anova_operator,# anova operator
+
+#### Description
+`anova` operator performs an analaysis of variance of the data
+
+##### Usage
+Input projection|.
+---|---
+`color`   | represents the groups to compare
+`y-axis`| measurement value
+
+Output relations|.
+---|---
+`pr`| numeric, p-value calculated per cell
+
+##### Details
+`anova` operator performs an analaysis of variance of the data
+
+
+#### References
+see https://en.wikipedia.org/wiki/Analysis_of_variance
+
+
+##### See Also
+[ttest](https://github.com/tercen/ttest_operator), [rfImp](https://github.com/tercen/rfImp_operator)
+
+#### Examples
+
+
+,basic statistics
+asinh_operator,# asinh operator
+
+#### Description
+`asinh` operator performs an inverse hyperbolic sine on values
+
+##### Usage
+Input projection|.
+---|---
+`y-axis` | values required to be transformed by the asinh operator
+`row`    | channels, and scale values (optional)
+`col`    | event, for example
+
+Input parameters|.
+---|---
+`scale`  | numeric, the scaling factor to use before the asinh transformation, a NULL value indicates different scaling values per channel, default is 5
+
+Output relations|.
+---|---
+`asinh`| numeric, output transformation per `row` and `col`.
+
+##### Details
+Values are scaled first and then asinh transformation is performed. One data point per cell is required as input. 
+```r
+asinh(value/scale)
+```
+A scale of 5 is recommended for cytof measurement and 150 for flowcyto measurements.
+
+if a NULL scaling value is used then the scaling factor is give by the input cross-tab projection, the second factor defined in the `row` dimension indicates the scaling values to use per channel.
+
+
+#### References
+see the `base::asinh` function of the R package for the documentation,
+https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions
+
+
+##### See Also
+
+#### Examples
+,simple statistics
+atsne_docker_operator,# ATSNE
+
+```
+https://github.com/tercen/atsne_docker_operator.git
+```
+## Build
+
+```bash
+VERSION=1.1.11
+docker build -t tercen/atsne:$VERSION .
+docker push tercen/atsne:$VERSION
+# see operator.json -- "container": "tercen/atsne:1.1.8"
+git add -A && git commit -m "$VERSION" && git tag -a $VERSION -m "++" && git push && git push --tags
+```
+
+```bash
+# renv cache ~/.local/share/renv
+docker run -it --rm --entrypoint "/bin/bash" tercen/atsne:1.1.11 
+```,multivariate statistics
+atsne_operator,# TSNE
+
+```
+https://github.com/tercen/atsne_operator.git
+```
+
+```R
+
+packrat::init(options = list(use.cache = TRUE,
+                            external.packages = 'devtools',
+                            load.external.packages.on.startup = FALSE))
+                            
+packrat::status()
+packrat::clean() 
+packrat::snapshot(ignore.stale=TRUE)
+```
+
+,multivariate statistics
+basechange_operator,# basechange operator
+
+#### Description
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+##### Usage
+Input projection|.
+---|---
+`y-axis`,`layer1`| data point to be compared with base
+`y-axis`,`layer2`| base value
+
+Input parameters|.
+---|---
+`percentage`   | logical, indicates if the basechange is retuend as a percentage
+
+Output relations|.
+---|---
+`basechange`| numeric, basechange value, per cell
+
+
+##### Details
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+#### References
+
+##### See Also
+
+
+#### Examples
+,simple statistics;Pharma
+boxplot_shiny_operator,# Boxplot Shiny operator for Tercen
+
+##### Description
+
+The `Boxplot Shiny operator` is an operator to represent data as boxplots in Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, measurement to represent 
+`row`           | factor, groups corresponding to different boxes along x axis
+`column`        | factor (optional), groups corresponding to different plot panels
+`colors`        | factor (optional), groups for corresponding to box and points coloring 
+
+Output relations|.
+---|---
+`Operator view`        | view of the Shiny application
+
+##### Details
+
+The operator takes all the values of a cell and represents a boxplot. Depending on the assignment of rows, columns and colors in the Tercen projection, the layout will be different.
+
+#### References
+
+https://en.wikipedia.org/wiki/Box_plot
+,plot
+calcnormfactors_operator,# calcnormfactors operator
+
+#### Description
+`calcnormfactors` operator calculates a normalization factor per column (i.e sample).
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the genes
+`col`   | represents the samples
+`y-axis`             | is the input data for which to compute the normalization factor
+
+
+Output relations|.
+---|---
+`normfactor`| numeric, per column (i.e. per sample)
+
+##### Details
+The operator is the calcnormfactor in the edgeR bioconductor.
+
+
+#### References
+see the `edgeR` R package for the documentation.
+
+
+##### See Also
+
+
+#### Examples
+,normalization;rnaseq
+cellplot_shiny_operator,# Setup packrat 
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+```R
+shiny::runApp(port=3044, launch.browser = TRUE)
+```
+
+ 
+
+
+
+
+
+,basic statistics
+clustering_metrics_operator,# Clustering metrics operator
+
+##### Description
+
+`clustering_metrics` operator returns clustering metrics.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables
+`col`   | represents the observations
+`label`   | represents the clusters
+`y-axis`| is the value of the measurement
+
+Output relations|.
+---|---
+`metrics`        | character, name of the clustering metric
+`value`        | numeric, value of the clustering metric
+
+##### Details
+
+##### References
+
+This operator is based on the [clusterCrit R function](https://www.rdocumentation.org/packages/clusterCrit/versions/1.2.8/topics/clusterCrit).
+
+##### See Also
+
+[hierarchical_clustering_operator](https://github.com/tercen/hierarchical_clustering_operator), [flowsom_operator](https://github.com/tercen/flowsom_operator), [clusterx_operator](https://github.com/tercen/clusterx_operator)
+,clustering
+clustering_tree_operator,# Hierarchical clustering tree operator
+
+##### Description
+
+`clustering_tree` operator returns a hierarchical clustering tree to be projected in Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | factor, variables to cluster
+`col`        | factor, variables to cluster (`dist_to` variable from a `dist` operator) 
+`y-axis`        | numeric, pairwise distance (`dist` variable from a `dist` operator)
+
+Output relations|.
+---|---
+`presence`        | numeric, to be projected on y-axis
+`tree_dim1`        | factor, to be projected on rows
+`tree_dim2`        | factor, to be projected on columns
+`tip_labels`        | factor, leaf labels, to be projected on rows
+
+,clustering;tree
+clusterx2_operator,# clusterx operator
+
+#### Description
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`x-axis`| first axis
+`y-axis`| second axis
+
+
+Input parameters|.
+---|---
+`dimReduction`   | type of reduction to perform, `pca`, `tsne`, `NULL`, default is `NULL`
+`outDim`   | number of demensions to return, default 2
+
+Output relations|.
+---|---
+`cluster`| character, returns a cluster id per value, per cell
+
+##### Details
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks.
+
+
+#### References
+see  https://github.com/JinmiaoChenLab/ClusterX
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+#### Examples
+,multivariate statistics
+clusterx_operator,# clusterx operator
+
+#### Description
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| is the measurement value
+
+
+Input parameters|.
+---|---
+`dimReduction`   | type of reduction to perform, `pca`, `tsne`, `NULL`, default is `NULL`
+`outDim`   | number of demensions to return, default 2
+
+Output relations|.
+---|---
+`cluster`| character, returns a cluster id per column (e.g. per cell)
+
+##### Details
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks.
+
+
+#### References
+see  https://github.com/JinmiaoChenLab/ClusterX
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+#### Examples
+
+,multivariate statistics
+constant_operator,# constant operator
+
+#### Description
+`constant` operator allows for a value equal to a constant to be generated
+
+##### Usage
+Input projection|.
+---|---
+none |
+
+Input parameters|.
+---|---
+`value` | numeric, the constant value to be generated, default is 0
+
+Output relations|.
+---|---
+`constant`| numeric, one constant is generated per cell
+
+##### Details
+A `constant` value is generated for all the data. All factors are therefore associated with this constant. A typical use of this operator is when you require to generate fixed boundary values to be used as a grid line in a later (i.e. downstream) step. The grid line is created in a `layer` using the `h-grid view type`. An example would be to create a zero grid line, where the`constant`operator is used to generate a zero value and a zero line is then available for later visuals.
+
+#### References
+
+##### See Also
+
+#### Examples
+
+https://tercen.com/operator/p/8d8febb97ed4b09c2ddf52795c961e68
+
+
+ 
+ 
+,basic statistics
+count_operator,# count operator
+
+##### Description
+`count` operator counts the number of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data to be counted, per cell 
+
+Output relations|.
+---|---
+`count`          | numeric, count of the input values
+
+##### Details
+The operator takes all the values of a cell and counts them. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product](https://github.com/tercen/product_operator), [sum](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+,simple statistics
+cv_operator,# cv operator
+
+#### Description
+`cv` operator calculates the coefficient of variance on a set of input values.
+
+##### Usage
+Input projection|.
+---|---
+`y-axis`| values to be used for the calculation of the cv, per cell
+
+
+Output relations|.
+---|---
+`cv`| numeric, coefficient of variation result per cell
+
+##### Details
+The coefficcient of variation is a measure of variaton, it is equivalent to standard deviation divided by the mean.
+```r
+cv = sd/mean
+```
+The `cv` is returned as a fraction.
+
+#### References
+see the https://en.wikipedia.org/wiki/Coefficient_of_variation
+
+
+##### See Also
+[sd](https://github.com/tercen/sd_operator), [mean](https://github.com/tercen/mean_operator)
+
+#### Examples
+
+
+,basic statistics
+cytonorm_operator,## Cytonorm operator
+
+##### Description
+
+The `Cytonorm` operator normalizes cytometry data between mutliple batches.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`value`        | numeric, median of the input data
+
+##### Details
+
+
+#### References
+
+https://github.com/saeyslab/CytoNorm
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+[flowai_operator](https://github.com/tercen/flowai_operator)
+,basic statistics
+damacy_operator,# DAMACY operator
+
+[Discriminant Analysis of Multi-Aspect CYtometry](https://www.ru.nl/science/analyticalchemistry/education/master-internships/vm/increasing-power-damacy/)
+
+Integrating DAMACY sofware into Tercen.
+
+## Overview
+
+In current version of Tercen operators are coded using R, so matlab code requires to be wrapped into an R operator.
+
+```
+Tercen ==> DAMACY R operator ==> DAMACY matlab
+```
+
+## DAMACY R operator
+
+- extract data from tercen
+- transform data to fit DAMACY format
+- extract and transform parameters to fit DAMACY format
+- call DAMACY matlab function
+- load and transform results to fit tercen format
+- save result into tercen
+
+## DAMACY matlab
+
+The entry point is a function with the following signature :
+
+```
+DAMACY(String dataFile, String parametersFile, String outputFolder)
+```
+
+2 files, one containing the data, and one containing the parameters.
+
+1 folder, contains DAMACY results.
+
+## File format
+
+### Data
+
+format : csv
+
+3 types of columns :
+
+- proteins : a set of columns
+- label : control = 1 not = 0
+- patientID : a string identifying a patient
+
+Each line represent a cell.
+
+| prot1 | prot2 | prot3 | prot4 | label | patientID |
+| ----- | ----- | ----- | ----- | ----- | --------- |
+| | | | | | |
+| | | | | | |
+
+### Parameters
+
+format : csv
+
+2 columns :
+
+- name : parameter name
+- value: parameter value
+
+| name | value |
+| ---- | ----- |
+|||
+|||
+
+### Output data
+
+DAMACY result is a set of 3 tables, stored in csv files.
+
+- Prediction
+
+filename : prediction.csv
+
+| patientID | predictionValue |
+| --------- | --------------- |
+|||
+|||
+
+- Loadings
+
+filename : loadings.csv
+
+| protein | loadingX | loadingY |
+| ------- | -------- | -------- |
+||||
+||||
+
+- Cell map
+
+filename : cellmap.csv
+
+| cellmapX | cellmapY | cellmapValue |
+| -------- | -------- | ------------ |
+||||
+||||
+
+
+## Packaging and deployment
+
+Tercen R operators are packaged and deployed using git repository.
+
+https://github.com/tercen/damacy_operator
+ 
+
+## Links
+
+https://www.ru.nl/science/analyticalchemistry/education/master-internships/vm/increasing-power-damacy/
+
+https://www.ru.nl/science/analyticalchemistry/research/software/
+,NA
+density_operator,# density operator
+
+#### Description
+`density` operator performs a density caculations on x and y input values.
+
+##### Usage
+Input projection|.
+---|---
+`x-axis`  | indicates the values of the x
+`y-axis`  | indicates the values of the y
+
+Output relations|.
+---|---
+`density`| numeric, density calculation, calculated per cell
+
+##### Details
+A density calculation is performed per cell with the input values defined by the x and y-axis, the result are `density` values associated with each cell. The `density` operator is typically used in a pairwise plot and the returned `density` values are usually used as a coloring in a pairwise plot of the original input values. 
+
+
+#### References
+
+##### See Also
+
+#### Examples
+
+
+
+
+ 
+ 
+,basic statistics
+DESeq2_two_conditions_operator,# DESeq2_two_conditions operator
+
+## Description
+
+`DESeq2_two_conditions` tests for differential gene expression in samples from two conditions using the `DESeq2` package from BioConductor (Love, et al, Genome Biology, 2014).
+
+## Usage
+
+| Input projection | Description                      |
+| ---------------- | -------------------------------- |
+| `row`            | Gene name/identifier             |
+| `column`         | Sample name/identifier           |
+| `color`          | Represents the groups to compare |
+| `y-axis`         | Sequence counts                  |
+
+| Input parameters | Description                                                                              |
+| -----------------| ---------------------------------------------------------------------------------------- |
+| `alpha`          | Numeric, adjusted _p value_ cutoff for independent filtering (default = 0.1)             |
+| `LFC_shrinkage`  | Logical, whether the returned log fold-change values should be shrinked (default = TRUE) |
+| `shrinkage_type` | "normal", "apeglm" or "ashr", Type of shrinkage estimator to use (default = "normal")    |
+
+|  Output relations  | Description                                                                |
+| ------------------ | -------------------------------------------------------------------------- |
+| `pvalue`           | numeric, p-value calculated per gene                                       |
+| `padj`             | numeric, p-value calculated per gene after adjusting for multiple testing  |
+| `baseMean`         | numeric, mean of normalized counts for all the samples                     |
+| `log2FoldChange`   | numeric, shrunken log2 fold-change between the two groups to compare       |
+| `minus_log10_padj` | numeric, negative log10 transformation of padj for more intuitive plotting |
+
+## Details
+
+The operator uses the `DESeq2` package from BioConductor.
+
+## References
+
+Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550. doi: 10.1186/s13059-014-0550-8.
+
+See ["Analyzing RNA-seq data with DESeq2"](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html) for further information on DESeq2 by Love, et al.
+
+,RNA-seq;differential expression;genomics
+diffcyt_operator,# diffcyt operator
+
+#### Description
+`diffcyt` operator a differential analysis of flow cyto data and indicates which marker and cluster combinations are relevant.
+
+##### Usage
+Input projection|.
+---|---
+`col`    | `group_id`, `patient_id`
+`row`    | `marker_class`, `marker_name`
+`y-axis` | values representing measurement
+
+
+Input parameters|.
+---|---
+`analysis_type` | can be either `DA` (Differential Abundance) or `DS` (Differential State)
+
+Output relations|.
+---|---
+`cluster_id`| character, cluster  name, per cluster, DA and DS output
+`LogFC`     | numeric, log fold change, per cluster, DA
+`LR`        | numeric, lr, per cluster, DA output
+`p_val`     | numeric, p value, per cluster, DA output
+`p_adj`     | numeric, adjusted p value, per cluster, DA output
+`LogFC`     | numeric, log fold change, per cluster-marker, DS output
+`p_val`     | numeric, p value, per cluster-marker, DS output
+`p_adj`     | numeric, adjusted p value, per cluster-marker, DS output
+`t`         | numeric, t, per cluster-marker, DS output
+`B`         | numeric, B, per cluster-marker, DS output
+`AvgExp`    | numeric, adjusted p value, per cluster-marker, DS output
+
+##### Details
+
+Performs differential analysis (abundance or state). See the `diffcyt::diffcyt` function in the Bioconductor R pacakge.
+
+#### References
+see the github for documentation,
+https://github.com/lmweber/diffcyt
+
+
+##### See Also
+[t-test](https://github.com/lmweber/ttest_operator), [anova](https://github.com/tercen/anova_operator), [rfImp](https://github.com/tercen/rfImp_operator)
+
+#### Examples
+,flowcytometry;rnaseq
+dist_alignment_operator,# Pairwise sequence distance operator
+
+##### Description
+
+`dist_alignment` computes pairwise distances between aligned biological sequences.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        |  factor, sequence names/IDs
+`col`        |  numeric, position
+`y-axis`        |  numeric, value corresponding to amino or nucleic acid
+`color`        |  factor, optional, letter
+
+Properties|.
+---|---
+`sequence_type` | whether it is `dna`, `rna`, or `protein` sequences
+`matrix` | the matrix distance to be used, can be "similarity" or "identity"
+`gap` | with nucleotides, if set to 1, gaps will be counted in the identity measure
+
+Output relations|.
+---|---
+`dist_to`        | numeric, sequence name
+`dist`        | numeric, distance
+
+##### Details
+
+This operator compute a matrix of pairwise distances from aligned sequences using similarity (Fitch matrix, for protein sequences only) or identity matrix (for protein and DNA sequences). The resulting matrix contains the squared root of the pairwise distances. For example, if identity between 2 sequences is 80 the squared root of (1.0 - 0.8) i.e. 0.4472136.
+
+##### See Also
+
+https://github.com/tercen/readfasta_operator
+
+https://github.com/tercen/msa_operator
+,bioinformatics
+downsample_operator,# Downsample operator
+
+##### Description
+
+The `Downsample` allows one to downsample the data.
+
+##### Usage
+
+Input projection|.
+---|---
+`column`        | numeric, input data, per cell 
+`colour`        | factor, groups
+
+Output relations|.
+---|---
+`label`        | character, `pass` or `fail`
+
+Parameters|.
+---|---
+`seed`        |  random seed
+
+##### Details
+
+A random subset of each group is assigned a `pass` value: the size of the subset is the same as the smallest group. This method is typically used to handle unbalanced sample sizes between group.
+
+
+
+,sampling
+fast_tSNE_docker_operator,# Fast t-SNE Docker Operator
+
+## Build the image
+
+```bash
+VERSION=0.0.1
+docker build -t tercen/fast_tSNE_docker_operator:$VERSION .
+docker push tercen/fast_tSNE_docker_operator:$VERSION
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+```
+,basic statistics
+fast_tSNE_operator,# Fast t-SNE operator
+
+##### Description
+
+The `Fast t-SNE` operator performs the Fast Fourier Transform Interpolation-based t-SNE dimensionality reduction method.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Output relations|.
+---|---
+`tsne1, tsne2`| first two components containing the new projected values
+
+##### Details
+
+The operator performs tSNE analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 2).
+
+##### Reference
+
+[FFT-accelerated Interpolation-based t-SNE](https://github.com/KlugerLab/FIt-SNE)
+
+##### See Also
+
+[tsne](https://github.com/tercen/tsne_operator)
+[pca](https://github.com/tercen/pca_operator)
+
+,dimensionality reduction
+fgsea_operator,# fgsea operator
+
+##### Description
+`fgsea` operator performs a fast gene set enrichment analysis.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data usually a ranking statistics, per cell
+
+Output relations|.
+---|---
+`NES`         | numeric, fgsea of the input data
+`padj`        | numeric, adjusted p-value
+
+##### Details
+
+The operator takes all the values of a cell and returns the value which is the fgsea. The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+,enrichment
+flowai_operator,# flowai operator
+
+#### Description
+`flowai` operator performs quality control on flowcytometry data.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Output relations|.
+---|---
+`QCvector`         | numeric, values above 10000 are considered FAIL, under 10000 PASS
+
+
+##### Details
+
+This operator is able to perform an automatic quality control on FCS data acquired using flow cytometry instruments. By evaluating three different properties: 
+
+* flow rate
+* signal acquisition
+* dynamic range
+
+The quality control enables the detection and removal of anomalies. The operator returns a QCvector value for each cell, values below 10000 are given to cells who have passed the QC, above 10000 for those who did not pass the QC criteria.
+
+This operator wraps the `flowAI::flow_auto_qc` function from the [flowAI R package](http://bioconductor.org/packages/release/bioc/html/flowAI.html)
+
+
+#### Reference
+
+[flowAI R package]((http://bioconductor.org/packages/release/bioc/html/flowAI.html))
+
+##### See Also
+
+
+#### Examples
+
+,flowcytometry
+flowsomtuning_operator,# FlowSOM tuning operator
+
+##### Description
+
+`flowsomtuning` operator performs flowSOM clustering for different numbers of clusters.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Input parameters|.
+---|---
+`min_cluster_number`   | Minimum number of clusters to make
+`max_cluster_number`   | Maximal number of clusters to make
+`transform`| Transform data?
+`seed`   | Random seed
+
+Output relations|.
+---|---
+`cluster`| character, cluster label
+
+##### Details
+
+The operator is a wrapper for the `FlowSOM` function of the `FlowSOM` R/Bioconductor package.
+
+#### References
+
+https://bioconductor.org/packages/FlowSOM/
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+[flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
+,flowcytometry;rnaseq
+flowsom_mst_shiny_operator,# FlowSOM MST Shiny operator for Tercen
+
+##### Description
+
+The `FlowSOM_MST` operator for flow cytometry data creates the Minimum Spanning Tree based on FlowSOM clustering.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Input parameters|.
+---|---
+`nclust`   | Number of clusters to make (default = `NULL`)
+`maxMeta`   | Maximal number of cluster (ignored if `nclust` is not `NULL`)
+`seed`   | Random seed
+
+Output relations|.
+---|---
+`Operator view`| MST plot.
+
+##### Details
+
+The operator is a wrapper for the `PlotStars` function of the `FlowSOM` R/Bioconductor package.
+
+#### References
+
+https://bioconductor.org/packages/FlowSOM/
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+
+,flowsom
+flowsom_operator,# FlowSOM operator
+
+##### Description
+
+`FlowSOM` operator for flow cytometry data.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Input parameters|.
+---|---
+`nclust`   | Number of clusters to make (default = `NULL`)
+`maxMeta`   | Maximal number of cluster (ignored if `nclust` is not `NULL`)
+`seed`   | Random seed
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|---
+`cluster`| character, cluster label
+
+##### Details
+
+The operator is a wrapper for the `FlowSOM` function of the `FlowSOM` R/Bioconductor package.
+
+#### References
+
+https://bioconductor.org/packages/FlowSOM/
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+[flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
+,flow cytometry
+foldchange_operator,# foldchange operator
+
+#### Description
+`foldchange` operator performs a fold change (i.e. ratio) caculation between two values.
+
+##### Usage
+Input projection|.
+---|---
+`x-axis`  | contains the grouping factor for the fold change calculation, 
+`y-axis` | values
+
+Input parameter|.
+---|---
+`reverse`  | logical, to reverse the calculation, default is `FALSE`
+
+
+Output relations|.
+---|---
+`FoldChange`| numeric, foldchange, calculated per cell
+
+##### Details
+A foldchange operation is performed per cell. Each cell has values defined by the y-axis and seperated by the x-axis. The result of the foldchange is the ratio of the first divided by the second. If reverse is selected then the order of the ratio is changed.
+
+
+#### References
+
+##### See Also
+[ratio](https://github.com/tercen/ratio_operator),[logfoldchange](https://github.com/tercen/logfoldchange_operator)
+#### Examples
+
+
+
+
+ 
+ 
+,simple statistics
+gfr_operator,# eGFR operator
+
+#### Description
+`eGFR` operator calculates the glomerular filtration rate.
+
+
+##### Usage
+Input projection|.
+---|---
+`col` | 2nd factor age, 3rd factor gender
+`y-axis, layer1`| is the value for serum creatine marker
+`y-axis, layer2`| is the value for serum cystatin c marker
+
+
+Output relations|.
+---|---
+`eGFR_0`| numeric, equation 0 calculation of the GFR estimate (e.g. per cell)
+`eGFR_1`| numeric, equation 1 calculation of the GFR estimate (e.g. per cell)
+`eGFR_2`| numeric, equation 2 calculation of the GFR estimate (e.g. per cell)
+`eGFR_3`| numeric, equation 3 calculation of the GFR estimate (e.g. per cell)
+
+##### Details
+`gfr` operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.
+
+equation 0:
+```r
+    a <- ifelse (gender=="Female", -0.248, -0.207) 
+    k <- ifelse (gender=="Female", 0.7, 0.9) 
+    eGFR <-  135 * (min(crt/k, 1))^a * (max(crt/k, 1))^-0.601 * (min(cyt/0.8, 1))^-0.375 * (max(cyt/0.8, 1))^-0.711 * 0.995^age
+    eGFR <- ifelse (gender=="Female",0.969 * eGFR, eGFR)
+    eGFR <- ifelse (race=="Black",1.08 * eGFR, eGFR)
+```
+
+equation 1:
+```r
+    if (gender == "Female"){
+           if   (crt <= 0.7) { eGFR <- 144 * (crt/ 0.7)^-0.329  * 0.995^age }
+           if   (crt >  0.7) { eGFR <- 144 * (crt/ 0.7)^-1.209 * 0.995^age }
+    }
+    if (gender == "Male"){
+           if   (crt <= 0.9) { eGFR <- 144 * (crt/ 0.9)^-0.411  * 0.995^age }
+           if   (crt >  0.9) { eGFR <- 144 * (crt/ 0.9)^-1.209 * 0.995^age }
+    }
+    eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
+```
+
+equation 2:
+```r
+      if   (cyt <= 0.8) { eGFR <- 133 * (cyt/ 0.8)^-0.449 * 0.996^age }
+      if   (cyt >  0.8) { eGFR <- 133 * (cyt/ 0.8)^-1.328 * 0.996^age }
+      
+    eGFR <- ifelse (gender=="Female",0.932 * eGFR, eGFR)
+```
+
+equation 3:
+```r
+    if (gender == "Female"){
+      if   (crt <= 0.7 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.248 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt <= 0.7 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.248 * (cyt/ 0.8)^-0.711 * 0.995^age }
+      if   (crt >  0.7 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt >  0.7 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.711 * 0.995^age }
+    }
+    if (gender == "Male"){
+      if   (crt <= 0.9 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.207 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt <= 0.9 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.207 * (cyt/ 0.8)^-0.711 * 0.995^age }
+      if   (crt >  0.9 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt >  0.9 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.711 * 0.995^age }
+    }
+      eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
+```
+
+
+#### References
+ 
+ref for equation 0: [https://www.kidney.org/professionals/kdoqi/gfr_calculator]
+
+
+##### See Also
+
+
+#### Examples
+,simple statistics;Pharma
+gsea_operator,# Gene Set Enrichment Analysis operator
+
+##### Description
+
+`gsea` operator performs a Gene Set Enrichment Analysis (GSEA).
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`     | numeric, measurement (e.g. normalized gene expression value) 
+`row`        | factor, gene set
+`col`        | factor, gene name
+
+Properties|.
+---|---
+`min_size`     | numeric, minimal size of a gene set to be considered in the analysis (default: 10)
+`max_size`     | numeric, maximal size of a gene set to be considered in the analysis (default: 500)
+`n_perm`     | numeric, number of permutations (default: 1000)
+
+Output relations|.
+---|---
+`pval`        | numeric, p-value of the test
+`padj`        | numeric, adjusted p-value of the test
+`ES`        | numeric, enrichment score
+`NES`        | numeric, normalised enrichment score
+
+##### Details
+
+##### References
+
+This operator is a wrapper of the `fgsea` function from the `fgsea` [R/Bioconductor package](http://bioconductor.org/packages/release/bioc/html/fgsea.html).
+
+See [GSEA on Wikipedia](https://en.wikipedia.org/wiki/Gene_set_enrichment_analysis).
+
+##### See Also
+
+[read_gmt_operator](https://github.com/tercen/read_gmt_operator)
+,bioinformatics
+hclust_operator,# hclust operator
+
+#### Description
+`hclust` operator performs a hierarchical clustering.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the row data
+`col`   | represents the col data
+`y-axis`| is the value of measurement
+
+
+Input parameters|.
+---|---
+`scale`   | boolean, scaled to have unit variance before the analysis takes place
+`center`  | boolean, shifted to be zero center before the analysis takes place
+`fill` | numeric, a fill in value for datapoints structural missings
+
+Output relations|.
+---|---
+`rorder`| numeric, order of rows after clustering
+`corder`| numeric, order of cols after clustering
+
+##### Details
+The operator is the `hclust` function of the `base` R package.
+
+
+#### References
+see https://en.wikipedia.org/wiki/Hierarchical_clustering
+
+
+##### See Also
+
+
+#### Examples
+,multivariate statistics
+heatmap_shiny_operator,# Shiny Heatmap Tercen operator
+
+##### Description
+
+The `Shiny Heatmap operator` plots a clustered heatmap.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`           | factor, variables
+`col`           | factor, observations 
+`y-axis`           | numeric, measurement (corresponding to the color on the heatmap) 
+
+Output relations|.
+---|---
+`Operator view`        | view of the Shiny application
+
+##### References
+
+This operator is based on the [pheatmap R function](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12/topics/pheatmap).
+
+##### See Also
+
+[pairwise_distance_operator](https://github.com/tercen/pairwise_distance_operator), [hclust_operator](https://github.com/tercen/hclust_operator)
+,heatmap
+impute_operator,# impute operator
+
+##### Description
+`impute` operator replaces NA with zero.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data for the imputation, per cell 
+
+Output relations|.
+---|---
+`impute`        | numeric, a copy of the input data with NA replaces with zeros 
+
+##### Details
+The operator takes all the values of a cell and replaces it with the mean and if all values are NA then it is replaced with zero. The imputation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+,basic statistics
+IQR_operator,# IQR operator
+
+##### Description
+
+The `IQR` operator returns the interquartile range of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`iqr`        | numeric, median of the input data
+
+##### Details
+
+The operator takes all the values of a cell and returns the IQR value. The computation is done per cell and a single value is returned for each of the input cell.
+
+#### References
+
+https://en.wikipedia.org/wiki/Interquartile_range
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+[sd_operator](https://github.com/tercen/sd_operator)
+[cv_operator](https://github.com/tercen/cv_operator)
+
+,basic statistics
+lm_operator,# lm operator
+
+#### Description
+
+The `lm` operator performs a linear regression in Tercen.
+
+##### Usage
+Input projection|.
+---|---
+`y-axis`| measurement value
+`x-axis`| explanatory value
+
+Output relations|.
+---|---
+`intercept`| numeric, p-value calculated per cell
+`slope`| numeric, p-value calculated per cell
+`fit.x`| numeric, lowest and highest x values
+`fit.y`| numeric, lowest and highest predicted y values
+
+##### Details
+
+The `lm` operator performs a linear regression on each cell.
+
+#### References
+
+See [Linear regression on Wikipedia](https://en.wikipedia.org/wiki/Linear_regression) and
+`lm` [R function documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm).
+
+##### See Also
+
+[anova](https://github.com/tercen/anova_operator)
+
+,linear model
+logfoldchange_operator,# logfoldchange operator
+
+#### Description
+`logfoldchange` operator performs a fold change (i.e. ratio) caculation between two values.
+
+##### Usage
+Input projection|.
+---|---
+`x-axis`  | contains the grouping factor for the log2 fold change calculation, 
+`y-axis` | values
+
+Input parameter|.
+---|---
+`reverse`  | logical, to reverse the calculation, default is `FALSE`
+
+
+Output relations|.
+---|---
+`logFC`| numeric, logfoldchange calculated per cell
+
+##### Details
+A `logfoldchange` operation is performed per cell. Each cell has values defined by the y-axis and seperated by the x-axis. The result of the logfoldchange is the log2 values where of the first is substrated by the second. If reverse is selected then the order of the substraction is changed.
+
+
+#### References
+
+##### See Also
+[ratio](https://github.com/tercen/ratio_operator),[foldchange](https://github.com/tercen/foldchange_operator)
+#### Examples
+,simple statistics
+log_operator,# log operator
+
+#### Description
+`log` operator performs a log of values
+
+##### Usage
+Input projection|.
+---|---
+`y-axis` | values to be logged
+
+Input parameters|.
+---|---
+`base` | numeric, log base, default is 10
+
+Output relations|.
+---|---
+`log`| numeric, log per data point
+
+##### Details
+A log of values is performed.
+
+
+#### References
+see the `base::log` function of the R package for the documentation, 
+
+
+##### See Also
+
+#### Examples
+
+
+
+
+ 
+ 
+,simple statistics
+max_operator,# max operator
+
+##### Description
+
+`max` operator returns the maximum of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`max`        | numeric, max of the input data
+
+##### Details
+
+The operator takes all the values of a cell and returns the value which is the maximum. The computation is done per cell (one value is returned for each input cell).
+
+##### References
+
+Based on the [max R function](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Extremes.html).
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
+,basic statistics
+mds_operator,# MDS operator
+
+##### Description
+
+`MDS` operator performs a Multidimensional Scaling analysis.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, distance measure
+`col`        | character, `dist_to` variable obtained from a `pairwise_distance` operator
+`row`        | character, variables
+
+Output relations|.
+---|---
+`mds_1`        | numeric, first dimension
+`mds_2`        | numeric, second dimension
+
+##### Details
+
+The operator takes as input a pariwise distance matrix as obtained with the [pairwise_distance_operator](https://github.com/tercen/pairwise_distance_operator).
+
+##### References
+
+This operator is a wrapper of the [cmdsale R function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html).
+
+##### See Also
+
+[pca_operator](https://github.com/tercen/pca_operator), [pairwise_distance_operator](https://github.com/tercen/pairwise_distance_operator)
+,multivariate statistics
+mean_imputation_operator,# Mean imputation operator
+
+##### Description
+
+`mean_imputation` operator replaces missing values by the column mean.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | factor, observations 
+`column`     | factor, variables 
+`y-axis`     | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`mean_imputed`        | numeric, measurements with imputed values
+
+##### Details
+
+The operator replaces missing values (`NA`) by the column mean.
+
+##### References
+
+See [Mean substitution on Wikipedia](https://en.wikipedia.org/wiki/Imputation_(statistics)#Mean_substitution).
+
+##### See also
+
+[impute_operator](https://github.com/tercen/impute_operator)
+,basic statistics
+mean_operator,# mean operator
+
+##### Description
+`mean` operator computes the mean of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data for the mean, per cell 
+
+Output relations|.
+---|---
+`mean`          | numeric, mean of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their mean. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+,basic statistics
+mean_sd_operator,# mean sd operator
+
+##### Description
+`mean sd` operator computes the mean and standard deviation of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`mean`       | numeric, mean of the input data
+`sd`         | numeric, standard deviation of the input data
+
+##### Details
+The operator takes all the values of a cell and calculates their mean and standard deviation. The computation is done per cell. There are two value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+,basic statistics
+median_operator,# Median operator
+
+##### Description
+`Median` operator returns the median of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`median`        | numeric, median of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+#### Examples
+,basic statistics
+median_operator-1,```R 
+packrat::init(options = list(use.cache = TRUE)) 
+```,basic statistics
+MEM_operator,# MEM operator
+
+##### Description
+
+`Marker Enrichment Modeling` operator for flow cytometry data.
+
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`colors`   | represents the groups (e.g. flowSOM clusters) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Output relations|.
+---|---
+`mem`| numeric, mem scores per row and per color (e.g. per channel/marker and per flowSOM clusters)
+`cluster`| character, cluster value
+
+##### Details
+
+The operator is a wrapper for the `MEM` function of the `MEM` R package.
+
+#### References
+
+https://github.com/cytolab/mem
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+[flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
+
+,flow cytometry
+mixed_model_operator,# mixed model operator
+
+#### Description
+mixed model modelling of input data.
+
+##### Usage
+Input projection|.
+---|---
+`col`   | fixed effects
+`y-axis`| response data
+`x-axis`| effect under study
+`label` | random intercept/slope effects
+`color` | random intercept effects
+
+
+Input parameters|.
+---|---
+`model`  | A two-sided linear formula object describing both the fixed-effects and random-effects part of the model, with the response on the left of a ~ operator and the terms, separated by + operators, on the right. Random-effects terms are distinguished by vertical bars (|) separating expressions for design matrices from grouping factors. Two vertical bars (||) can be used to specify multiple uncorrelated random effects for the same grouping variable
+`null.model` |A two-sided linear formula object describing both the fixed-effects and random-effects part of the model, with the response on the left of a ~ operator and the terms, separated by + operators, on the right. Random-effects terms are distinguished by vertical bars (|) separating expressions for design matrices from grouping factors. Two vertical bars (||) can be used to specify multiple uncorrelated random effects for the same grouping variable"
+
+Output relations|.
+---|---
+`pv`| numeric, Chisq, pvalue
+`results`| numeric list of results
+`residual`| numeric, residual per fitted data point
+
+##### Details
+
+```R
+Y ~ X + Column + (1 + X | Label) + (1 | Color)
+```
+The  model is fitted on each Row factor defined in the crosstab projection.
+
+#### References
+see the `base:lmer` function of the R package for the documentation, 
+
+
+##### See Also
+
+
+#### Examples
+,
+msa_operator,# Multiple Sequence Alignment operator
+
+##### Description
+
+`msa` operator performs Multiple Sequence Alignment.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        |  factor, sequence names/IDs
+`col`        |  numeric, position
+`y-axis`        |  numeric, value corresponding to amino or nucleic acid
+`color`        |  factor, optional, letter
+
+Properties|.
+---|---
+`sequence_type` | whether it is `dna`, `rna`, or `protein` sequences
+`method`        | alignment method, can be `ClustalW`, `Muscle`, `DECIPHER`, or `ClustalOmega`
+
+Output relations|.
+---|---
+`aligned_position`        | numeric, position in the alignment
+
+##### Details
+
+The operator uses the Clustal algorithm with default parameters.
+
+##### See Also
+
+https://github.com/tercen/readfasta_operator
+
+,bioinformatics
+msa_shiny_operator,# MSA Shiny operator
+
+##### Description
+
+The `MSA Shiny operator` allows one to create an interactive visualisation fo a Multiple Sequence Alignment.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`           | character, aligned sequences 
+`row`           | character, sequence names 
+
+Output relations|.
+---|---
+`Operator view`        | view of the Shiny application
+
+##### Details
+
+
+#### References
+
+
+##### See Also
+,bioinformatics
+myname_operator,# myname_operator
+template
+,NA
+nca_operator,# FoldChange : Fold change
+
+# Repository
+```
+https://github.com/tercen/nca_operator.git
+```
+
+## Deploy
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+# Feedback
+
+# Documentation
+see the doc directory
+,Pharmacokinetic;Pharma
+negative_operator,# negative operator
+
+#### Description
+`negative` operator performs a negative of values
+
+##### Usage
+Input projection|.
+---|---
+`y-axis` | values to be negated
+
+Output relations|.
+---|---
+`negative`| numeric, negative per data point
+
+##### Details
+A negative of values is performed.
+
+
+#### References
+
+
+##### See Also
+
+#### Examples
+
+
+
+
+ 
+ 
+,simple statistics
+neighbourhood_operator,# neighbourhood operator
+
+##### Description
+`neighbourhood` operator returns a neighbourhood enrichment of clusters of tissue cells. 
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, object numbers (from cell profiler for example)
+`x-axis`        | numeric, input data, object numbers of neighbours (from cell profiler for example)
+`color`         | character, input data, color by cluster label
+
+Input Parameter |.
+---|---
+`permutation`   | numeric, number of permutations
+`num of cores`  | numeric, number of cores
+`seed`          | numeric, seed setting, -1 indicates random
+
+Output relations|.
+---|---
+`p`             | numeric, p-value of enrichment for each cluster pair
+
+##### Details
+
+The operator takes as input the neighboorhood annotation of cells (i.e. object) aswell as the cluster label of the cells. The ouput is a p-value indicating how enriched (or depleted), in terms of neighbours, for each cluster to cluster relationship.
+It uses the `neighbouRhood` code on the bodenmiller github location (https://github.com/BodenmillerGroup/neighbouRhood).
+
+The neighbour relationship of the cells typically comes from Cell Profiler tool but any tool which generates cell neighbourhood information can be used. 
+
+#### References
+
+
+##### See Also
+
+[clusterx_operator](https://github.com/tercen/clusterx_operator)
+
+#### Examples
+,flowcytometry;image flowcytometry
+normalyzer_operator,# normalyzer_operator
+normalization methods from the NormalyzerDE package
+,normalization
+oldflowsom_operator,# flowsom operator
+
+#### Description
+`flowsom` operator performs the SOM (self organizing maps) in the `flowSOM` R package.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+
+Input parameters|.
+---|---
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|---
+`mapping_node_num`| numeric, per column (e.g. per cell)
+`mapping_node_label`| character, per column (e.g. per cell)
+
+##### Details
+The operator is the `SOM` function of the `flowSOM` R package.
+
+
+#### References
+see the `flowSOM::SOM` function of the R package for the documentation, 
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+#### Examples
+,clustering;flow cytometry
+optics11_operator,# Optics11 
+ ,
+orderBy_operator,# orderBy operator
+
+##### Description
+
+Order data according to row- or column-wise metrics.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | rows to order 
+`column`        | columns to order
+`y-axis`        | numeric, input data, per cell 
+
+Input parameters|.
+---|---
+`decreasing`   | boolean, whether the order is ascending (default) or descending
+`function`  | character, function to apply to each row/column
+
+Output relations|.
+---|---
+`rorder`        | numeric, row order (rank)
+`corder`        | numeric, column order (rank)
+
+,basic operations
+pairwise_RMSD_operator,# Pairwise RMSD operator
+
+##### Description
+
+The `pairwise_RMSD` operator returns the Relative Mean Squared Deviation computed between pairs of variables.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | factor, input variables 
+`col`        | factor, observations 
+`.y`        | numeric, measurements
+
+Output relations|.
+---|---
+`rmsd`        | numeric, RMSD
+`to`        | numeric, variable to be projected against the initial one for pairwise distance visualisation
+
+##### Details
+
+##### References
+
+##### See Also
+
+##### Examples
+,basic statistics
+pca_operator,# pca operator
+
+#### Description
+`pca` operator performs principle component analysis.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+---|---
+`scale`   | logical, indicating whether the variables should be scaled to have unit variance before the analysis takes place
+`center`   | logical, indicating whether the variables should be shifted to be zero centered before the analysis takes place
+`na.action`| A function which indicates what should happen when the data contain NAs
+`tol`| numeric, indicating the magnitude below which components should be omitted. Components are omitted if their standard deviations are less than or equal to tol times the standard deviation of the first component
+`maxComp`| numeric, maximum number of components to return, default 5
+
+
+Output relations|.
+---|---
+`pca1, pca2, pca3, pca4, pca5`| first five components containing the new projected values
+
+
+##### Details
+The operator performs principal component analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 5).
+
+
+#### Reference
+
+##### See Also
+[tsne](https://github.com/tercen/tsne_operator)
+
+#### Examples
+,multivariate statistics
+pearson_operator,# pearson operator
+
+#### Description
+`pearson` operator performs a person correlation of two input sets of data per cell
+
+##### Usage
+Input projection|.
+---|---
+`x-axis`  | value of one group of data
+`y-axis` | value of other group of data
+
+
+Output relations|.
+---|---
+`cor`| numeric, pearson correlation calculated per cell
+`pv`| numeric, p-value calculated per cell
+
+##### Details
+A pearson correlation is performed per cell where the two groups of data to be correlated are found on the `x-axis` and `y-axis`.
+This operator is ideally suited as an operator for multiple pairwise projections in Tercen.
+
+
+#### References
+see the `base::cor.test` function of the R package for the documentation, 
+
+
+##### See Also
+
+#### Examples
+
+
+
+
+ 
+ 
+,simple statistics
+percentile_operator,# Percentile operator
+
+##### Description
+`percentile` operator returns the percentile of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell
+
+Input parameters|.
+---|---
+`percentile` | numeric, the percentile to use, default is 0.01, 1% percentile
+
+Output relations|.
+---|---
+`percentile`    | numeric, percentile of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the precentile value. The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/max_operator), [sum_operator](https://github.com/tercen/min_operator)
+
+
+#### Examples
+,basic statistics
+product_operator,# product operator
+
+##### Description
+`product` operator computes the product (i.e. multiplication) of a set of points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`           | is the input data for the multiplication per cell 
+
+Input parameters|.
+---|---
+`remove NA`        | boolean, default is `FALSE`
+
+Output relations|.
+---|---
+`product`          | numeric, product of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their product. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[sum_operator](https://github.com/tercen/sum_operator), [ratio_operator](https://github.com/tercen/ratio_operator)
+
+
+#### Examples
+,simple arithmetic
+randomlabel_operator,# Random label operator
+
+##### Description
+
+The `Random label` operator returns a random label per column.
+
+##### Usage
+
+Input projection|.
+---|---
+`column`        | input data, per cell 
+
+Output relations|.
+---|---
+`label`        | numeric, random number between 0 and 100
+
+Parameters|.
+---|---
+`seed`        |  random seed
+
+##### Details
+
+The `Random label` operator can be used to randomly sample data. A number is sampled from a uniform distribution U(0, 100) and assigned to each column.
+
+##### See Also
+
+[downsample_operator](https://github.com/tercen/downsample_operator/)
+,sampling
+ratio_operator,# ratio operator
+
+##### Description
+`ratio` operator computes the ratio of two data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`           | is the dividend of ratio
+`x-axis`           | is the divisor of ratio
+
+Output relations|.
+---|---
+`ratio`          | numeric, ratio value returned per cell
+
+##### Details
+The operator takes the value defined by the y-axis and divides it by the value defined by the x-axis. The computation is done per cell. There is one value calculated and returned for each data point.
+
+#### References
+
+
+##### See Also
+
+[sum](https://github.com/tercen/sum_operator), [product](https://github.com/tercen/product_operator)
+
+
+#### Examples
+,simple arithmetic
+readAnnotatedDataFrame_operator,# AnnotatedDataFrame operator
+
+##### Description
+
+Converts a RData file containing an AnnotatedDataFrame object to a Tercen dataset.
+
+##### Usage
+
+Input projection|.
+---|---
+`documentId`        | is the documentId 
+
+Output relations|.
+---|---
+`documentId`          | character, the id of the document
+
+##### Details
+
+An AnnotatedDataFrame consists of two parts. There is a collection of samples and the values of variables measured on those samples. There is also a description of each variable measured.
+
+#### References
+
+[AnnotatedDataFrame](https://rdrr.io/bioc/Biobase/man/class.AnnotatedDataFrame.html)
+,file conversion
+readrds_operator,# readRDS operator
+
+##### Description
+`readRDS` operator imports rdsdata files
+
+##### Usage
+
+Input projection|.
+---|---
+`col`        | documentid, this the documentid of the file
+
+Output relations|.
+---|---
+a tercen table   | tableid, for every tablid there is a documentid relation 
+
+##### Details
+
+The operator takes the documentIds (i.e. the RDS data file) and converts them to a tercen table.
+
+#### References
+
+see the `readRDS()` function in base R.
+
+##### See Also
+
+[readxls_operator](https://github.com/tercen/readxls_operator)
+#### Examples
+,rds;import
+readxl_operator,# Read excel file operator
+
+##### Description
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | is the documentId 
+
+Output relations|.
+---|---
+ 
+
+##### Details
+The operator import excel document to tercen.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+,excel;import
+read_fasta_operator,# Read FASTA operator
+
+##### Description
+
+`read_fasta` operator reads a FASTA file into Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`col`        | factor, document ID
+
+Output relations|.
+---|---
+`name`        | factor, sequence name
+`position`    | numeric, position of amino or nucleic acid in the sequence
+`letter`      | factor, letter corresponding to an amino or nucleic acid
+`value`       | numeric, numeric value associated to an amino or nucleic acid
+
+##### Details
+
+This opeartor reads a FASTA file and returns a table with one row per sequence per letter. Columns correspond to the sequence `name` (extracted from identifier lines starting with `>`), `position` on the sequence (starting from `1` at the beginning of the sequence), the `letter` (corresponding to an amino or nucleic acid), and a `value` (corresponding to a numeric encoding of letters for visualisation purposes).
+
+##### References
+
+[FASTA format on Wikipedia](https://en.wikipedia.org/wiki/FASTA_format).
+
+##### See Also
+
+[msa_operator](https://github.com/tercen/msa_operator)
+,import;bioinformatics;sequence analysis
+read_FCSzip_operator,# FCS ZIP operator
+
+##### Description
+
+Transform zipped fcs files to tercen dataset.
+
+##### Usage
+
+Input projection|.
+---|---
+`documentId`        | is the documentId, a zip file
+
+Output relations|.
+---|---
+`filename`          | character, the name of the fcs file
+`channels`          | numeric, one variable per channel in the fcs file
+
+##### Details
+
+Extracts a ZIP archive of fcs files and tranforms them to tercen datasets.
+
+Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+,import
+read_fcs_operator,# Read FCS operator
+
+##### Description
+
+`read_fcs` operator transforms FCS files to Tercen datasets.
+
+##### Usage
+
+Input projection|.
+---|---
+`documentId`        | is the documentId 
+
+Output relations|.
+---|---
+`documentId`          | character, the id of the document
+
+##### Details
+
+Transforms FCS files to Tercen dataset. 
+
+The Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.
+,import
+read_gmt_operator,# Read GMT operator
+
+##### Description
+
+`read_gmt` reads a GMT file containing a gene set annotation.
+
+##### Usage
+
+Input projection|.
+---|---
+`col`        | character, GMT document ID
+
+Output relations|.
+---|---
+`set_name`        | character, gene set name
+`set_description`        | character, gene set description
+`set_genes`        | character, gene name
+
+##### Details
+
+GMT is a standard gene set format.,file conversion
+read_VCF_operator,# Introduction
+
+This is a template repository.
+
+Use this template repository during the first step of developing a tercen operator (in R) on github.
+
+An overview of steps for developing an operator are:
+
+1. create a github repo
+2. install tercen_studio
+3. login to tercen_studio
+4. git clone the newly created repo
+5. start developing in R in tercen_studio
+6. add R packages to the repo
+7. push to the github repo
+8. go to tercen and install the operator
+
+For step 1, when creating the repo on github, you will notice the option to use a template repository, choose the `templateR_operator` repository and select it as the template repository.
+
+After creation, you now have a new repository with all the convenient files for making a new operator (in R) for tercen.
+
+Use `tercen_studio` to clone the new repository and start programming in `tercen_studio`
+
+it includes the skeleton files 
+
+* `main.R`
+* `workspace.R`
+* `operator.json`
+* `README_template.md`
+* `doc` directory
+
+please remember to change the `README_template.md` to  `README.template.md`
+
+inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
+,basic statistics
+replace_operator,# Replace operator
+
+##### Description
+
+The `replace` operator performs the replacement of the first or all matches of a string.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | character, strings to be replaced
+
+Properties|.
+---|---
+`type`        | character, replace the `first` or `all` matches (default: all)
+`what`        | character, pattern to be matched (regular expression)
+`by`        | character, a replacement for matched pattern
+
+Output relations|.
+---|---
+`string`        | character, string with replaced matches
+
+##### Details
+
+The operator is based on the R functions `gsub` and `sub`.
+
+##### See Also
+
+[separate_operator](https://github.com/tercen/separate_operator)
+
+,text manipulation
+rfImp_operator,# rfImp operator
+
+#### Description
+`rfImp` operator computes random forest importance values for a given dataset
+
+##### Usage
+Input projection|.
+---|---
+`labels`   | indicates the groups to compare 
+`row`  | indicates the variables (e.g. genes, markers) 
+`col`  | indicates the observations (e.g. samples, cells, individuals) 
+`y-axis`| measurement value
+
+Output relations|.
+---|---
+` rfImp`| numeric, importance value calculated per row (i.e. variable)
+
+##### Details
+`rfImp` operator computes random forest importance values for each independant variable (i.e. row) of the dataset. An importance value is a value representing how important the variable is for the seperation of the groups. 
+
+
+#### References
+- Wright, M. N. & Ziegler, A. (2017). ranger: A fast implementation of random forests for high dimensional data in C++ and R. J Stat Softw 77:1-17. https://doi.org/10.18637/jss.v077.i01.
+- see the `ranger::ranger` function of the R package for the documentation. 
+
+
+
+##### See Also
+[ttest](https://github.com/tercen/ttest_operator), [anova](https://github.com/tercen/anova_operator)
+
+#### Examples
+
+
+,multivariate analysis
+RMSD_operator,# RMSD operator
+
+##### Description
+
+`RMSD` operator returns the Relative Mean Square Deviation of two variables.
+
+##### Usage
+
+Input projection|.
+---|---
+`x-axis`        | numeric, input data, per cell 
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`rmsd`        | numeric, RMSD of the input data
+
+##### Details
+
+#### References
+
+##### See Also
+
+[lm_operator](https://github.com/tercen/lm_operator)
+
+#### Examples
+,basic statistics
+round_operator,# Round operator
+
+##### Description
+
+`Round` operator implements different number rounding methods.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell
+
+Output relations|.
+---|---
+`rounded`        | numeric, rounded input data
+
+,basic statistics
+rphenograph_operator,# rphenograph operator
+
+#### Description
+`rephenograph` operator performs a phenotype clustering in the `Rphenograph` R package.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+
+Input parameters|.
+---|---
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|---
+`mapping_node_num`| numeric, per column (e.g. per cell)
+`mapping_node_label`| character, per column (e.g. per cell)
+
+##### Details
+The operator is the `rphenograph` function of the `Rphenograh` R package.
+
+
+#### References
+see the `rphenograph::SOM` function of the R package for the documentation, 
+
+
+##### See Also
+
+
+#### Examples
+,clustering;flow cytometry
+sample_operator,# Sample operator
+
+##### Description
+`Sample` operator returns a sample of the specified size from the set of data points using either with or without replacement.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`      | numeric, input data
+`cols`        | numeric, observations, the sample factor(s) 
+
+Input parameters|.
+---|---
+`size`   | numeric, the fraction to sample, default is 1 (100% percent)
+`replace` | boolean, should replacement be used? , default is false (no replacement)
+
+Output relations|.
+---|---
+`sample`        | numeric, sample of the input data
+
+##### Details
+The operator randomly selects columns (i.e. samples)
+
+#### References
+See the `sample` function in base R.
+
+
+##### See Also
+
+#### Examples
+,basic statistics
+scale_operator,# scale operator
+
+##### Description
+
+`scale` operator performs a scaling of the data
+
+##### Usage
+
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers, genes)
+`col`   | represents the observations (e.g. cells, samples, indviduals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+---|---
+`scale`   | logical, if scale is `TRUE` then scaling is done by dividing the (centered) row of x by their standard deviations if center is TRUE, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.
+`center`  | If center is `TRUE` then centering is done by subtracting the row means (omitting NAs) of x from their corresponding columns, and if center is `FALSE`, no centering is done.
+
+Output relations|.
+---|---
+`scale`| numeric, per cell
+
+##### Details
+
+The operator is the `scale` function in base R.
+
+##### References
+
+See the `base::scale` function of the R package for more details.
+
+
+,simple statistics
+sd_operator,# sd operator
+
+##### Description
+`sd` operator computes the standard deviation of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | is the input data for the sd, per cell 
+
+Output relations|.
+---|---
+`sd`          | numeric, sd of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their standard deviation. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator), [sum_operator](https://github.com/tercen/sum_operator)
+
+
+#### Examples
+
+,basic statistics
+separate_operator,# Separate operator
+
+##### Description
+
+`Separate` a character column into multiple columns with a regular expression or numeric locations.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | single character column
+
+Output relations|.
+---|---
+`col1`          | numeric or character
+`col2`          | numeric or character
+`etc..`          | multiple columns
+
+##### Details
+
+Given a regular expression , `Separate` turns a single character column into multiple columns.
+
+##### References
+
+This operator is a wrapper of the [strsplit R function](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strsplit).
+
+##### See Also
+
+[replace_operator](https://github.com/tercen/replace_operator)
+,data wrangling
+seq2table_operator,# Sequence to table operator
+
+##### Description
+
+`seq2table` Converts a biological sequence to a tabular format.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | character, sequences to convert
+
+Output relations|.
+---|---
+`letter`        | character, letter (amino or nucleic acid)
+`position`        | numeric, position in the sequence
+`presence`        | boolean, presence of a letter (if 0, gap in the alignment corresponding to a "-" character in the sequence)
+
+##### Details
+
+#### References
+
+##### See Also
+
+#### Examples
+,bioinformatics
+seqlen_operator,# Seqlen operator
+
+##### Description
+`Seqlen` operator creates a sequence annotation for a data series
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+`x-axis`        | numeric, input data, ordering of the data series
+
+Output relations|.
+---|---
+`seq`         | numeric, sequence of the input data
+
+##### Details
+The operator takes all the values of a cell ordered by the 'x-axis'and gives a sequence number to each data point in the cell.
+
+#### References
+
+
+##### See Also
+
+[topn_operator](https://github.com/tercen/topn_operator)
+
+#### Examples
+,basic statistics
+shift_operator,# Shift operator
+
+#### Description
+`shift` operator performs a shift by a constant value.
+
+##### Usage
+Input projection|.
+---|---
+`y-axis` | values as input to the shift operator
+
+Input parameters|.
+---|---
+`constant` | numeric, the shift value, default is 0
+
+Output relations|.
+---|---
+`shift`| numeric, output shift transformation per data point
+
+##### Details
+A shift by a constant value is performed to all data points.
+```r
+value + shift
+```
+#### References
+
+##### See Also
+
+#### Examples
+,simple statistics
+shiny_boxplot_operator,# Setup packrat 
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+```R
+shiny::runApp(port=3044, launch.browser = TRUE)
+```
+
+ 
+
+
+
+
+
+,basic statistics
+shiny_docker_operator,# shiny_docker_operator
+
+```
+https://github.com/tercen/shiny_docker_operator.git
+```
+
+## Build
+
+```bash
+VERSION=0.10.0.1
+docker build -t tercen/shiny_docker_operator:$VERSION .
+docker push tercen/shiny_docker_operator:$VERSION
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+```
+ ,basic statistics
+shiny_operator,# Shiny app
+
+A simple histrogram using rtercen client.
+
+```R
+library(shiny)
+library(rtercen)
+ 
+# devtools::install_github("tercen/rtercen")
+  
+shinyServer(function(input, output, session) {
+  
+  dataInput = reactive({getValues(session)})
+
+  output$distPlot <- renderPlot({
+
+    # generate bins based on input$bins from ui.R
+    x    <- dataInput()
+  
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+    # draw the histogram with the specified number of bins
+    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+
+  })
+
+})
+
+getValues = function(session){
+  # retreive url query parameters provided by tercen
+  query = parseQueryString(session$clientData$url_search)
+  
+  token = query[["token"]]
+  workflowId = query[["workflowId"]]
+  stepId = query[["stepId"]]
+  
+  # create a Tercen client object using the token
+  client = rtercen::TercenClient$new(authToken=token)
+  # get the cube query defined by your workflow
+  query = client$getCubeQuery(workflowId, stepId)
+  # execute the query and get the data
+  cube = query$execute()
+  
+  x = cube$sourceTable$getColumn("values")$getValues()$getData()
+  return(x)
+}
+
+```
+
+# Deployment
+## shinyapps.io
+
+Visit https://www.shinyapps.io/
+
+## tercen.com
+
+[Next to come](https://tercen.com) ...
+
+## How to link a shiny app into a Tercen workflow ?
+
+An External View step can be used.
+
+
+
+
+
+,NA
+shiny_operator2,# Setup packrat 
+
+```R
+ 
+packrat::init(options = list(use.cache = TRUE))
+   
+ 
+```
+
+# Shiny app
+
+A simple shiny tercen operator :
+ - display an histrogram
+ - compute the mean
+ 
+```
+devtools::install_github("tercen/teRcen")
+
+shiny::runApp(port=3044, launch.browser = FALSE)
+```
+
+ 
+
+
+
+
+
+,basic statistics
+signchange_operator,# signchange operator
+
+#### Description
+`signchange` operator negates the data value, i.e. sign changes
+
+##### Usage
+Input projection|.
+---|---
+`y-axis` | value of data to be sign changed
+
+
+Output relations|.
+---|---
+`signchange`| numeric, the opposite sign of the value
+
+##### Details
+The `sigchange` operator changes the sign of the data by negating the value.
+
+
+#### References
+
+##### See Also
+
+#### Examples
+
+
+
+
+ 
+ 
+,simple statistics
+snca_operator,# sNCA operator
+
+#### Description
+`snca` operator calculates a single non compartamental model for a dose/time series.
+
+
+##### Usage
+Input projection|.
+---|---
+`col` | 1st factor is the dose(mg)
+`y-axis`| is the value of the serum maker
+`x-axis`| is the time(hrs)
+
+
+Output relations|.
+---|---
+TMAX_h|
+CMAX_ng_per_ml|
+LAMZHL_h|
+AUC_0_4h_ng_per_ml|
+AUC_0_8h_ng_per_ml|
+AUC_0_12h_ng_per_ml|
+AUC_4_24h_ng_per_ml|
+AUC_0_24h_ng_per_ml|
+
+##### Details
+`snca` operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.
+
+
+#### References
+ 
+ref for equation 0: [https://www.kidney.org/professionals/kdoqi/gfr_calculator]
+
+
+##### See Also
+
+
+#### Examples
+,Pharmacokinetic;Pharma
+somflow_operator,# somflow operator
+
+#### Description
+`somflow` operator performs the SOM (self organizing maps) in the `FlowSOM` R package.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+
+Input parameters|.
+---|---
+`xdim`   | Width of the grid
+`ydim`   | Hight of the grid
+`rlen`| Number of times to loop over the training data for each MST
+`mst`| Number of times to build an MST
+`alpha_start`| Start learning rate
+`alpha_end`|  End learning rate
+`dstf`| Distance function (1=manhattan, 2=euclidean, 3=chebyshev, 4=cosine)
+
+Output relations|.
+---|--- 
+`mapping_node_label`| character, per column (e.g. per cell)
+
+##### Details
+The operator is the `SOM` function of the `flowSOM` R package.
+
+
+#### References
+see the `FlowSOM::SOM` function of the R package for the documentation, 
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+#### Examples
+,clustering;flow cytometry
+straf2tercen_operator,# STRAF to Tercen operator
+
+##### Description
+
+`straf2tercen` operator allows one to import STRAF input data into Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`median`        | numeric, median of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+#### Examples
+,file conversion
+straf_forensicparameters_operator,# Forensic parameters operator
+
+##### Description
+
+`Forensic parameters` operator returns STRAF Forensic parameters.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`median`        | numeric, median of the input data
+
+##### Details
+
+
+#### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+#### Examples
+,forensics
+subtract_operator,# subtract operator
+
+##### Description
+
+`subtract` operator computes the subtract of two data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`           | is the initial value before subtraction
+`x-axis`           | is the value to be subtracted from the initial value
+
+Output relations|.
+---|---
+`difference`          | numeric, difference value returned per cell
+
+##### Details
+
+The operator takes the value defined by the y-axis and subtracts it by the value defined by the x-axis. The computation is done per cell. There is one value calculated and returned for each data point.
+
+##### See Also
+
+[sum](https://github.com/tercen/sum_operator), [product](https://github.com/tercen/product_operator), [ratio](https://github.com/tercen/ratio_operator)
+,simple arithmetic
+sum_operator,# sum operator
+
+##### Description
+`sum` operator computes the sum of a set of data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`           | is the input data for the sum, per cell 
+
+Output relations|.
+---|---
+`sum`          | numeric, sum of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their sum. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [ratio_operator](https://github.com/tercen/ratio_operator)
+
+
+#### Examples
+,simple arithmetic
+template_docker_operator,# Template Docker Operator
+
+## For all operators
+
+* Replace repository URL
+
+* Replace version number in files
+
+## For R operators
+
+* isWebApp: false
+
+## For Shiny operators
+
+* isWebApp: true
+
+## Build the image
+
+```bash
+VERSION=0.10.0.1
+docker build -t tercen/shiny_docker_operator:$VERSION .
+docker push tercen/shiny_docker_operator:$VERSION
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+```
+,basic statistics
+template_R_operator,# Introduction
+
+This is a template repository.
+
+Use this template repository during the first step of developing a tercen operator (in R) on github.
+
+An overview of steps for developing an operator are:
+
+1. create a github repo
+2. install tercen_studio
+3. login to tercen_studio
+4. git clone the newly created repo
+5. start developing in R in tercen_studio
+6. add R packages to the repo
+7. push to the github repo
+8. go to tercen and install the operator
+
+For step 1, when creating the repo on github, you will notice the option to use a template repository, choose the `templateR_operator` repository and select it as the template repository.
+
+After creation, you now have a new repository with all the convenient files for making a new operator (in R) for tercen.
+
+Use `tercen_studio` to clone the new repository and start programming in `tercen_studio`
+
+it includes the skeleton files 
+
+* `main.R`
+* `workspace.R`
+* `operator.json`
+* `README_template.md`
+* `doc` directory
+
+please remember to change the `README_template.md` to  `README.template.md`
+
+inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
+,basic statistics
+template_shiny_operator,# Template Shiny operator for Tercen
+
+##### Description
+
+The `Template Shiny operator` is a template repository for the creation of Shiny operators in Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`x-axis`        | type, description 
+`y-axis`        | type, description 
+`row`           | type, description 
+`column`        | type, description 
+`colors`        | type, description 
+`labels`        | type, description 
+
+Output relations|.
+---|---
+`Operator view`        | view of the Shiny application
+
+##### Details
+
+The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
+
+#### References
+
+
+##### See Also
+
+[templateR_operator](https://github.com/tercen/templateR_operator)
+,template
+topn_operator,# topn operator
+
+##### Description
+
+`topn` operator returns  data points.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+---|---
+`elements`       | numeric, choosen elements of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the top n elements. 
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+,basic statistics
+tsne_operator,# tsne operator
+
+#### Description
+`tsne` operator performs tSNE analysis.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+---|---
+`dims`   | logical, output dimensionality, default 2
+`initial_dims`   | numeric, the number of dimensions that should be retained in the initial PCA step, default 50
+`perplexity`| numeric, perplexity parameter, default is 30
+`theta`| numeric, speed/accuracy trade-off (increase for less accuracy), set to 0.0 for exact TSNE, default 0.05
+`pca`| numeric, whether an initial PCA step should be performed, default `TRUE`
+`max_iter`| numeric, number of iteration, default 1000
+`pca_center`| logical, should data be centered before pca is applied ?
+`pca_scale`| logical, should data be scaled before pca is applied ?
+`stop_lying_iter`| numeric, Iteration after which the perplexities are no longer exaggerated
+`mom_switch_iter`| numeric, Iteration after which the final momentum is used
+
+
+Output relations|.
+---|---
+`tsne1, tsne2`| first two components containing the new projected values
+
+
+##### Details
+The operator performs tSNE analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 2).
+
+
+#### Reference
+
+##### See Also
+[pca](https://github.com/tercen/pca_operator)
+
+#### Examples
+,multivariate statistics
+ttest_operator,# ttest operator
+
+#### Description
+`ttest` operator performs a Student's t-test on the data
+
+##### Usage
+Input projection|.
+---|---
+`color`   | represents the groups to compare
+`y-axis`| measurement value
+
+Input parameters|.
+---|---
+`alternative`   | A character string specifying the alternative hypothesis, default is "two.sided"
+`mu`  | A number indicating the true value of the mean (or difference in means if you are performing a two sample test), default 0.0
+`var.equal`  |logical, indicating whether to treat the two variances as being equal. If `TRUE` then the pooled variance is used to estimate the variance otherwise the Welch (or Satterthwaite) approximation to the degrees of freedom is used, default `FALSE`
+`conf.level`  |numeric, confidence level of the interval, default 0.95
+
+Output relations|.
+---|---
+`pv`| numeric, p-value calculated per cell
+
+##### Details
+The operator is the `t.test` function in base R .
+
+
+#### References
+see the `base::t.test` function of the R package for the documentation, 
+
+
+##### See Also
+[anova](https://github.com/tercen/anova_operator),[rfImp](https://github.com/tercen/rfImp_operator)
+
+#### Examples
+
+
+,simple statistics
+twogroupttest_operator,# twogroupttest operator
+
+#### Description
+`twogroupttest` operator performs a Student's t-test on the data.
+
+##### Usage
+Input projection|.
+---|---
+`y-axis`  | measurement value
+`x-axis`  | represents the two groups to compare
+`color`   | represents the pairing
+
+Input parameters|.
+---|---
+`reverse`   | logical, indicating whether to reverse the calculation on the x-axis, default `FALSE`
+`paired`    | logical, indicating whether to perform pairing, default `FALSE`
+`alternative`   | A character string specifying the alternative hypothesis, default is "two.sided"
+`mu`  | A number indicating the true value of the mean (or difference in means if you are performing a two sample test), default 0.0
+`var.equal`  |logical, indicating whether to treat the two variances as being equal. If `TRUE` then the pooled variance is used to estimate the variance otherwise the Welch (or Satterthwaite) approximation to the degrees of freedom is used, default `FALSE`
+`conf.level`  |numeric, confidence level of the interval, default 0.95
+
+Output relations|.
+---|---
+`p_value`| numeric, p-value calculated per cell
+
+##### Details
+The operator is the `t.test` function in base R .
+
+
+#### References
+see the `base::t.test` function of the R package for the documentation, 
+
+
+##### See Also
+[anova](https://github.com/tercen/anova_operator),[rfImp](https://github.com/tercen/rfImp_operator)
+
+#### Examples
+
+
+,simple statistics
+umap_operator,# umap operator
+
+#### Description
+`umap` operator performs umap analysis.
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+---|---
+`init`           | character, type of initialization for the coordinates, see details
+`scale`          | numeric, type of scaling to apply to data
+`spread`         | numeric, the effective scale of embedded points. In combination with `min_dist`, this determines how clustered/clumped the embedded points are
+`min_dist`       | numeric, the effective minimum distance between embedded point 
+`pca`            | numeric, If set to a positive integer value, reduce data to this number of columns using PCA
+
+
+
+Output relations|.
+---|---
+`umap01, umap02`| first two components containing the new projected values
+
+
+##### Details
+
+The operator performs umap analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 2). This operators wraps the `uwot::umap()`. See (https://github.com/jlmelville/uwot) for more details, especially settings and examples.
+
+
+#### Reference
+
+##### See Also
+
+[pca](https://github.com/tercen/pca_operator), [tsne](https://github.com/tercen/tsne_operator)
+
+#### Examples
+
+,flowcytometry;rnaseq
+upperandlowerbounds_operator,# Upper and lower bounds operator
+
+#### Description
+
+`upperandlowerbounds` operator computes an upper and lower bound values as a fraction of a given data point.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`             | is the input data for the multiplication per cell
+
+Input parameters|.
+---|---
+`fraction`           | numeric, fraction value
+`percentage`         | boolean, the relative values are returned as percentages
+
+Output relations|.
+---|---
+`upperbound_absolute`| numeric, upper absolute bound value
+`lowbound_absolute`  | numeric, lower absolute bound value
+`upperbound_relative`| numeric, upper relative bound value
+`lowbound_relative`  | numeric, lower relative bound value
+
+##### Details
+
+The operator takes the mean value of a cell and calculates an upper bound and a lowerbound.
+The computation is done per cell. There are four values colculated and returned for each of the input cell.
+
+The operator takes the mean value and calculates an upper bound by adding to it
+```
+  upperbound_absolute = value + (value * fraction)
+  lowerbound_absolute = value + (value * fraction)
+  
+  upperbound_relative = (value * fraction)
+  lowerbound_relative = (value * fraction)
+```
+Use this operator when wanting to determine upper and lower bounds. These generated bounds are usually used in a downstream data step for a graphics representation using grid lines which correspond to the boundary values (see horizontal grid lines feature)
+,simple statistics;Pharma
+venn_shiny_operator,# Setup packrat 
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+```R
+shiny::runApp(port=3044, launch.browser = TRUE)
+```
+
+ 
+
+
+
+
+
+,basic statistics
+vsn_operator,# vsn operator
+
+#### Description
+`vsn` operator performs a normalization factor per column (i.e. sample).
+
+##### Usage
+Input projection|.
+---|---
+`row`   | represents the genes
+`col`   | represents the samples
+`y-axis`             | is the input data for which to normalization
+
+
+Output relations|.
+---|---
+`norm`| numeric, the normalized values of the measurements (i.e. of each sample)
+
+##### Details
+The operator is the `justvsn` function from the VSN bioconductor package.
+
+
+#### References
+see the `vsn` R package for the documentation.
+
+
+##### See Also
+
+
+#### Examples
+,normalization;rnaseq
+wordcount_operator,# Word count operator
+
+##### Description
+`Word count` operator count the occurences of each words in one or more documents.
+
+##### Usage
+
+Input projection|.
+---|---
+`row`        | is the documentId 
+
+Output relations|.
+---|---
+`count`          | numeric, mean of the input values
+`word`          | character, the word
+`documentId`          | character, the id of the document
+
+##### Details
+The operator count the occurences of each words in one or more documents.
+
+#### References
+
+
+##### See Also
+
+
+#### Examples
+,basic statistics
+worldmap_shiny_docker_operator,# Worldmap
+
+```
+https://github.com/tercen/worldmap_shiny_docker_operator.git
+```
+## Build
+
+```bash
+VERSION=0.1.0
+docker build -t agouy/worldmap:$VERSION .
+docker push agouy/worldmap:$VERSION
+git add -A && git commit -m "$VERSION" && git tag -a $VERSION -m "++" && git push && git push --tags
+```
+,map
+worldmap_shiny_operator,# Shiny World Map Tercen operator
+
+#### Description
+
+The `shiny_worldmap` allows one to plot markers on a world map using Tercen.
+
+##### Usage
+
+Input projection|.
+---|---
+`y-axis`| longitude (**decimal** coordinate)
+`x-axis`| latitude (**decimal** coordinate)
+`color`| measurement
+
+,map

@@ -1,53 +1,6 @@
 # Dimensionality reduction and clustering 
  
 
-## ATSNE
-
-```
-https://github.com/tercen/atsne_docker_operator.git
-```
-## Build
-
-```bash
-VERSION=1.1.11
-docker build -t tercen/atsne:$VERSION .
-docker push tercen/atsne:$VERSION
-# see operator.json :-- "container": "tercen/atsne:1.1.8"
-git add -A && git commit -m "$VERSION" && git tag -a $VERSION -m "++" && git push && git push :--tags
-```
-
-```bash
-# renv cache ~/.local/share/renv
-docker run -it :--rm :--entrypoint "/bin/bash" tercen/atsne:1.1.11 
-```
-
-##### GitHub link
-
-[atsne_docker_operator on GitHub](https://github.com/tercen/atsne_docker_operator) 
-
-## TSNE
-
-```
-https://github.com/tercen/atsne_operator.git
-```
-
-```R
-
-packrat::init(options = list(use.cache = TRUE,
-                            external.packages = 'devtools',
-                            load.external.packages.on.startup = FALSE))
-                            
-packrat::status()
-packrat::clean() 
-packrat::snapshot(ignore.stale=TRUE)
-```
-
-
-
-##### GitHub link
-
-[atsne_operator on GitHub](https://github.com/tercen/atsne_operator) 
-
 ## Clustering metrics operator
 
 ##### Description

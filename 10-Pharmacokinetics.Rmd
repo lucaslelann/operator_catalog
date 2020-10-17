@@ -1,12 +1,14 @@
 # Pharmacokinetics 
  
 
-## basechange operator
+## Base change operator
 
 ##### Description
+
 `basechange` operator performs a basechange calculation of a base value compared to a given data point.
 
 ##### Usage
+
 Input projection|.
 :---|:---
 `y-axis`,`layer1`| data point to be compared with base
@@ -20,16 +22,9 @@ Output relations|.
 :---|:---
 `basechange`| numeric, basechange value, per cell
 
-
 ##### Details
+
 `basechange` operator performs a basechange calculation of a base value compared to a given data point.
-
-##### References
-
-##### See Also
-
-
-##### Examples
 
 
 ##### GitHub link
@@ -39,10 +34,11 @@ Output relations|.
 ## eGFR operator
 
 ##### Description
+
 `eGFR` operator calculates the glomerular filtration rate.
 
-
 ##### Usage
+
 Input projection|.
 :---|:---
 `col` | 2nd factor age, 3rd factor gender
@@ -58,6 +54,7 @@ Output relations|.
 `eGFR_3`| numeric, equation 3 calculation of the GFR estimate (e.g. per cell)
 
 ##### Details
+
 `gfr` operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
 Four equations are used to calculate four eGFR values.
 
@@ -108,39 +105,19 @@ equation 3:
       eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
 ```
 
-
 ##### References
- 
+
 ref for equation 0: [https://www.kidney.org/professionals/kdoqi/gfr_calculator]
 
-
-##### See Also
-
-
-##### Examples
 
 
 ##### GitHub link
 
 [gfr_operator on GitHub](https://github.com/tercen/gfr_operator) 
 
-## FoldChange : Fold change
+## Non Compartmental PK Modelling 
 
-# Repository
-```
-https://github.com/tercen/nca_operator.git
-```
-
-## Deploy
-
-```R
-packrat::init(options = list(use.cache = TRUE))
-```
-
-# Feedback
-
-# Documentation
-see the doc directory
+Non Compartmental PK Modelling operator.
 
 
 ##### GitHub link
