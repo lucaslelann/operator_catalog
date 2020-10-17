@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Basic statistics | Tercen Operator encyclopedia</title>
+  <title>Basic statistics | Tercen operator catalog</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Basic statistics | Tercen Operator encyclopedia" />
+  <meta property="og:title" content="Basic statistics | Tercen operator catalog" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic statistics | Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="Basic statistics | Tercen operator catalog" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -50,6 +50,14 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.13/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -129,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface and operator index</a></li>
 <li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i>Basic statistics</a><ul>
 <li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#constant-operator"><i class="fa fa-check"></i>constant operator</a></li>
 <li class="chapter" data-level="" data-path="basic-statistics.html"><a href="basic-statistics.html#count-operator"><i class="fa fa-check"></i>count operator</a></li>
@@ -267,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tercen Operator encyclopedia</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tercen operator catalog</a>
           </h1>
         </div>
 
@@ -1988,7 +1996,7 @@ The computation is done per cell. There are four values colculated and returned 
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
+"github": true,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -2002,10 +2010,7 @@ gitbook.start({
 "family": "sans",
 "size": 2
 },
-"edit": {
-"link": null,
-"text": null
-},
+"edit": null,
 "history": {
 "link": null,
 "text": null
@@ -2016,8 +2021,14 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
-}
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
 });
 });
 </script>
