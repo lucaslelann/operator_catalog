@@ -1,6 +1,282 @@
 # Data wrangling 
  
 
+## add operator
+
+##### Description
+
+`add` operator adds two sets of data points.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`           | is the initial value before addition
+`x-axis`           | is the value to be added to the initial value
+
+Output relations|.
+:---|:---
+`sum`          | numeric, sum value returned per cell
+
+##### Details
+
+The operator takes the value defined by the y-axis and adds the value defined by the x-axis. The computation is done per cell. There is one value calculated and returned for each data point.
+
+##### See Also
+
+[substract](https://github.com/tercen/substract_operator), [sum](https://github.com/tercen/sum_operator), [product](https://github.com/tercen/product_operator), [ratio](https://github.com/tercen/ratio_operator)
+
+
+##### GitHub link
+
+[add_operator on GitHub](https://github.com/tercen/add_operator) 
+
+## calcnormfactors operator
+
+##### Description
+`calcnormfactors` operator calculates a normalization factor per column (i.e sample).
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the genes
+`col`   | represents the samples
+`y-axis`             | is the input data for which to compute the normalization factor
+
+
+Output relations|.
+:---|:---
+`normfactor`| numeric, per column (i.e. per sample)
+
+##### Details
+The operator is the calcnormfactor in the edgeR bioconductor.
+
+
+##### References
+see the `edgeR` R package for the documentation.
+
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[calcnormfactors_operator on GitHub](https://github.com/tercen/calcnormfactors_operator) 
+
+## Downsample operator
+
+##### Description
+
+The `Downsample` allows one to downsample the data.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`column`        | numeric, input data, per cell 
+`colour`        | factor, groups
+
+Output relations|.
+:---|:---
+`label`        | character, `pass` or `fail`
+
+Parameters|.
+:---|:---
+`seed`        |  random seed
+
+##### Details
+
+A random subset of each group is assigned a `pass` value: the size of the subset is the same as the smallest group. This method is typically used to handle unbalanced sample sizes between group.
+
+
+
+
+
+##### GitHub link
+
+[downsample_operator on GitHub](https://github.com/tercen/downsample_operator) 
+
+## normalyzer_operator
+normalization methods from the NormalyzerDE package
+
+
+##### GitHub link
+
+[normalyzer_operator on GitHub](https://github.com/tercen/normalyzer_operator) 
+
+## orderBy operator
+
+##### Description
+
+Order data according to row- or column-wise metrics.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`        | rows to order 
+`column`        | columns to order
+`y-axis`        | numeric, input data, per cell 
+
+Input parameters|.
+:---|:---
+`decreasing`   | boolean, whether the order is ascending (default) or descending
+`function`  | character, function to apply to each row/column
+
+Output relations|.
+:---|:---
+`rorder`        | numeric, row order (rank)
+`corder`        | numeric, column order (rank)
+
+
+
+##### GitHub link
+
+[orderBy_operator on GitHub](https://github.com/tercen/orderBy_operator) 
+
+## product operator
+
+##### Description
+`product` operator computes the product (i.e. multiplication) of a set of points.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`           | is the input data for the multiplication per cell 
+
+Input parameters|.
+:---|:---
+`remove NA`        | boolean, default is `FALSE`
+
+Output relations|.
+:---|:---
+`product`          | numeric, product of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their product. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+##### References
+
+
+##### See Also
+
+[sum_operator](https://github.com/tercen/sum_operator), [ratio_operator](https://github.com/tercen/ratio_operator)
+
+
+##### Examples
+
+
+##### GitHub link
+
+[product_operator on GitHub](https://github.com/tercen/product_operator) 
+
+## Random label operator
+
+##### Description
+
+The `Random label` operator returns a random label per column.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`column`        | input data, per cell 
+
+Output relations|.
+:---|:---
+`label`        | numeric, random number between 0 and 100
+
+Parameters|.
+:---|:---
+`seed`        |  random seed
+
+##### Details
+
+The `Random label` operator can be used to randomly sample data. A number is sampled from a uniform distribution U(0, 100) and assigned to each column.
+
+##### See Also
+
+[downsample_operator](https://github.com/tercen/downsample_operator/)
+
+
+##### GitHub link
+
+[randomlabel_operator on GitHub](https://github.com/tercen/randomlabel_operator) 
+
+## ratio operator
+
+##### Description
+`ratio` operator computes the ratio of two data points.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`           | is the dividend of ratio
+`x-axis`           | is the divisor of ratio
+
+Output relations|.
+:---|:---
+`ratio`          | numeric, ratio value returned per cell
+
+##### Details
+The operator takes the value defined by the y-axis and divides it by the value defined by the x-axis. The computation is done per cell. There is one value calculated and returned for each data point.
+
+##### References
+
+
+##### See Also
+
+[sum](https://github.com/tercen/sum_operator), [product](https://github.com/tercen/product_operator)
+
+
+##### Examples
+
+
+##### GitHub link
+
+[ratio_operator on GitHub](https://github.com/tercen/ratio_operator) 
+
+## Replace operator
+
+##### Description
+
+The `replace` operator performs the replacement of the first or all matches of a string.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`        | character, strings to be replaced
+
+Properties|.
+:---|:---
+`type`        | character, replace the `first` or `all` matches (default: all)
+`what`        | character, pattern to be matched (regular expression)
+`by`        | character, a replacement for matched pattern
+
+Output relations|.
+:---|:---
+`string`        | character, string with replaced matches
+
+##### Details
+
+The operator is based on the R functions `gsub` and `sub`.
+
+##### See Also
+
+[separate_operator](https://github.com/tercen/separate_operator)
+
+
+
+##### GitHub link
+
+[replace_operator on GitHub](https://github.com/tercen/replace_operator) 
+
 ## Separate operator
 
 ##### Description
@@ -30,3 +306,106 @@ This operator is a wrapper of the [strsplit R function](https://www.rdocumentati
 ##### See Also
 
 [replace_operator](https://github.com/tercen/replace_operator)
+
+
+##### GitHub link
+
+[separate_operator on GitHub](https://github.com/tercen/separate_operator) 
+
+## subtract operator
+
+##### Description
+
+`subtract` operator computes the subtract of two data points.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`           | is the initial value before subtraction
+`x-axis`           | is the value to be subtracted from the initial value
+
+Output relations|.
+:---|:---
+`difference`          | numeric, difference value returned per cell
+
+##### Details
+
+The operator takes the value defined by the y-axis and subtracts it by the value defined by the x-axis. The computation is done per cell. There is one value calculated and returned for each data point.
+
+##### See Also
+
+[sum](https://github.com/tercen/sum_operator), [product](https://github.com/tercen/product_operator), [ratio](https://github.com/tercen/ratio_operator)
+
+
+##### GitHub link
+
+[subtract_operator on GitHub](https://github.com/tercen/subtract_operator) 
+
+## sum operator
+
+##### Description
+`sum` operator computes the sum of a set of data points.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`           | is the input data for the sum, per cell 
+
+Output relations|.
+:---|:---
+`sum`          | numeric, sum of the input values
+
+##### Details
+The operator takes all the values of a cell and calculates their sum. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+##### References
+
+
+##### See Also
+
+[product_operator](https://github.com/tercen/product_operator), [ratio_operator](https://github.com/tercen/ratio_operator)
+
+
+##### Examples
+
+
+##### GitHub link
+
+[sum_operator on GitHub](https://github.com/tercen/sum_operator) 
+
+## vsn operator
+
+##### Description
+`vsn` operator performs a normalization factor per column (i.e. sample).
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the genes
+`col`   | represents the samples
+`y-axis`             | is the input data for which to normalization
+
+
+Output relations|.
+:---|:---
+`norm`| numeric, the normalized values of the measurements (i.e. of each sample)
+
+##### Details
+The operator is the `justvsn` function from the VSN bioconductor package.
+
+
+##### References
+see the `vsn` R package for the documentation.
+
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[vsn_operator on GitHub](https://github.com/tercen/vsn_operator)

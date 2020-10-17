@@ -1,6 +1,53 @@
 # Dimensionality reduction and clustering 
  
 
+## ATSNE
+
+```
+https://github.com/tercen/atsne_docker_operator.git
+```
+## Build
+
+```bash
+VERSION=1.1.11
+docker build -t tercen/atsne:$VERSION .
+docker push tercen/atsne:$VERSION
+# see operator.json :-- "container": "tercen/atsne:1.1.8"
+git add -A && git commit -m "$VERSION" && git tag -a $VERSION -m "++" && git push && git push :--tags
+```
+
+```bash
+# renv cache ~/.local/share/renv
+docker run -it :--rm :--entrypoint "/bin/bash" tercen/atsne:1.1.11 
+```
+
+##### GitHub link
+
+[atsne_docker_operator on GitHub](https://github.com/tercen/atsne_docker_operator) 
+
+## TSNE
+
+```
+https://github.com/tercen/atsne_operator.git
+```
+
+```R
+
+packrat::init(options = list(use.cache = TRUE,
+                            external.packages = 'devtools',
+                            load.external.packages.on.startup = FALSE))
+                            
+packrat::status()
+packrat::clean() 
+packrat::snapshot(ignore.stale=TRUE)
+```
+
+
+
+##### GitHub link
+
+[atsne_operator on GitHub](https://github.com/tercen/atsne_operator) 
+
 ## Clustering metrics operator
 
 ##### Description
@@ -30,7 +77,11 @@ This operator is based on the [clusterCrit R function](https://www.rdocumentatio
 ##### See Also
 
 [hierarchical_clustering_operator](https://github.com/tercen/hierarchical_clustering_operator), [flowsom_operator](https://github.com/tercen/flowsom_operator), [clusterx_operator](https://github.com/tercen/clusterx_operator)
- 
+
+
+##### GitHub link
+
+[clustering_metrics_operator on GitHub](https://github.com/tercen/clustering_metrics_operator) 
 
 ## Hierarchical clustering tree operator
 
@@ -53,11 +104,214 @@ Output relations|.
 `tree_dim2`        | factor, to be projected on columns
 `tip_labels`        | factor, leaf labels, to be projected on rows
 
- 
+
+
+##### GitHub link
+
+[clustering_tree_operator on GitHub](https://github.com/tercen/clustering_tree_operator) 
+
+## clusterx operator
+
+##### Description
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`x-axis`| first axis
+`y-axis`| second axis
+
+
+Input parameters|.
+:---|:---
+`dimReduction`   | type of reduction to perform, `pca`, `tsne`, `NULL`, default is `NULL`
+`outDim`   | number of demensions to return, default 2
+
+Output relations|.
+:---|:---
+`cluster`| character, returns a cluster id per value, per cell
+
+##### Details
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks.
+
+
+##### References
+see  https://github.com/JinmiaoChenLab/ClusterX
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+##### Examples
+
+
+##### GitHub link
+
+[clusterx2_operator on GitHub](https://github.com/tercen/clusterx2_operator) 
+
+## clusterx operator
+
+##### Description
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| is the measurement value
+
+
+Input parameters|.
+:---|:---
+`dimReduction`   | type of reduction to perform, `pca`, `tsne`, `NULL`, default is `NULL`
+`outDim`   | number of demensions to return, default 2
+
+Output relations|.
+:---|:---
+`cluster`| character, returns a cluster id per column (e.g. per cell)
+
+##### Details
+`clusterx` operator performs a fast clustering by automatic search and find of density peaks.
+
+
+##### References
+see  https://github.com/JinmiaoChenLab/ClusterX
+
+
+##### See Also
+[clusterx](https://github.com/tercen/clusterx_operator)
+
+##### Examples
+
+
+
+##### GitHub link
+
+[clusterx_operator on GitHub](https://github.com/tercen/clusterx_operator) 
+
+## Fast t-SNE operator
+
+##### Description
+
+The `Fast t-SNE` operator performs the Fast Fourier Transform Interpolation-based t-SNE dimensionality reduction method.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Output relations|.
+:---|:---
+`tsne1, tsne2`| first two components containing the new projected values
+
+##### Details
+
+The operator performs tSNE analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 2).
+
+##### Reference
+
+[FFT-accelerated Interpolation-based t-SNE](https://github.com/KlugerLab/FIt-SNE)
+
+##### See Also
+
+[tsne](https://github.com/tercen/tsne_operator)
+[pca](https://github.com/tercen/pca_operator)
+
+
+
+##### GitHub link
+
+[fast_tSNE_operator on GitHub](https://github.com/tercen/fast_tSNE_operator) 
+
+## hclust operator
+
+##### Description
+`hclust` operator performs a hierarchical clustering.
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the row data
+`col`   | represents the col data
+`y-axis`| is the value of measurement
+
+
+Input parameters|.
+:---|:---
+`scale`   | boolean, scaled to have unit variance before the analysis takes place
+`center`  | boolean, shifted to be zero center before the analysis takes place
+`fill` | numeric, a fill in value for datapoints structural missings
+
+Output relations|.
+:---|:---
+`rorder`| numeric, order of rows after clustering
+`corder`| numeric, order of cols after clustering
+
+##### Details
+The operator is the `hclust` function of the `base` R package.
+
+
+##### References
+see https://en.wikipedia.org/wiki/Hierarchical_clustering
+
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[hclust_operator on GitHub](https://github.com/tercen/hclust_operator) 
+
+## MDS operator
+
+##### Description
+
+`MDS` operator performs a Multidimensional Scaling analysis.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`        | numeric, distance measure
+`col`        | character, `dist_to` variable obtained from a `pairwise_distance` operator
+`row`        | character, variables
+
+Output relations|.
+:---|:---
+`mds_1`        | numeric, first dimension
+`mds_2`        | numeric, second dimension
+
+##### Details
+
+The operator takes as input a pariwise distance matrix as obtained with the [pairwise_distance_operator](https://github.com/tercen/pairwise_distance_operator).
+
+##### References
+
+This operator is a wrapper of the [cmdsale R function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html).
+
+##### See Also
+
+[pca_operator](https://github.com/tercen/pca_operator), [pairwise_distance_operator](https://github.com/tercen/pairwise_distance_operator)
+
+
+##### GitHub link
+
+[mds_operator on GitHub](https://github.com/tercen/mds_operator) 
 
 ## flowsom operator
 
-#### Description
+##### Description
 `flowsom` operator performs the SOM (self organizing maps) in the `flowSOM` R package.
 
 ##### Usage
@@ -87,19 +341,66 @@ Output relations|.
 The operator is the `SOM` function of the `flowSOM` R package.
 
 
-#### References
+##### References
 see the `flowSOM::SOM` function of the R package for the documentation, 
 
 
 ##### See Also
 [clusterx](https://github.com/tercen/clusterx_operator)
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[oldflowsom_operator on GitHub](https://github.com/tercen/oldflowsom_operator) 
+
+## pca operator
+
+##### Description
+`pca` operator performs principle component analysis.
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+:---|:---
+`scale`   | logical, indicating whether the variables should be scaled to have unit variance before the analysis takes place
+`center`   | logical, indicating whether the variables should be shifted to be zero centered before the analysis takes place
+`na.action`| A function which indicates what should happen when the data contain NAs
+`tol`| numeric, indicating the magnitude below which components should be omitted. Components are omitted if their standard deviations are less than or equal to tol times the standard deviation of the first component
+`maxComp`| numeric, maximum number of components to return, default 5
+
+
+Output relations|.
+:---|:---
+`pca1, pca2, pca3, pca4, pca5`| first five components containing the new projected values
+
+
+##### Details
+The operator performs principal component analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 5).
+
+
+##### Reference
+
+##### See Also
+[tsne](https://github.com/tercen/tsne_operator)
+
+##### Examples
+
+
+##### GitHub link
+
+[pca_operator on GitHub](https://github.com/tercen/pca_operator) 
 
 ## rphenograph operator
 
-#### Description
+##### Description
 `rephenograph` operator performs a phenotype clustering in the `Rphenograph` R package.
 
 ##### Usage
@@ -129,19 +430,23 @@ Output relations|.
 The operator is the `rphenograph` function of the `Rphenograh` R package.
 
 
-#### References
+##### References
 see the `rphenograph::SOM` function of the R package for the documentation, 
 
 
 ##### See Also
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[rphenograph_operator on GitHub](https://github.com/tercen/rphenograph_operator) 
 
 ## somflow operator
 
-#### Description
+##### Description
 `somflow` operator performs the SOM (self organizing maps) in the `FlowSOM` R package.
 
 ##### Usage
@@ -170,11 +475,64 @@ Output relations|.
 The operator is the `SOM` function of the `flowSOM` R package.
 
 
-#### References
+##### References
 see the `FlowSOM::SOM` function of the R package for the documentation, 
 
 
 ##### See Also
 [clusterx](https://github.com/tercen/clusterx_operator)
 
-#### Examples
+##### Examples
+
+
+##### GitHub link
+
+[somflow_operator on GitHub](https://github.com/tercen/somflow_operator) 
+
+## tsne operator
+
+##### Description
+`tsne` operator performs tSNE analysis.
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+:---|:---
+`dims`   | logical, output dimensionality, default 2
+`initial_dims`   | numeric, the number of dimensions that should be retained in the initial PCA step, default 50
+`perplexity`| numeric, perplexity parameter, default is 30
+`theta`| numeric, speed/accuracy trade-off (increase for less accuracy), set to 0.0 for exact TSNE, default 0.05
+`pca`| numeric, whether an initial PCA step should be performed, default `TRUE`
+`max_iter`| numeric, number of iteration, default 1000
+`pca_center`| logical, should data be centered before pca is applied ?
+`pca_scale`| logical, should data be scaled before pca is applied ?
+`stop_lying_iter`| numeric, Iteration after which the perplexities are no longer exaggerated
+`mom_switch_iter`| numeric, Iteration after which the final momentum is used
+
+
+Output relations|.
+:---|:---
+`tsne1, tsne2`| first two components containing the new projected values
+
+
+##### Details
+The operator performs tSNE analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 2).
+
+
+##### Reference
+
+##### See Also
+[pca](https://github.com/tercen/pca_operator)
+
+##### Examples
+
+
+##### GitHub link
+
+[tsne_operator on GitHub](https://github.com/tercen/tsne_operator)

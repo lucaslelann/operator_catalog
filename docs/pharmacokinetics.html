@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Tercen Operator encyclopedia</title>
+  <title>Pharmacokinetics | Tercen Operator encyclopedia</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Tercen Operator encyclopedia" />
+  <meta property="og:title" content="Pharmacokinetics | Tercen Operator encyclopedia" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="Pharmacokinetics | Tercen Operator encyclopedia" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-statistics.html"/>
+<link rel="prev" href="template.html"/>
+<link rel="next" href="repository.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -312,22 +312,212 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Tercen Operator encyclopedia</h1>
-<p class="author"><em>Tercen team</em></p>
+<div id="pharmacokinetics" class="section level1">
+<h1>Pharmacokinetics</h1>
+<div id="basechange-operator-1" class="section level2">
+<h2>basechange operator</h2>
+<div id="description-98" class="section level5">
+<h5>Description</h5>
+<p><code>basechange</code> operator performs a basechange calculation of a base value compared to a given data point.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Operator encyclopedia.</p>
-
+<div id="usage-98" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>y-axis</code>,<code>layer1</code></td>
+<td align="left">data point to be compared with base</td>
+</tr>
+<tr class="even">
+<td align="left"><code>y-axis</code>,<code>layer2</code></td>
+<td align="left">base value</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Input parameters</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>percentage</code></td>
+<td align="left">logical, indicates if the basechange is retuend as a percentage</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>basechange</code></td>
+<td align="left">numeric, basechange value, per cell</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-91" class="section level5">
+<h5>Details</h5>
+<p><code>basechange</code> operator performs a basechange calculation of a base value compared to a given data point.</p>
+</div>
+<div id="references-76" class="section level5">
+<h5>References</h5>
+</div>
+<div id="see-also-85" class="section level5">
+<h5>See Also</h5>
+</div>
+<div id="examples-54" class="section level5">
+<h5>Examples</h5>
+</div>
+<div id="github-link-112" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/basechange_operator">basechange_operator on GitHub</a></p>
+</div>
+</div>
+<div id="egfr-operator-1" class="section level2">
+<h2>eGFR operator</h2>
+<div id="description-99" class="section level5">
+<h5>Description</h5>
+<p><code>eGFR</code> operator calculates the glomerular filtration rate.</p>
+</div>
+<div id="usage-99" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>col</code></td>
+<td align="left">2nd factor age, 3rd factor gender</td>
+</tr>
+<tr class="even">
+<td align="left"><code>y-axis, layer1</code></td>
+<td align="left">is the value for serum creatine marker</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>y-axis, layer2</code></td>
+<td align="left">is the value for serum cystatin c marker</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>eGFR_0</code></td>
+<td align="left">numeric, equation 0 calculation of the GFR estimate (e.g. per cell)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>eGFR_1</code></td>
+<td align="left">numeric, equation 1 calculation of the GFR estimate (e.g. per cell)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>eGFR_2</code></td>
+<td align="left">numeric, equation 2 calculation of the GFR estimate (e.g. per cell)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>eGFR_3</code></td>
+<td align="left">numeric, equation 3 calculation of the GFR estimate (e.g. per cell)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-92" class="section level5">
+<h5>Details</h5>
+<p><code>gfr</code> operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.</p>
+<p>equation 0:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="pharmacokinetics.html#cb28-1"></a>    a &lt;-<span class="st"> </span><span class="kw">ifelse</span> (gender<span class="op">==</span><span class="st">&quot;Female&quot;</span>, <span class="fl">-0.248</span>, <span class="fl">-0.207</span>) </span>
+<span id="cb28-2"><a href="pharmacokinetics.html#cb28-2"></a>    k &lt;-<span class="st"> </span><span class="kw">ifelse</span> (gender<span class="op">==</span><span class="st">&quot;Female&quot;</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>) </span>
+<span id="cb28-3"><a href="pharmacokinetics.html#cb28-3"></a>    eGFR &lt;-<span class="st">  </span><span class="dv">135</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">min</span>(crt<span class="op">/</span>k, <span class="dv">1</span>))<span class="op">^</span>a <span class="op">*</span><span class="st"> </span>(<span class="kw">max</span>(crt<span class="op">/</span>k, <span class="dv">1</span>))<span class="op">^-</span><span class="fl">0.601</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">min</span>(cyt<span class="op">/</span><span class="fl">0.8</span>, <span class="dv">1</span>))<span class="op">^-</span><span class="fl">0.375</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">max</span>(cyt<span class="op">/</span><span class="fl">0.8</span>, <span class="dv">1</span>))<span class="op">^-</span><span class="fl">0.711</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age</span>
+<span id="cb28-4"><a href="pharmacokinetics.html#cb28-4"></a>    eGFR &lt;-<span class="st"> </span><span class="kw">ifelse</span> (gender<span class="op">==</span><span class="st">&quot;Female&quot;</span>,<span class="fl">0.969</span> <span class="op">*</span><span class="st"> </span>eGFR, eGFR)</span>
+<span id="cb28-5"><a href="pharmacokinetics.html#cb28-5"></a>    eGFR &lt;-<span class="st"> </span><span class="kw">ifelse</span> (race<span class="op">==</span><span class="st">&quot;Black&quot;</span>,<span class="fl">1.08</span> <span class="op">*</span><span class="st"> </span>eGFR, eGFR)</span></code></pre></div>
+<p>equation 1:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="pharmacokinetics.html#cb29-1"></a>    <span class="cf">if</span> (gender <span class="op">==</span><span class="st"> &quot;Female&quot;</span>){</span>
+<span id="cb29-2"><a href="pharmacokinetics.html#cb29-2"></a>           <span class="cf">if</span>   (crt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.7</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">144</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.329</span>  <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb29-3"><a href="pharmacokinetics.html#cb29-3"></a>           <span class="cf">if</span>   (crt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.7</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">144</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">1.209</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb29-4"><a href="pharmacokinetics.html#cb29-4"></a>    }</span>
+<span id="cb29-5"><a href="pharmacokinetics.html#cb29-5"></a>    <span class="cf">if</span> (gender <span class="op">==</span><span class="st"> &quot;Male&quot;</span>){</span>
+<span id="cb29-6"><a href="pharmacokinetics.html#cb29-6"></a>           <span class="cf">if</span>   (crt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.9</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">144</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.9</span>)<span class="op">^-</span><span class="fl">0.411</span>  <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb29-7"><a href="pharmacokinetics.html#cb29-7"></a>           <span class="cf">if</span>   (crt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.9</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">144</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.9</span>)<span class="op">^-</span><span class="fl">1.209</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb29-8"><a href="pharmacokinetics.html#cb29-8"></a>    }</span>
+<span id="cb29-9"><a href="pharmacokinetics.html#cb29-9"></a>    eGFR &lt;-<span class="st"> </span><span class="kw">ifelse</span> (race<span class="op">==</span><span class="st">&quot;Black&quot;</span>,<span class="fl">1.159</span> <span class="op">*</span><span class="st"> </span>eGFR, eGFR)</span></code></pre></div>
+<p>equation 2:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="pharmacokinetics.html#cb30-1"></a>      <span class="cf">if</span>   (cyt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">133</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.449</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.996</span><span class="op">^</span>age }</span>
+<span id="cb30-2"><a href="pharmacokinetics.html#cb30-2"></a>      <span class="cf">if</span>   (cyt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">133</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">1.328</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.996</span><span class="op">^</span>age }</span>
+<span id="cb30-3"><a href="pharmacokinetics.html#cb30-3"></a>      </span>
+<span id="cb30-4"><a href="pharmacokinetics.html#cb30-4"></a>    eGFR &lt;-<span class="st"> </span><span class="kw">ifelse</span> (gender<span class="op">==</span><span class="st">&quot;Female&quot;</span>,<span class="fl">0.932</span> <span class="op">*</span><span class="st"> </span>eGFR, eGFR)</span></code></pre></div>
+<p>equation 3:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="pharmacokinetics.html#cb31-1"></a>    <span class="cf">if</span> (gender <span class="op">==</span><span class="st"> &quot;Female&quot;</span>){</span>
+<span id="cb31-2"><a href="pharmacokinetics.html#cb31-2"></a>      <span class="cf">if</span>   (crt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.7</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.248</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.375</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-3"><a href="pharmacokinetics.html#cb31-3"></a>      <span class="cf">if</span>   (crt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.7</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.248</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.711</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-4"><a href="pharmacokinetics.html#cb31-4"></a>      <span class="cf">if</span>   (crt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.7</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.601</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.375</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-5"><a href="pharmacokinetics.html#cb31-5"></a>      <span class="cf">if</span>   (crt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.7</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.601</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.711</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-6"><a href="pharmacokinetics.html#cb31-6"></a>    }</span>
+<span id="cb31-7"><a href="pharmacokinetics.html#cb31-7"></a>    <span class="cf">if</span> (gender <span class="op">==</span><span class="st"> &quot;Male&quot;</span>){</span>
+<span id="cb31-8"><a href="pharmacokinetics.html#cb31-8"></a>      <span class="cf">if</span>   (crt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.9</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.207</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.375</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-9"><a href="pharmacokinetics.html#cb31-9"></a>      <span class="cf">if</span>   (crt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.9</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.207</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.711</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-10"><a href="pharmacokinetics.html#cb31-10"></a>      <span class="cf">if</span>   (crt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.9</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.601</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.375</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-11"><a href="pharmacokinetics.html#cb31-11"></a>      <span class="cf">if</span>   (crt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.9</span> <span class="op">||</span><span class="st"> </span>cyt <span class="op">&gt;</span><span class="st">  </span><span class="fl">0.8</span>) { eGFR &lt;-<span class="st"> </span><span class="dv">130</span> <span class="op">*</span><span class="st"> </span>(crt<span class="op">/</span><span class="st"> </span><span class="fl">0.7</span>)<span class="op">^-</span><span class="fl">0.601</span> <span class="op">*</span><span class="st"> </span>(cyt<span class="op">/</span><span class="st"> </span><span class="fl">0.8</span>)<span class="op">^-</span><span class="fl">0.711</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.995</span><span class="op">^</span>age }</span>
+<span id="cb31-12"><a href="pharmacokinetics.html#cb31-12"></a>    }</span>
+<span id="cb31-13"><a href="pharmacokinetics.html#cb31-13"></a>      eGFR &lt;-<span class="st"> </span><span class="kw">ifelse</span> (race<span class="op">==</span><span class="st">&quot;Black&quot;</span>,<span class="fl">1.159</span> <span class="op">*</span><span class="st"> </span>eGFR, eGFR)</span></code></pre></div>
+</div>
+<div id="references-77" class="section level5">
+<h5>References</h5>
+<p>ref for equation 0: [<a href="https://www.kidney.org/professionals/kdoqi/gfr_calculator" class="uri">https://www.kidney.org/professionals/kdoqi/gfr_calculator</a>]</p>
+</div>
+<div id="see-also-86" class="section level5">
+<h5>See Also</h5>
+</div>
+<div id="examples-55" class="section level5">
+<h5>Examples</h5>
+</div>
+<div id="github-link-113" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/gfr_operator">gfr_operator on GitHub</a></p>
+</div>
+</div>
+<div id="foldchange-fold-change" class="section level2">
+<h2>FoldChange : Fold change</h2>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic-statistics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="template.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="repository.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

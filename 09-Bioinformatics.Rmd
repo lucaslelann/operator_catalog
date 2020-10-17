@@ -1,0 +1,262 @@
+# Bioinformatics 
+ 
+
+## Alignment metrics operator
+
+##### Description
+
+`alignment_metrics` operator returns some metrics summarising a multiple sequence alignment.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`        | numeric, input data, per cell 
+`col`        | numeric, input data, per cell 
+`colors`        | numeric, input data, per cell 
+`y-axis`        | numeric, input data, per cell 
+
+Properties|.
+:---|:---
+`sequence_type`        | factor, sequence type (protein, dna, rna)
+`substitution_matrix`        | factor, substitution amtrix (default: BLOSUM62)
+`gap_vs_gap`        | factor, gap vs gap score (default: NA)
+
+Output relations|.
+:---|:---
+`conservation_score`        | numeric, conservation score at each position (column)
+`n_gaps`        | numeric, number of gaps at each position (column)
+`gap_proportion`        | numeric, conservation score at each position (column)
+
+##### See also
+
+[msa_operator](https://github.com/tercen/msa_operator)
+
+[dist_alignment_operator](https://github.com/tercen/dist_alignment_operator)
+
+[readfasta_operator](https://github.com/tercen/readfasta_operator)
+
+
+##### GitHub link
+
+[alignment_metrics_operator on GitHub](https://github.com/tercen/alignment_metrics_operator) 
+
+## Pairwise sequence distance operator
+
+##### Description
+
+`dist_alignment` computes pairwise distances between aligned biological sequences.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`        |  factor, sequence names/IDs
+`col`        |  numeric, position
+`y-axis`        |  numeric, value corresponding to amino or nucleic acid
+`color`        |  factor, optional, letter
+
+Properties|.
+:---|:---
+`sequence_type` | whether it is `dna`, `rna`, or `protein` sequences
+`matrix` | the matrix distance to be used, can be "similarity" or "identity"
+`gap` | with nucleotides, if set to 1, gaps will be counted in the identity measure
+
+Output relations|.
+:---|:---
+`dist_to`        | numeric, sequence name
+`dist`        | numeric, distance
+
+##### Details
+
+This operator compute a matrix of pairwise distances from aligned sequences using similarity (Fitch matrix, for protein sequences only) or identity matrix (for protein and DNA sequences). The resulting matrix contains the squared root of the pairwise distances. For example, if identity between 2 sequences is 80 the squared root of (1.0 - 0.8) i.e. 0.4472136.
+
+##### See Also
+
+https://github.com/tercen/readfasta_operator
+
+https://github.com/tercen/msa_operator
+
+
+##### GitHub link
+
+[dist_alignment_operator on GitHub](https://github.com/tercen/dist_alignment_operator) 
+
+## Gene Set Enrichment Analysis operator
+
+##### Description
+
+`gsea` operator performs a Gene Set Enrichment Analysis (GSEA).
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`     | numeric, measurement (e.g. normalized gene expression value) 
+`row`        | factor, gene set
+`col`        | factor, gene name
+
+Properties|.
+:---|:---
+`min_size`     | numeric, minimal size of a gene set to be considered in the analysis (default: 10)
+`max_size`     | numeric, maximal size of a gene set to be considered in the analysis (default: 500)
+`n_perm`     | numeric, number of permutations (default: 1000)
+
+Output relations|.
+:---|:---
+`pval`        | numeric, p-value of the test
+`padj`        | numeric, adjusted p-value of the test
+`ES`        | numeric, enrichment score
+`NES`        | numeric, normalised enrichment score
+
+##### Details
+
+##### References
+
+This operator is a wrapper of the `fgsea` function from the `fgsea` [R/Bioconductor package](http://bioconductor.org/packages/release/bioc/html/fgsea.html).
+
+See [GSEA on Wikipedia](https://en.wikipedia.org/wiki/Gene_set_enrichment_analysis).
+
+##### See Also
+
+[read_gmt_operator](https://github.com/tercen/read_gmt_operator)
+
+
+##### GitHub link
+
+[gsea_operator on GitHub](https://github.com/tercen/gsea_operator) 
+
+## Multiple Sequence Alignment operator
+
+##### Description
+
+`msa` operator performs Multiple Sequence Alignment.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`        |  factor, sequence names/IDs
+`col`        |  numeric, position
+`y-axis`        |  numeric, value corresponding to amino or nucleic acid
+`color`        |  factor, optional, letter
+
+Properties|.
+:---|:---
+`sequence_type` | whether it is `dna`, `rna`, or `protein` sequences
+`method`        | alignment method, can be `ClustalW`, `Muscle`, `DECIPHER`, or `ClustalOmega`
+
+Output relations|.
+:---|:---
+`aligned_position`        | numeric, position in the alignment
+
+##### Details
+
+The operator uses the Clustal algorithm with default parameters.
+
+##### See Also
+
+https://github.com/tercen/readfasta_operator
+
+
+
+##### GitHub link
+
+[msa_operator on GitHub](https://github.com/tercen/msa_operator) 
+
+## MSA Shiny operator
+
+##### Description
+
+The `MSA Shiny operator` allows one to create an interactive visualisation fo a Multiple Sequence Alignment.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`           | character, aligned sequences 
+`row`           | character, sequence names 
+
+Output relations|.
+:---|:---
+`Operator view`        | view of the Shiny application
+
+##### Details
+
+
+##### References
+
+
+##### See Also
+
+
+##### GitHub link
+
+[msa_shiny_operator on GitHub](https://github.com/tercen/msa_shiny_operator) 
+
+## Read FASTA operator
+
+##### Description
+
+`read_fasta` operator reads a FASTA file into Tercen.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`col`        | factor, document ID
+
+Output relations|.
+:---|:---
+`name`        | factor, sequence name
+`position`    | numeric, position of amino or nucleic acid in the sequence
+`letter`      | factor, letter corresponding to an amino or nucleic acid
+`value`       | numeric, numeric value associated to an amino or nucleic acid
+
+##### Details
+
+This opeartor reads a FASTA file and returns a table with one row per sequence per letter. Columns correspond to the sequence `name` (extracted from identifier lines starting with `>`), `position` on the sequence (starting from `1` at the beginning of the sequence), the `letter` (corresponding to an amino or nucleic acid), and a `value` (corresponding to a numeric encoding of letters for visualisation purposes).
+
+##### References
+
+[FASTA format on Wikipedia](https://en.wikipedia.org/wiki/FASTA_format).
+
+##### See Also
+
+[msa_operator](https://github.com/tercen/msa_operator)
+
+
+##### GitHub link
+
+[read_fasta_operator on GitHub](https://github.com/tercen/read_fasta_operator) 
+
+## Sequence to table operator
+
+##### Description
+
+`seq2table` Converts a biological sequence to a tabular format.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`        | character, sequences to convert
+
+Output relations|.
+:---|:---
+`letter`        | character, letter (amino or nucleic acid)
+`position`        | numeric, position in the sequence
+`presence`        | boolean, presence of a letter (if 0, gap in the alignment corresponding to a "-" character in the sequence)
+
+##### Details
+
+##### References
+
+##### See Also
+
+##### Examples
+
+
+##### GitHub link
+
+[seq2table_operator on GitHub](https://github.com/tercen/seq2table_operator)

@@ -1,6 +1,147 @@
 # Flow Cytometry 
  
 
+## diffcyt operator
+
+##### Description
+`diffcyt` operator a differential analysis of flow cyto data and indicates which marker and cluster combinations are relevant.
+
+##### Usage
+Input projection|.
+:---|:---
+`col`    | `group_id`, `patient_id`
+`row`    | `marker_class`, `marker_name`
+`y-axis` | values representing measurement
+
+
+Input parameters|.
+:---|:---
+`analysis_type` | can be either `DA` (Differential Abundance) or `DS` (Differential State)
+
+Output relations|.
+:---|:---
+`cluster_id`| character, cluster  name, per cluster, DA and DS output
+`LogFC`     | numeric, log fold change, per cluster, DA
+`LR`        | numeric, lr, per cluster, DA output
+`p_val`     | numeric, p value, per cluster, DA output
+`p_adj`     | numeric, adjusted p value, per cluster, DA output
+`LogFC`     | numeric, log fold change, per cluster-marker, DS output
+`p_val`     | numeric, p value, per cluster-marker, DS output
+`p_adj`     | numeric, adjusted p value, per cluster-marker, DS output
+`t`         | numeric, t, per cluster-marker, DS output
+`B`         | numeric, B, per cluster-marker, DS output
+`AvgExp`    | numeric, adjusted p value, per cluster-marker, DS output
+
+##### Details
+
+Performs differential analysis (abundance or state). See the `diffcyt::diffcyt` function in the Bioconductor R pacakge.
+
+##### References
+see the github for documentation,
+https://github.com/lmweber/diffcyt
+
+
+##### See Also
+[t-test](https://github.com/lmweber/ttest_operator), [anova](https://github.com/tercen/anova_operator), [rfImp](https://github.com/tercen/rfImp_operator)
+
+##### Examples
+
+
+##### GitHub link
+
+[diffcyt_operator on GitHub](https://github.com/tercen/diffcyt_operator) 
+
+## flowai operator
+
+##### Description
+`flowai` operator performs quality control on flowcytometry data.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Output relations|.
+:---|:---
+`QCvector`         | numeric, values above 10000 are considered FAIL, under 10000 PASS
+
+
+##### Details
+
+This operator is able to perform an automatic quality control on FCS data acquired using flow cytometry instruments. By evaluating three different properties: 
+
+* flow rate
+* signal acquisition
+* dynamic range
+
+The quality control enables the detection and removal of anomalies. The operator returns a QCvector value for each cell, values below 10000 are given to cells who have passed the QC, above 10000 for those who did not pass the QC criteria.
+
+This operator wraps the `flowAI::flow_auto_qc` function from the [flowAI R package](http://bioconductor.org/packages/release/bioc/html/flowAI.html)
+
+
+##### Reference
+
+[flowAI R package]((http://bioconductor.org/packages/release/bioc/html/flowAI.html))
+
+##### See Also
+
+
+##### Examples
+
+
+
+##### GitHub link
+
+[flowai_operator on GitHub](https://github.com/tercen/flowai_operator) 
+
+## FlowSOM tuning operator
+
+##### Description
+
+`flowsomtuning` operator performs flowSOM clustering for different numbers of clusters.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`y-axis`| is the value of measurement signal of the channel/marker
+
+Input parameters|.
+:---|:---
+`min_cluster_number`   | Minimum number of clusters to make
+`max_cluster_number`   | Maximal number of clusters to make
+`transform`| Transform data?
+`seed`   | Random seed
+
+Output relations|.
+:---|:---
+`cluster`| character, cluster label
+
+##### Details
+
+The operator is a wrapper for the `FlowSOM` function of the `FlowSOM` R/Bioconductor package.
+
+##### References
+
+https://bioconductor.org/packages/FlowSOM/
+
+##### See Also
+
+[flowsom_operator](https://github.com/tercen/flowsom_operator)
+
+[flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
+
+
+##### GitHub link
+
+[flowsomtuning_operator on GitHub](https://github.com/tercen/flowsomtuning_operator) 
+
 ## FlowSOM operator
 
 ##### Description
@@ -36,7 +177,7 @@ Output relations|.
 
 The operator is a wrapper for the `FlowSOM` function of the `FlowSOM` R/Bioconductor package.
 
-#### References
+##### References
 
 https://bioconductor.org/packages/FlowSOM/
 
@@ -45,7 +186,11 @@ https://bioconductor.org/packages/FlowSOM/
 [flowsom_operator](https://github.com/tercen/flowsom_operator)
 
 [flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
- 
+
+
+##### GitHub link
+
+[flowsom_operator on GitHub](https://github.com/tercen/flowsom_operator) 
 
 ## MEM operator
 
@@ -72,7 +217,7 @@ Output relations|.
 
 The operator is a wrapper for the `MEM` function of the `MEM` R package.
 
-#### References
+##### References
 
 https://github.com/cytolab/mem
 
@@ -82,11 +227,59 @@ https://github.com/cytolab/mem
 
 [flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
 
- 
+
+
+##### GitHub link
+
+[MEM_operator on GitHub](https://github.com/tercen/MEM_operator) 
+
+## neighbourhood operator
+
+##### Description
+`neighbourhood` operator returns a neighbourhood enrichment of clusters of tissue cells. 
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`        | numeric, input data, object numbers (from cell profiler for example)
+`x-axis`        | numeric, input data, object numbers of neighbours (from cell profiler for example)
+`color`         | character, input data, color by cluster label
+
+Input Parameter |.
+:---|:---
+`permutation`   | numeric, number of permutations
+`num of cores`  | numeric, number of cores
+`seed`          | numeric, seed setting, -1 indicates random
+
+Output relations|.
+:---|:---
+`p`             | numeric, p-value of enrichment for each cluster pair
+
+##### Details
+
+The operator takes as input the neighboorhood annotation of cells (i.e. object) aswell as the cluster label of the cells. The ouput is a p-value indicating how enriched (or depleted), in terms of neighbours, for each cluster to cluster relationship.
+It uses the `neighbouRhood` code on the bodenmiller github location (https://github.com/BodenmillerGroup/neighbouRhood).
+
+The neighbour relationship of the cells typically comes from Cell Profiler tool but any tool which generates cell neighbourhood information can be used. 
+
+##### References
+
+
+##### See Also
+
+[clusterx_operator](https://github.com/tercen/clusterx_operator)
+
+##### Examples
+
+
+##### GitHub link
+
+[neighbourhood_operator on GitHub](https://github.com/tercen/neighbourhood_operator) 
 
 ## flowsom operator
 
-#### Description
+##### Description
 `flowsom` operator performs the SOM (self organizing maps) in the `flowSOM` R package.
 
 ##### Usage
@@ -116,19 +309,23 @@ Output relations|.
 The operator is the `SOM` function of the `flowSOM` R package.
 
 
-#### References
+##### References
 see the `flowSOM::SOM` function of the R package for the documentation, 
 
 
 ##### See Also
 [clusterx](https://github.com/tercen/clusterx_operator)
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[oldflowsom_operator on GitHub](https://github.com/tercen/oldflowsom_operator) 
 
 ## rphenograph operator
 
-#### Description
+##### Description
 `rephenograph` operator performs a phenotype clustering in the `Rphenograph` R package.
 
 ##### Usage
@@ -158,19 +355,23 @@ Output relations|.
 The operator is the `rphenograph` function of the `Rphenograh` R package.
 
 
-#### References
+##### References
 see the `rphenograph::SOM` function of the R package for the documentation, 
 
 
 ##### See Also
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[rphenograph_operator on GitHub](https://github.com/tercen/rphenograph_operator) 
 
 ## somflow operator
 
-#### Description
+##### Description
 `somflow` operator performs the SOM (self organizing maps) in the `FlowSOM` R package.
 
 ##### Usage
@@ -199,11 +400,63 @@ Output relations|.
 The operator is the `SOM` function of the `flowSOM` R package.
 
 
-#### References
+##### References
 see the `FlowSOM::SOM` function of the R package for the documentation, 
 
 
 ##### See Also
 [clusterx](https://github.com/tercen/clusterx_operator)
 
-#### Examples
+##### Examples
+
+
+##### GitHub link
+
+[somflow_operator on GitHub](https://github.com/tercen/somflow_operator) 
+
+## umap operator
+
+##### Description
+`umap` operator performs umap analysis.
+
+##### Usage
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. genes, channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+:---|:---
+`init`           | character, type of initialization for the coordinates, see details
+`scale`          | numeric, type of scaling to apply to data
+`spread`         | numeric, the effective scale of embedded points. In combination with `min_dist`, this determines how clustered/clumped the embedded points are
+`min_dist`       | numeric, the effective minimum distance between embedded point 
+`pca`            | numeric, If set to a positive integer value, reduce data to this number of columns using PCA
+
+
+
+Output relations|.
+:---|:---
+`umap01, umap02`| first two components containing the new projected values
+
+
+##### Details
+
+The operator performs umap analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 2). This operators wraps the `uwot::umap()`. See (https://github.com/jlmelville/uwot) for more details, especially settings and examples.
+
+
+##### Reference
+
+##### See Also
+
+[pca](https://github.com/tercen/pca_operator), [tsne](https://github.com/tercen/tsne_operator)
+
+##### Examples
+
+
+
+##### GitHub link
+
+[umap_operator on GitHub](https://github.com/tercen/umap_operator)

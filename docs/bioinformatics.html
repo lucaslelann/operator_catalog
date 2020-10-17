@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Tercen Operator encyclopedia</title>
+  <title>Bioinformatics | Tercen Operator encyclopedia</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Tercen Operator encyclopedia" />
+  <meta property="og:title" content="Bioinformatics | Tercen Operator encyclopedia" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="Bioinformatics | Tercen Operator encyclopedia" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-statistics.html"/>
+<link rel="prev" href="rna-sequencing.html"/>
+<link rel="next" href="template.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -312,22 +312,571 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Tercen Operator encyclopedia</h1>
-<p class="author"><em>Tercen team</em></p>
+<div id="bioinformatics" class="section level1">
+<h1>Bioinformatics</h1>
+<div id="alignment-metrics-operator" class="section level2">
+<h2>Alignment metrics operator</h2>
+<div id="description-90" class="section level5">
+<h5>Description</h5>
+<p><code>alignment_metrics</code> operator returns some metrics summarising a multiple sequence alignment.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Operator encyclopedia.</p>
+<div id="usage-90" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>row</code></td>
+<td align="left">numeric, input data, per cell</td>
+</tr>
+<tr class="even">
+<td align="left"><code>col</code></td>
+<td align="left">numeric, input data, per cell</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>colors</code></td>
+<td align="left">numeric, input data, per cell</td>
+</tr>
+<tr class="even">
+<td align="left"><code>y-axis</code></td>
+<td align="left">numeric, input data, per cell</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Properties</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>sequence_type</code></td>
+<td align="left">factor, sequence type (protein, dna, rna)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>substitution_matrix</code></td>
+<td align="left">factor, substitution amtrix (default: BLOSUM62)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>gap_vs_gap</code></td>
+<td align="left">factor, gap vs gap score (default: NA)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>conservation_score</code></td>
+<td align="left">numeric, conservation score at each position (column)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>n_gaps</code></td>
+<td align="left">numeric, number of gaps at each position (column)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>gap_proportion</code></td>
+<td align="left">numeric, conservation score at each position (column)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="see-also-77" class="section level5">
+<h5>See also</h5>
+<p><a href="https://github.com/tercen/msa_operator">msa_operator</a></p>
+<p><a href="https://github.com/tercen/dist_alignment_operator">dist_alignment_operator</a></p>
+<p><a href="https://github.com/tercen/readfasta_operator">readfasta_operator</a></p>
+</div>
+<div id="github-link-104" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/alignment_metrics_operator">alignment_metrics_operator on GitHub</a></p>
+</div>
+</div>
+<div id="pairwise-sequence-distance-operator" class="section level2">
+<h2>Pairwise sequence distance operator</h2>
+<div id="description-91" class="section level5">
+<h5>Description</h5>
+<p><code>dist_alignment</code> computes pairwise distances between aligned biological sequences.</p>
+</div>
+<div id="usage-91" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>row</code></td>
+<td align="left">factor, sequence names/IDs</td>
+</tr>
+<tr class="even">
+<td align="left"><code>col</code></td>
+<td align="left">numeric, position</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>y-axis</code></td>
+<td align="left">numeric, value corresponding to amino or nucleic acid</td>
+</tr>
+<tr class="even">
+<td align="left"><code>color</code></td>
+<td align="left">factor, optional, letter</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Properties</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>sequence_type</code></td>
+<td align="left">whether it is <code>dna</code>, <code>rna</code>, or <code>protein</code> sequences</td>
+</tr>
+<tr class="even">
+<td align="left"><code>matrix</code></td>
+<td align="left">the matrix distance to be used, can be “similarity” or “identity”</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>gap</code></td>
+<td align="left">with nucleotides, if set to 1, gaps will be counted in the identity measure</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>dist_to</code></td>
+<td align="left">numeric, sequence name</td>
+</tr>
+<tr class="even">
+<td align="left"><code>dist</code></td>
+<td align="left">numeric, distance</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-84" class="section level5">
+<h5>Details</h5>
+<p>This operator compute a matrix of pairwise distances from aligned sequences using similarity (Fitch matrix, for protein sequences only) or identity matrix (for protein and DNA sequences). The resulting matrix contains the squared root of the pairwise distances. For example, if identity between 2 sequences is 80 the squared root of (1.0 - 0.8) i.e. 0.4472136.</p>
+</div>
+<div id="see-also-78" class="section level5">
+<h5>See Also</h5>
+<p><a href="https://github.com/tercen/readfasta_operator" class="uri">https://github.com/tercen/readfasta_operator</a></p>
+<p><a href="https://github.com/tercen/msa_operator" class="uri">https://github.com/tercen/msa_operator</a></p>
+</div>
+<div id="github-link-105" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/dist_alignment_operator">dist_alignment_operator on GitHub</a></p>
+</div>
+</div>
+<div id="gene-set-enrichment-analysis-operator" class="section level2">
+<h2>Gene Set Enrichment Analysis operator</h2>
+<div id="description-92" class="section level5">
+<h5>Description</h5>
+<p><code>gsea</code> operator performs a Gene Set Enrichment Analysis (GSEA).</p>
+</div>
+<div id="usage-92" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>y-axis</code></td>
+<td align="left">numeric, measurement (e.g. normalized gene expression value)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>row</code></td>
+<td align="left">factor, gene set</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>col</code></td>
+<td align="left">factor, gene name</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Properties</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>min_size</code></td>
+<td align="left">numeric, minimal size of a gene set to be considered in the analysis (default: 10)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>max_size</code></td>
+<td align="left">numeric, maximal size of a gene set to be considered in the analysis (default: 500)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>n_perm</code></td>
+<td align="left">numeric, number of permutations (default: 1000)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>pval</code></td>
+<td align="left">numeric, p-value of the test</td>
+</tr>
+<tr class="even">
+<td align="left"><code>padj</code></td>
+<td align="left">numeric, adjusted p-value of the test</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ES</code></td>
+<td align="left">numeric, enrichment score</td>
+</tr>
+<tr class="even">
+<td align="left"><code>NES</code></td>
+<td align="left">numeric, normalised enrichment score</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-85" class="section level5">
+<h5>Details</h5>
+</div>
+<div id="references-71" class="section level5">
+<h5>References</h5>
+<p>This operator is a wrapper of the <code>fgsea</code> function from the <code>fgsea</code> <a href="http://bioconductor.org/packages/release/bioc/html/fgsea.html">R/Bioconductor package</a>.</p>
+<p>See <a href="https://en.wikipedia.org/wiki/Gene_set_enrichment_analysis">GSEA on Wikipedia</a>.</p>
+</div>
+<div id="see-also-79" class="section level5">
+<h5>See Also</h5>
+<p><a href="https://github.com/tercen/read_gmt_operator">read_gmt_operator</a></p>
+</div>
+<div id="github-link-106" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/gsea_operator">gsea_operator on GitHub</a></p>
+</div>
+</div>
+<div id="multiple-sequence-alignment-operator" class="section level2">
+<h2>Multiple Sequence Alignment operator</h2>
+<div id="description-93" class="section level5">
+<h5>Description</h5>
+<p><code>msa</code> operator performs Multiple Sequence Alignment.</p>
+</div>
+<div id="usage-93" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>row</code></td>
+<td align="left">factor, sequence names/IDs</td>
+</tr>
+<tr class="even">
+<td align="left"><code>col</code></td>
+<td align="left">numeric, position</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>y-axis</code></td>
+<td align="left">numeric, value corresponding to amino or nucleic acid</td>
+</tr>
+<tr class="even">
+<td align="left"><code>color</code></td>
+<td align="left">factor, optional, letter</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Properties</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>sequence_type</code></td>
+<td align="left">whether it is <code>dna</code>, <code>rna</code>, or <code>protein</code> sequences</td>
+</tr>
+<tr class="even">
+<td align="left"><code>method</code></td>
+<td align="left">alignment method, can be <code>ClustalW</code>, <code>Muscle</code>, <code>DECIPHER</code>, or <code>ClustalOmega</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>aligned_position</code></td>
+<td align="left">numeric, position in the alignment</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-86" class="section level5">
+<h5>Details</h5>
+<p>The operator uses the Clustal algorithm with default parameters.</p>
+</div>
+<div id="see-also-80" class="section level5">
+<h5>See Also</h5>
+<p><a href="https://github.com/tercen/readfasta_operator" class="uri">https://github.com/tercen/readfasta_operator</a></p>
+</div>
+<div id="github-link-107" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/msa_operator">msa_operator on GitHub</a></p>
+</div>
+</div>
+<div id="msa-shiny-operator" class="section level2">
+<h2>MSA Shiny operator</h2>
+<div id="description-94" class="section level5">
+<h5>Description</h5>
+<p>The <code>MSA Shiny operator</code> allows one to create an interactive visualisation fo a Multiple Sequence Alignment.</p>
+</div>
+<div id="usage-94" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>row</code></td>
+<td align="left">character, aligned sequences</td>
+</tr>
+<tr class="even">
+<td align="left"><code>row</code></td>
+<td align="left">character, sequence names</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>Operator view</code></td>
+<td align="left">view of the Shiny application</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-87" class="section level5">
+<h5>Details</h5>
+</div>
+<div id="references-72" class="section level5">
+<h5>References</h5>
+</div>
+<div id="see-also-81" class="section level5">
+<h5>See Also</h5>
+</div>
+<div id="github-link-108" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/msa_shiny_operator">msa_shiny_operator on GitHub</a></p>
+</div>
+</div>
+<div id="read-fasta-operator-1" class="section level2">
+<h2>Read FASTA operator</h2>
+<div id="description-95" class="section level5">
+<h5>Description</h5>
+<p><code>read_fasta</code> operator reads a FASTA file into Tercen.</p>
+</div>
+<div id="usage-95" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>col</code></td>
+<td align="left">factor, document ID</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>name</code></td>
+<td align="left">factor, sequence name</td>
+</tr>
+<tr class="even">
+<td align="left"><code>position</code></td>
+<td align="left">numeric, position of amino or nucleic acid in the sequence</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>letter</code></td>
+<td align="left">factor, letter corresponding to an amino or nucleic acid</td>
+</tr>
+<tr class="even">
+<td align="left"><code>value</code></td>
+<td align="left">numeric, numeric value associated to an amino or nucleic acid</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-88" class="section level5">
+<h5>Details</h5>
+<p>This opeartor reads a FASTA file and returns a table with one row per sequence per letter. Columns correspond to the sequence <code>name</code> (extracted from identifier lines starting with <code>&gt;</code>), <code>position</code> on the sequence (starting from <code>1</code> at the beginning of the sequence), the <code>letter</code> (corresponding to an amino or nucleic acid), and a <code>value</code> (corresponding to a numeric encoding of letters for visualisation purposes).</p>
+</div>
+<div id="references-73" class="section level5">
+<h5>References</h5>
+<p><a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA format on Wikipedia</a>.</p>
+</div>
+<div id="see-also-82" class="section level5">
+<h5>See Also</h5>
+<p><a href="https://github.com/tercen/msa_operator">msa_operator</a></p>
+</div>
+<div id="github-link-109" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/read_fasta_operator">read_fasta_operator on GitHub</a></p>
+</div>
+</div>
+<div id="sequence-to-table-operator" class="section level2">
+<h2>Sequence to table operator</h2>
+<div id="description-96" class="section level5">
+<h5>Description</h5>
+<p><code>seq2table</code> Converts a biological sequence to a tabular format.</p>
+</div>
+<div id="usage-96" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>row</code></td>
+<td align="left">character, sequences to convert</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>letter</code></td>
+<td align="left">character, letter (amino or nucleic acid)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>position</code></td>
+<td align="left">numeric, position in the sequence</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>presence</code></td>
+<td align="left">boolean, presence of a letter (if 0, gap in the alignment corresponding to a “-” character in the sequence)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-89" class="section level5">
+<h5>Details</h5>
+</div>
+<div id="references-74" class="section level5">
+<h5>References</h5>
+</div>
+<div id="see-also-83" class="section level5">
+<h5>See Also</h5>
+</div>
+<div id="examples-53" class="section level5">
+<h5>Examples</h5>
+</div>
+<div id="github-link-110" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/seq2table_operator">seq2table_operator on GitHub</a></p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic-statistics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rna-sequencing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="template.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

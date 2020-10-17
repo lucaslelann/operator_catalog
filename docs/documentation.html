@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Tercen Operator encyclopedia</title>
+  <title>Documentation | Tercen Operator encyclopedia</title>
   <meta name="description" content="This is a compilation of Tercen operators" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Tercen Operator encyclopedia" />
+  <meta property="og:title" content="Documentation | Tercen Operator encyclopedia" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tercen/operator_encyclopaedia" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tercen Operator encyclopedia" />
+  <meta name="twitter:title" content="Documentation | Tercen Operator encyclopedia" />
   
   <meta name="twitter:description" content="This is a compilation of Tercen operators" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-statistics.html"/>
+<link rel="prev" href="feedback.html"/>
+<link rel="next" href="forensics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -312,22 +312,199 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Tercen Operator encyclopedia</h1>
-<p class="author"><em>Tercen team</em></p>
+<div id="documentation" class="section level1">
+<h1>Documentation</h1>
+<p>see the doc directory</p>
+<div id="github-link-114" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/nca_operator">nca_operator on GitHub</a></p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Operator encyclopedia.</p>
+<div id="snca-operator" class="section level2">
+<h2>sNCA operator</h2>
+<div id="description-100" class="section level5">
+<h5>Description</h5>
+<p><code>snca</code> operator calculates a single non compartamental model for a dose/time series.</p>
+</div>
+<div id="usage-100" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>col</code></td>
+<td align="left">1st factor is the dose(mg)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>y-axis</code></td>
+<td align="left">is the value of the serum maker</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>x-axis</code></td>
+<td align="left">is the time(hrs)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">TMAX_h</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">CMAX_ng_per_ml</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">LAMZHL_h</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">AUC_0_4h_ng_per_ml</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">AUC_0_8h_ng_per_ml</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">AUC_0_12h_ng_per_ml</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">AUC_4_24h_ng_per_ml</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">AUC_0_24h_ng_per_ml</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-93" class="section level5">
+<h5>Details</h5>
+<p><code>snca</code> operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.</p>
+</div>
+<div id="references-78" class="section level5">
+<h5>References</h5>
+<p>ref for equation 0: [<a href="https://www.kidney.org/professionals/kdoqi/gfr_calculator" class="uri">https://www.kidney.org/professionals/kdoqi/gfr_calculator</a>]</p>
+</div>
+<div id="see-also-87" class="section level5">
+<h5>See Also</h5>
+</div>
+<div id="examples-56" class="section level5">
+<h5>Examples</h5>
+</div>
+<div id="github-link-115" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/snca_operator">snca_operator on GitHub</a></p>
+</div>
+</div>
+<div id="upper-and-lower-bounds-operator-1" class="section level2">
+<h2>Upper and lower bounds operator</h2>
+<div id="description-101" class="section level5">
+<h5>Description</h5>
+<p><code>upperandlowerbounds</code> operator computes an upper and lower bound values as a fraction of a given data point.</p>
+</div>
+<div id="usage-101" class="section level5">
+<h5>Usage</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input projection</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>y-axis</code></td>
+<td align="left">is the input data for the multiplication per cell</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Input parameters</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>fraction</code></td>
+<td align="left">numeric, fraction value</td>
+</tr>
+<tr class="even">
+<td align="left"><code>percentage</code></td>
+<td align="left">boolean, the relative values are returned as percentages</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Output relations</th>
+<th align="left">.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>upperbound_absolute</code></td>
+<td align="left">numeric, upper absolute bound value</td>
+</tr>
+<tr class="even">
+<td align="left"><code>lowbound_absolute</code></td>
+<td align="left">numeric, lower absolute bound value</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>upperbound_relative</code></td>
+<td align="left">numeric, upper relative bound value</td>
+</tr>
+<tr class="even">
+<td align="left"><code>lowbound_relative</code></td>
+<td align="left">numeric, lower relative bound value</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="details-94" class="section level5">
+<h5>Details</h5>
+<p>The operator takes the mean value of a cell and calculates an upper bound and a lowerbound.
+The computation is done per cell. There are four values colculated and returned for each of the input cell.</p>
+<p>The operator takes the mean value and calculates an upper bound by adding to it</p>
+<pre><code>  upperbound_absolute = value + (value * fraction)
+  lowerbound_absolute = value + (value * fraction)
+  
+  upperbound_relative = (value * fraction)
+  lowerbound_relative = (value * fraction)</code></pre>
+<p>Use this operator when wanting to determine upper and lower bounds. These generated bounds are usually used in a downstream data step for a graphics representation using grid lines which correspond to the boundary values (see horizontal grid lines feature)</p>
+</div>
+<div id="github-link-116" class="section level5">
+<h5>GitHub link</h5>
+<p><a href="https://github.com/tercen/upperandlowerbounds_operator">upperandlowerbounds_operator on GitHub</a></p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic-statistics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="feedback.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="forensics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

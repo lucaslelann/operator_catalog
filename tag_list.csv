@@ -7,4 +7,29 @@ standard,visualisation,Data visualisation
 standard,clustering,Dimensionality reduction and clustering
 standard,flow cytometry,Flow Cytometry
 standard,RNA-seq,RNA sequencing
+standard,bioinformatics,Bioinformatics
+standard,pharmacokinetics,Pharmacokinetics
+standard,forensics,Forensics
 standard,template,Template
+other,simple statistics,Basic statistics
+other,rnaseq,RNA sequencing
+other,plot,Data visualisation
+other,pharmacokinetic,Pharmacokinetics
+other,Pharma,Pharmacokinetics
+other,simple arithmetic,Data wrangling
+other,text manipulation,Data wrangling
+other,flowcytometry,Flow Cytometry
+other,cytof,Flow Cytometry
+other,flowcyto,Flow Cytometry
+other,normalization,Data wrangling
+other,multivariate statistics,Dimensionality reduction and clustering
+other,excel,File import
+other,sampling,Data wrangling
+other,map,Data visualisation
+other,enrichment,RNA sequencing
+other,basic operations,Data wrangling
+other,file conversion,File import
+other,tree,Data visualisation
+other,sequence analysis,Bioinformatics
+other,linear model,Statistical testing
+other,dimensionality reduction,Dimensionality reduction and clustering

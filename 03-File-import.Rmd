@@ -1,6 +1,35 @@
 # File import 
  
 
+## AnnotatedDataFrame operator
+
+##### Description
+
+Converts a RData file containing an AnnotatedDataFrame object to a Tercen dataset.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`documentId`        | is the documentId 
+
+Output relations|.
+:---|:---
+`documentId`          | character, the id of the document
+
+##### Details
+
+An AnnotatedDataFrame consists of two parts. There is a collection of samples and the values of variables measured on those samples. There is also a description of each variable measured.
+
+##### References
+
+[AnnotatedDataFrame](https://rdrr.io/bioc/Biobase/man/class.AnnotatedDataFrame.html)
+
+
+##### GitHub link
+
+[readAnnotatedDataFrame_operator on GitHub](https://github.com/tercen/readAnnotatedDataFrame_operator) 
+
 ## readRDS operator
 
 ##### Description
@@ -20,15 +49,19 @@ a tercen table   | tableid, for every tablid there is a documentid relation
 
 The operator takes the documentIds (i.e. the RDS data file) and converts them to a tercen table.
 
-#### References
+##### References
 
 see the `readRDS()` function in base R.
 
 ##### See Also
 
 [readxls_operator](https://github.com/tercen/readxls_operator)
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[readrds_operator on GitHub](https://github.com/tercen/readrds_operator) 
 
 ## Read excel file operator
 
@@ -47,14 +80,18 @@ Output relations|.
 ##### Details
 The operator import excel document to tercen.
 
-#### References
+##### References
 
 
 ##### See Also
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[readxl_operator on GitHub](https://github.com/tercen/readxl_operator) 
 
 ## Read FASTA operator
 
@@ -86,7 +123,11 @@ This opeartor reads a FASTA file and returns a table with one row per sequence p
 ##### See Also
 
 [msa_operator](https://github.com/tercen/msa_operator)
- 
+
+
+##### GitHub link
+
+[read_fasta_operator on GitHub](https://github.com/tercen/read_fasta_operator) 
 
 ## FCS ZIP operator
 
@@ -111,14 +152,18 @@ Extracts a ZIP archive of fcs files and tranforms them to tercen datasets.
 
 Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.
 
-#### References
+##### References
 
 
 ##### See Also
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[read_FCSzip_operator on GitHub](https://github.com/tercen/read_FCSzip_operator) 
 
 ## Read FCS operator
 
@@ -141,3 +186,66 @@ Output relations|.
 Transforms FCS files to Tercen dataset. 
 
 The Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.
+
+
+##### GitHub link
+
+[read_fcs_operator on GitHub](https://github.com/tercen/read_fcs_operator) 
+
+## Read GMT operator
+
+##### Description
+
+`read_gmt` reads a GMT file containing a gene set annotation.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`col`        | character, GMT document ID
+
+Output relations|.
+:---|:---
+`set_name`        | character, gene set name
+`set_description`        | character, gene set description
+`set_genes`        | character, gene name
+
+##### Details
+
+GMT is a standard gene set format.
+
+##### GitHub link
+
+[read_gmt_operator on GitHub](https://github.com/tercen/read_gmt_operator) 
+
+## STRAF to Tercen operator
+
+##### Description
+
+`straf2tercen` operator allows one to import STRAF input data into Tercen.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`        | numeric, input data, per cell 
+
+Output relations|.
+:---|:---
+`median`        | numeric, median of the input data
+
+##### Details
+The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
+
+##### References
+
+
+##### See Also
+
+[mean_operator](https://github.com/tercen/mean_operator)
+##### Examples
+
+
+##### GitHub link
+
+[straf2tercen_operator on GitHub](https://github.com/tercen/straf2tercen_operator)

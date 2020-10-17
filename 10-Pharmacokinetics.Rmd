@@ -1,0 +1,237 @@
+# Pharmacokinetics 
+ 
+
+## basechange operator
+
+##### Description
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis`,`layer1`| data point to be compared with base
+`y-axis`,`layer2`| base value
+
+Input parameters|.
+:---|:---
+`percentage`   | logical, indicates if the basechange is retuend as a percentage
+
+Output relations|.
+:---|:---
+`basechange`| numeric, basechange value, per cell
+
+
+##### Details
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+##### References
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[basechange_operator on GitHub](https://github.com/tercen/basechange_operator) 
+
+## eGFR operator
+
+##### Description
+`eGFR` operator calculates the glomerular filtration rate.
+
+
+##### Usage
+Input projection|.
+:---|:---
+`col` | 2nd factor age, 3rd factor gender
+`y-axis, layer1`| is the value for serum creatine marker
+`y-axis, layer2`| is the value for serum cystatin c marker
+
+
+Output relations|.
+:---|:---
+`eGFR_0`| numeric, equation 0 calculation of the GFR estimate (e.g. per cell)
+`eGFR_1`| numeric, equation 1 calculation of the GFR estimate (e.g. per cell)
+`eGFR_2`| numeric, equation 2 calculation of the GFR estimate (e.g. per cell)
+`eGFR_3`| numeric, equation 3 calculation of the GFR estimate (e.g. per cell)
+
+##### Details
+`gfr` operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.
+
+equation 0:
+```r
+    a <- ifelse (gender=="Female", -0.248, -0.207) 
+    k <- ifelse (gender=="Female", 0.7, 0.9) 
+    eGFR <-  135 * (min(crt/k, 1))^a * (max(crt/k, 1))^-0.601 * (min(cyt/0.8, 1))^-0.375 * (max(cyt/0.8, 1))^-0.711 * 0.995^age
+    eGFR <- ifelse (gender=="Female",0.969 * eGFR, eGFR)
+    eGFR <- ifelse (race=="Black",1.08 * eGFR, eGFR)
+```
+
+equation 1:
+```r
+    if (gender == "Female"){
+           if   (crt <= 0.7) { eGFR <- 144 * (crt/ 0.7)^-0.329  * 0.995^age }
+           if   (crt >  0.7) { eGFR <- 144 * (crt/ 0.7)^-1.209 * 0.995^age }
+    }
+    if (gender == "Male"){
+           if   (crt <= 0.9) { eGFR <- 144 * (crt/ 0.9)^-0.411  * 0.995^age }
+           if   (crt >  0.9) { eGFR <- 144 * (crt/ 0.9)^-1.209 * 0.995^age }
+    }
+    eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
+```
+
+equation 2:
+```r
+      if   (cyt <= 0.8) { eGFR <- 133 * (cyt/ 0.8)^-0.449 * 0.996^age }
+      if   (cyt >  0.8) { eGFR <- 133 * (cyt/ 0.8)^-1.328 * 0.996^age }
+      
+    eGFR <- ifelse (gender=="Female",0.932 * eGFR, eGFR)
+```
+
+equation 3:
+```r
+    if (gender == "Female"){
+      if   (crt <= 0.7 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.248 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt <= 0.7 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.248 * (cyt/ 0.8)^-0.711 * 0.995^age }
+      if   (crt >  0.7 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt >  0.7 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.711 * 0.995^age }
+    }
+    if (gender == "Male"){
+      if   (crt <= 0.9 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.207 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt <= 0.9 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.207 * (cyt/ 0.8)^-0.711 * 0.995^age }
+      if   (crt >  0.9 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt >  0.9 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.711 * 0.995^age }
+    }
+      eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
+```
+
+
+##### References
+ 
+ref for equation 0: [https://www.kidney.org/professionals/kdoqi/gfr_calculator]
+
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[gfr_operator on GitHub](https://github.com/tercen/gfr_operator) 
+
+## FoldChange : Fold change
+
+# Repository
+```
+https://github.com/tercen/nca_operator.git
+```
+
+## Deploy
+
+```R
+packrat::init(options = list(use.cache = TRUE))
+```
+
+# Feedback
+
+# Documentation
+see the doc directory
+
+
+##### GitHub link
+
+[nca_operator on GitHub](https://github.com/tercen/nca_operator) 
+
+## sNCA operator
+
+##### Description
+`snca` operator calculates a single non compartamental model for a dose/time series.
+
+
+##### Usage
+Input projection|.
+:---|:---
+`col` | 1st factor is the dose(mg)
+`y-axis`| is the value of the serum maker
+`x-axis`| is the time(hrs)
+
+
+Output relations|.
+:---|:---
+TMAX_h|
+CMAX_ng_per_ml|
+LAMZHL_h|
+AUC_0_4h_ng_per_ml|
+AUC_0_8h_ng_per_ml|
+AUC_0_12h_ng_per_ml|
+AUC_4_24h_ng_per_ml|
+AUC_0_24h_ng_per_ml|
+
+##### Details
+`snca` operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.
+
+
+##### References
+ 
+ref for equation 0: [https://www.kidney.org/professionals/kdoqi/gfr_calculator]
+
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[snca_operator on GitHub](https://github.com/tercen/snca_operator) 
+
+## Upper and lower bounds operator
+
+##### Description
+
+`upperandlowerbounds` operator computes an upper and lower bound values as a fraction of a given data point.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`             | is the input data for the multiplication per cell
+
+Input parameters|.
+:---|:---
+`fraction`           | numeric, fraction value
+`percentage`         | boolean, the relative values are returned as percentages
+
+Output relations|.
+:---|:---
+`upperbound_absolute`| numeric, upper absolute bound value
+`lowbound_absolute`  | numeric, lower absolute bound value
+`upperbound_relative`| numeric, upper relative bound value
+`lowbound_relative`  | numeric, lower relative bound value
+
+##### Details
+
+The operator takes the mean value of a cell and calculates an upper bound and a lowerbound.
+The computation is done per cell. There are four values colculated and returned for each of the input cell.
+
+The operator takes the mean value and calculates an upper bound by adding to it
+```
+  upperbound_absolute = value + (value * fraction)
+  lowerbound_absolute = value + (value * fraction)
+  
+  upperbound_relative = (value * fraction)
+  lowerbound_relative = (value * fraction)
+```
+Use this operator when wanting to determine upper and lower bounds. These generated bounds are usually used in a downstream data step for a graphics representation using grid lines which correspond to the boundary values (see horizontal grid lines feature)
+
+
+##### GitHub link
+
+[upperandlowerbounds_operator on GitHub](https://github.com/tercen/upperandlowerbounds_operator)

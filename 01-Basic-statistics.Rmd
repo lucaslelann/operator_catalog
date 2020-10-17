@@ -3,7 +3,7 @@
 
 ## anova operator
 
-#### Description
+##### Description
 `anova` operator performs an analaysis of variance of the data
 
 ##### Usage
@@ -20,17 +20,100 @@ Output relations|.
 `anova` operator performs an analaysis of variance of the data
 
 
-#### References
+##### References
 see https://en.wikipedia.org/wiki/Analysis_of_variance
 
 
 ##### See Also
 [ttest](https://github.com/tercen/ttest_operator), [rfImp](https://github.com/tercen/rfImp_operator)
 
-#### Examples
+##### Examples
 
 
- 
+
+
+##### GitHub link
+
+[anova_operator on GitHub](https://github.com/tercen/anova_operator) 
+
+## asinh operator
+
+##### Description
+`asinh` operator performs an inverse hyperbolic sine on values
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis` | values required to be transformed by the asinh operator
+`row`    | channels, and scale values (optional)
+`col`    | event, for example
+
+Input parameters|.
+:---|:---
+`scale`  | numeric, the scaling factor to use before the asinh transformation, a NULL value indicates different scaling values per channel, default is 5
+
+Output relations|.
+:---|:---
+`asinh`| numeric, output transformation per `row` and `col`.
+
+##### Details
+Values are scaled first and then asinh transformation is performed. One data point per cell is required as input. 
+```r
+asinh(value/scale)
+```
+A scale of 5 is recommended for cytof measurement and 150 for flowcyto measurements.
+
+if a NULL scaling value is used then the scaling factor is give by the input cross-tab projection, the second factor defined in the `row` dimension indicates the scaling values to use per channel.
+
+
+##### References
+see the `base::asinh` function of the R package for the documentation,
+https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions
+
+
+##### See Also
+
+##### Examples
+
+
+##### GitHub link
+
+[asinh_operator on GitHub](https://github.com/tercen/asinh_operator) 
+
+## basechange operator
+
+##### Description
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis`,`layer1`| data point to be compared with base
+`y-axis`,`layer2`| base value
+
+Input parameters|.
+:---|:---
+`percentage`   | logical, indicates if the basechange is retuend as a percentage
+
+Output relations|.
+:---|:---
+`basechange`| numeric, basechange value, per cell
+
+
+##### Details
+`basechange` operator performs a basechange calculation of a base value compared to a given data point.
+
+##### References
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[basechange_operator on GitHub](https://github.com/tercen/basechange_operator) 
 
 ## Setup packrat 
 
@@ -48,11 +131,15 @@ shiny::runApp(port=3044, launch.browser = TRUE)
 
 
 
- 
+
+
+##### GitHub link
+
+[cellplot_shiny_operator on GitHub](https://github.com/tercen/cellplot_shiny_operator) 
 
 ## constant operator
 
-#### Description
+##### Description
 `constant` operator allows for a value equal to a constant to be generated
 
 ##### Usage
@@ -71,22 +158,59 @@ Output relations|.
 ##### Details
 A `constant` value is generated for all the data. All factors are therefore associated with this constant. A typical use of this operator is when you require to generate fixed boundary values to be used as a grid line in a later (i.e. downstream) step. The grid line is created in a `layer` using the `h-grid view type`. An example would be to create a zero grid line, where the`constant`operator is used to generate a zero value and a zero line is then available for later visuals.
 
-#### References
+##### References
 
 ##### See Also
 
-#### Examples
+##### Examples
 
 https://tercen.com/operator/p/8d8febb97ed4b09c2ddf52795c961e68
 
 
  
  
- 
+
+
+##### GitHub link
+
+[constant_operator on GitHub](https://github.com/tercen/constant_operator) 
+
+## count operator
+
+##### Description
+`count` operator counts the number of data points.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`        | is the input data to be counted, per cell 
+
+Output relations|.
+:---|:---
+`count`          | numeric, count of the input values
+
+##### Details
+The operator takes all the values of a cell and counts them. The computation is done per cell. There is one value calculated and returned for each of the input cell.
+
+##### References
+
+
+##### See Also
+
+[product](https://github.com/tercen/product_operator), [sum](https://github.com/tercen/sum_operator)
+
+
+##### Examples
+
+
+##### GitHub link
+
+[count_operator on GitHub](https://github.com/tercen/count_operator) 
 
 ## cv operator
 
-#### Description
+##### Description
 `cv` operator calculates the coefficient of variance on a set of input values.
 
 ##### Usage
@@ -106,17 +230,21 @@ cv = sd/mean
 ```
 The `cv` is returned as a fraction.
 
-#### References
+##### References
 see the https://en.wikipedia.org/wiki/Coefficient_of_variation
 
 
 ##### See Also
 [sd](https://github.com/tercen/sd_operator), [mean](https://github.com/tercen/mean_operator)
 
-#### Examples
+##### Examples
 
 
- 
+
+
+##### GitHub link
+
+[cv_operator on GitHub](https://github.com/tercen/cv_operator) 
 
 ### Cytonorm operator
 
@@ -137,7 +265,7 @@ Output relations|.
 ##### Details
 
 
-#### References
+##### References
 
 https://github.com/saeyslab/CytoNorm
 
@@ -145,11 +273,15 @@ https://github.com/saeyslab/CytoNorm
 
 [flowsom_operator](https://github.com/tercen/flowsom_operator)
 [flowai_operator](https://github.com/tercen/flowai_operator)
- 
+
+
+##### GitHub link
+
+[cytonorm_operator on GitHub](https://github.com/tercen/cytonorm_operator) 
 
 ## density operator
 
-#### Description
+##### Description
 `density` operator performs a density caculations on x and y input values.
 
 ##### Usage
@@ -166,18 +298,22 @@ Output relations|.
 A density calculation is performed per cell with the input values defined by the x and y-axis, the result are `density` values associated with each cell. The `density` operator is typically used in a pairwise plot and the returned `density` values are usually used as a coloring in a pairwise plot of the original input values. 
 
 
-#### References
+##### References
 
 ##### See Also
 
-#### Examples
+##### Examples
 
 
 
 
  
  
- 
+
+
+##### GitHub link
+
+[density_operator on GitHub](https://github.com/tercen/density_operator) 
 
 ## Fast t-SNE Docker Operator
 
@@ -187,9 +323,142 @@ A density calculation is performed per cell with the input values defined by the
 VERSION=0.0.1
 docker build -t tercen/fast_tSNE_docker_operator:$VERSION .
 docker push tercen/fast_tSNE_docker_operator:$VERSION
-git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push :--tags
 ```
+
+
+##### GitHub link
+
+[fast_tSNE_docker_operator on GitHub](https://github.com/tercen/fast_tSNE_docker_operator) 
+
+## foldchange operator
+
+##### Description
+`foldchange` operator performs a fold change (i.e. ratio) caculation between two values.
+
+##### Usage
+Input projection|.
+:---|:---
+`x-axis`  | contains the grouping factor for the fold change calculation, 
+`y-axis` | values
+
+Input parameter|.
+:---|:---
+`reverse`  | logical, to reverse the calculation, default is `FALSE`
+
+
+Output relations|.
+:---|:---
+`FoldChange`| numeric, foldchange, calculated per cell
+
+##### Details
+A foldchange operation is performed per cell. Each cell has values defined by the y-axis and seperated by the x-axis. The result of the foldchange is the ratio of the first divided by the second. If reverse is selected then the order of the ratio is changed.
+
+
+##### References
+
+##### See Also
+[ratio](https://github.com/tercen/ratio_operator),[logfoldchange](https://github.com/tercen/logfoldchange_operator)
+##### Examples
+
+
+
+
  
+ 
+
+
+##### GitHub link
+
+[foldchange_operator on GitHub](https://github.com/tercen/foldchange_operator) 
+
+## eGFR operator
+
+##### Description
+`eGFR` operator calculates the glomerular filtration rate.
+
+
+##### Usage
+Input projection|.
+:---|:---
+`col` | 2nd factor age, 3rd factor gender
+`y-axis, layer1`| is the value for serum creatine marker
+`y-axis, layer2`| is the value for serum cystatin c marker
+
+
+Output relations|.
+:---|:---
+`eGFR_0`| numeric, equation 0 calculation of the GFR estimate (e.g. per cell)
+`eGFR_1`| numeric, equation 1 calculation of the GFR estimate (e.g. per cell)
+`eGFR_2`| numeric, equation 2 calculation of the GFR estimate (e.g. per cell)
+`eGFR_3`| numeric, equation 3 calculation of the GFR estimate (e.g. per cell)
+
+##### Details
+`gfr` operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
+Four equations are used to calculate four eGFR values.
+
+equation 0:
+```r
+    a <- ifelse (gender=="Female", -0.248, -0.207) 
+    k <- ifelse (gender=="Female", 0.7, 0.9) 
+    eGFR <-  135 * (min(crt/k, 1))^a * (max(crt/k, 1))^-0.601 * (min(cyt/0.8, 1))^-0.375 * (max(cyt/0.8, 1))^-0.711 * 0.995^age
+    eGFR <- ifelse (gender=="Female",0.969 * eGFR, eGFR)
+    eGFR <- ifelse (race=="Black",1.08 * eGFR, eGFR)
+```
+
+equation 1:
+```r
+    if (gender == "Female"){
+           if   (crt <= 0.7) { eGFR <- 144 * (crt/ 0.7)^-0.329  * 0.995^age }
+           if   (crt >  0.7) { eGFR <- 144 * (crt/ 0.7)^-1.209 * 0.995^age }
+    }
+    if (gender == "Male"){
+           if   (crt <= 0.9) { eGFR <- 144 * (crt/ 0.9)^-0.411  * 0.995^age }
+           if   (crt >  0.9) { eGFR <- 144 * (crt/ 0.9)^-1.209 * 0.995^age }
+    }
+    eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
+```
+
+equation 2:
+```r
+      if   (cyt <= 0.8) { eGFR <- 133 * (cyt/ 0.8)^-0.449 * 0.996^age }
+      if   (cyt >  0.8) { eGFR <- 133 * (cyt/ 0.8)^-1.328 * 0.996^age }
+      
+    eGFR <- ifelse (gender=="Female",0.932 * eGFR, eGFR)
+```
+
+equation 3:
+```r
+    if (gender == "Female"){
+      if   (crt <= 0.7 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.248 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt <= 0.7 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.248 * (cyt/ 0.8)^-0.711 * 0.995^age }
+      if   (crt >  0.7 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt >  0.7 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.711 * 0.995^age }
+    }
+    if (gender == "Male"){
+      if   (crt <= 0.9 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.207 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt <= 0.9 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.207 * (cyt/ 0.8)^-0.711 * 0.995^age }
+      if   (crt >  0.9 || cyt <= 0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.375 * 0.995^age }
+      if   (crt >  0.9 || cyt >  0.8) { eGFR <- 130 * (crt/ 0.7)^-0.601 * (cyt/ 0.8)^-0.711 * 0.995^age }
+    }
+      eGFR <- ifelse (race=="Black",1.159 * eGFR, eGFR)
+```
+
+
+##### References
+ 
+ref for equation 0: [https://www.kidney.org/professionals/kdoqi/gfr_calculator]
+
+
+##### See Also
+
+
+##### Examples
+
+
+##### GitHub link
+
+[gfr_operator on GitHub](https://github.com/tercen/gfr_operator) 
 
 ## impute operator
 
@@ -209,14 +478,18 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and replaces it with the mean and if all values are NA then it is replaced with zero. The imputation is done per cell. There is one value calculated and returned for each of the input cell.
 
-#### References
+##### References
 
 
 ##### See Also
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[impute_operator on GitHub](https://github.com/tercen/impute_operator) 
 
 ## IQR operator
 
@@ -238,7 +511,7 @@ Output relations|.
 
 The operator takes all the values of a cell and returns the IQR value. The computation is done per cell and a single value is returned for each of the input cell.
 
-#### References
+##### References
 
 https://en.wikipedia.org/wiki/Interquartile_range
 
@@ -248,7 +521,87 @@ https://en.wikipedia.org/wiki/Interquartile_range
 [sd_operator](https://github.com/tercen/sd_operator)
 [cv_operator](https://github.com/tercen/cv_operator)
 
+
+
+##### GitHub link
+
+[IQR_operator on GitHub](https://github.com/tercen/IQR_operator) 
+
+## logfoldchange operator
+
+##### Description
+`logfoldchange` operator performs a fold change (i.e. ratio) caculation between two values.
+
+##### Usage
+Input projection|.
+:---|:---
+`x-axis`  | contains the grouping factor for the log2 fold change calculation, 
+`y-axis` | values
+
+Input parameter|.
+:---|:---
+`reverse`  | logical, to reverse the calculation, default is `FALSE`
+
+
+Output relations|.
+:---|:---
+`logFC`| numeric, logfoldchange calculated per cell
+
+##### Details
+A `logfoldchange` operation is performed per cell. Each cell has values defined by the y-axis and seperated by the x-axis. The result of the logfoldchange is the log2 values where of the first is substrated by the second. If reverse is selected then the order of the substraction is changed.
+
+
+##### References
+
+##### See Also
+[ratio](https://github.com/tercen/ratio_operator),[foldchange](https://github.com/tercen/foldchange_operator)
+##### Examples
+
+
+##### GitHub link
+
+[logfoldchange_operator on GitHub](https://github.com/tercen/logfoldchange_operator) 
+
+## log operator
+
+##### Description
+`log` operator performs a log of values
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis` | values to be logged
+
+Input parameters|.
+:---|:---
+`base` | numeric, log base, default is 10
+
+Output relations|.
+:---|:---
+`log`| numeric, log per data point
+
+##### Details
+A log of values is performed.
+
+
+##### References
+see the `base::log` function of the R package for the documentation, 
+
+
+##### See Also
+
+##### Examples
+
+
+
+
  
+ 
+
+
+##### GitHub link
+
+[log_operator on GitHub](https://github.com/tercen/log_operator) 
 
 ## max operator
 
@@ -277,7 +630,11 @@ Based on the [max R function](https://stat.ethz.ch/R-manual/R-devel/library/base
 ##### See Also
 
 [product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
- 
+
+
+##### GitHub link
+
+[max_operator on GitHub](https://github.com/tercen/max_operator) 
 
 ## Mean imputation operator
 
@@ -308,7 +665,11 @@ See [Mean substitution on Wikipedia](https://en.wikipedia.org/wiki/Imputation_(s
 ##### See also
 
 [impute_operator](https://github.com/tercen/impute_operator)
- 
+
+
+##### GitHub link
+
+[mean_imputation_operator on GitHub](https://github.com/tercen/mean_imputation_operator) 
 
 ## mean operator
 
@@ -328,7 +689,7 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and calculates their mean. The computation is done per cell. There is one value calculated and returned for each of the input cell.
 
-#### References
+##### References
 
 
 ##### See Also
@@ -336,8 +697,12 @@ The operator takes all the values of a cell and calculates their mean. The compu
 [product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[mean_operator on GitHub](https://github.com/tercen/mean_operator) 
 
 ## mean sd operator
 
@@ -358,7 +723,7 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and calculates their mean and standard deviation. The computation is done per cell. There are two value calculated and returned for each of the input cell.
 
-#### References
+##### References
 
 
 ##### See Also
@@ -366,8 +731,12 @@ The operator takes all the values of a cell and calculates their mean and standa
 [product_operator](https://github.com/tercen/product_operator), [sum_operator](https://github.com/tercen/sum_operator)
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[mean_sd_operator on GitHub](https://github.com/tercen/mean_sd_operator) 
 
 ## Median operator
 
@@ -387,18 +756,62 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
 
-#### References
+##### References
 
 
 ##### See Also
 
 [mean_operator](https://github.com/tercen/mean_operator)
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[median_operator on GitHub](https://github.com/tercen/median_operator) 
 
 #```R 
 packrat::init(options = list(use.cache = TRUE)) 
-``` 
+```
+
+##### GitHub link
+
+[median_operator-1 on GitHub](https://github.com/tercen/median_operator-1) 
+
+## negative operator
+
+##### Description
+`negative` operator performs a negative of values
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis` | values to be negated
+
+Output relations|.
+:---|:---
+`negative`| numeric, negative per data point
+
+##### Details
+A negative of values is performed.
+
+
+##### References
+
+
+##### See Also
+
+##### Examples
+
+
+
+
+ 
+ 
+
+
+##### GitHub link
+
+[negative_operator on GitHub](https://github.com/tercen/negative_operator) 
 
 ## Pairwise RMSD operator
 
@@ -426,7 +839,52 @@ Output relations|.
 ##### See Also
 
 ##### Examples
+
+
+##### GitHub link
+
+[pairwise_RMSD_operator on GitHub](https://github.com/tercen/pairwise_RMSD_operator) 
+
+## pearson operator
+
+##### Description
+`pearson` operator performs a person correlation of two input sets of data per cell
+
+##### Usage
+Input projection|.
+:---|:---
+`x-axis`  | value of one group of data
+`y-axis` | value of other group of data
+
+
+Output relations|.
+:---|:---
+`cor`| numeric, pearson correlation calculated per cell
+`pv`| numeric, p-value calculated per cell
+
+##### Details
+A pearson correlation is performed per cell where the two groups of data to be correlated are found on the `x-axis` and `y-axis`.
+This operator is ideally suited as an operator for multiple pairwise projections in Tercen.
+
+
+##### References
+see the `base::cor.test` function of the R package for the documentation, 
+
+
+##### See Also
+
+##### Examples
+
+
+
+
  
+ 
+
+
+##### GitHub link
+
+[pearson_operator on GitHub](https://github.com/tercen/pearson_operator) 
 
 ## Percentile operator
 
@@ -450,7 +908,7 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and returns the precentile value. The computation is done per cell. There is one value returned for each of the input cell.
 
-#### References
+##### References
 
 
 ##### See Also
@@ -458,8 +916,12 @@ The operator takes all the values of a cell and returns the precentile value. Th
 [product_operator](https://github.com/tercen/max_operator), [sum_operator](https://github.com/tercen/min_operator)
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[percentile_operator on GitHub](https://github.com/tercen/percentile_operator) 
 
 ## Introduction
 
@@ -495,7 +957,11 @@ it includes the skeleton files
 please remember to change the `README_template.md` to  `README.template.md`
 
 inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
- 
+
+
+##### GitHub link
+
+[read_VCF_operator on GitHub](https://github.com/tercen/read_VCF_operator) 
 
 ## RMSD operator
 
@@ -516,14 +982,18 @@ Output relations|.
 
 ##### Details
 
-#### References
+##### References
 
 ##### See Also
 
 [lm_operator](https://github.com/tercen/lm_operator)
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[RMSD_operator on GitHub](https://github.com/tercen/RMSD_operator) 
 
 ## Round operator
 
@@ -541,7 +1011,11 @@ Output relations|.
 :---|:---
 `rounded`        | numeric, rounded input data
 
- 
+
+
+##### GitHub link
+
+[round_operator on GitHub](https://github.com/tercen/round_operator) 
 
 ## Sample operator
 
@@ -567,14 +1041,57 @@ Output relations|.
 ##### Details
 The operator randomly selects columns (i.e. samples)
 
-#### References
+##### References
 See the `sample` function in base R.
 
 
 ##### See Also
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[sample_operator on GitHub](https://github.com/tercen/sample_operator) 
+
+## scale operator
+
+##### Description
+
+`scale` operator performs a scaling of the data
+
+##### Usage
+
+Input projection|.
+:---|:---
+`row`   | represents the variables (e.g. channels, markers, genes)
+`col`   | represents the observations (e.g. cells, samples, indviduals) 
+`y-axis`| measurement value
+
+
+Input parameters|.
+:---|:---
+`scale`   | logical, if scale is `TRUE` then scaling is done by dividing the (centered) row of x by their standard deviations if center is TRUE, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.
+`center`  | If center is `TRUE` then centering is done by subtracting the row means (omitting NAs) of x from their corresponding columns, and if center is `FALSE`, no centering is done.
+
+Output relations|.
+:---|:---
+`scale`| numeric, per cell
+
+##### Details
+
+The operator is the `scale` function in base R.
+
+##### References
+
+See the `base::scale` function of the R package for more details.
+
+
+
+
+##### GitHub link
+
+[scale_operator on GitHub](https://github.com/tercen/scale_operator) 
 
 ## sd operator
 
@@ -594,7 +1111,7 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and calculates their standard deviation. The computation is done per cell. There is one value calculated and returned for each of the input cell.
 
-#### References
+##### References
 
 
 ##### See Also
@@ -602,9 +1119,13 @@ The operator takes all the values of a cell and calculates their standard deviat
 [mean_operator](https://github.com/tercen/mean_operator), [sum_operator](https://github.com/tercen/sum_operator)
 
 
-#### Examples
+##### Examples
 
- 
+
+
+##### GitHub link
+
+[sd_operator on GitHub](https://github.com/tercen/sd_operator) 
 
 ## Seqlen operator
 
@@ -625,15 +1146,53 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell ordered by the 'x-axis'and gives a sequence number to each data point in the cell.
 
-#### References
+##### References
 
 
 ##### See Also
 
 [topn_operator](https://github.com/tercen/topn_operator)
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[seqlen_operator on GitHub](https://github.com/tercen/seqlen_operator) 
+
+## Shift operator
+
+##### Description
+`shift` operator performs a shift by a constant value.
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis` | values as input to the shift operator
+
+Input parameters|.
+:---|:---
+`constant` | numeric, the shift value, default is 0
+
+Output relations|.
+:---|:---
+`shift`| numeric, output shift transformation per data point
+
+##### Details
+A shift by a constant value is performed to all data points.
+```r
+value + shift
+```
+##### References
+
+##### See Also
+
+##### Examples
+
+
+##### GitHub link
+
+[shift_operator on GitHub](https://github.com/tercen/shift_operator) 
 
 ## Setup packrat 
 
@@ -651,7 +1210,11 @@ shiny::runApp(port=3044, launch.browser = TRUE)
 
 
 
- 
+
+
+##### GitHub link
+
+[shiny_boxplot_operator on GitHub](https://github.com/tercen/shiny_boxplot_operator) 
 
 ## shiny_docker_operator
 
@@ -665,9 +1228,13 @@ https://github.com/tercen/shiny_docker_operator.git
 VERSION=0.10.0.1
 docker build -t tercen/shiny_docker_operator:$VERSION .
 docker push tercen/shiny_docker_operator:$VERSION
-git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push :--tags
 ```
-  
+ 
+
+##### GitHub link
+
+[shiny_docker_operator on GitHub](https://github.com/tercen/shiny_docker_operator) 
 
 ## Setup packrat 
 
@@ -696,7 +1263,47 @@ shiny::runApp(port=3044, launch.browser = FALSE)
 
 
 
+
+
+##### GitHub link
+
+[shiny_operator2 on GitHub](https://github.com/tercen/shiny_operator2) 
+
+## signchange operator
+
+##### Description
+`signchange` operator negates the data value, i.e. sign changes
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis` | value of data to be sign changed
+
+
+Output relations|.
+:---|:---
+`signchange`| numeric, the opposite sign of the value
+
+##### Details
+The `sigchange` operator changes the sign of the data by negating the value.
+
+
+##### References
+
+##### See Also
+
+##### Examples
+
+
+
+
  
+ 
+
+
+##### GitHub link
+
+[signchange_operator on GitHub](https://github.com/tercen/signchange_operator) 
 
 ## Template Docker Operator
 
@@ -720,9 +1327,13 @@ shiny::runApp(port=3044, launch.browser = FALSE)
 VERSION=0.10.0.1
 docker build -t tercen/shiny_docker_operator:$VERSION .
 docker push tercen/shiny_docker_operator:$VERSION
-git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
+git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push :--tags
 ```
- 
+
+
+##### GitHub link
+
+[template_docker_operator on GitHub](https://github.com/tercen/template_docker_operator) 
 
 ## Introduction
 
@@ -758,7 +1369,11 @@ it includes the skeleton files
 please remember to change the `README_template.md` to  `README.template.md`
 
 inside the `doc` there is a `dev_commands.md` file which contains useful development command lines.
- 
+
+
+##### GitHub link
+
+[template_R_operator on GitHub](https://github.com/tercen/template_R_operator) 
 
 ## topn operator
 
@@ -779,14 +1394,149 @@ Output relations|.
 ##### Details
 The operator takes all the values of a cell and returns the top n elements. 
 
-#### References
+##### References
 
 
 ##### See Also
 
 
-#### Examples
- 
+##### Examples
+
+
+##### GitHub link
+
+[topn_operator on GitHub](https://github.com/tercen/topn_operator) 
+
+## ttest operator
+
+##### Description
+`ttest` operator performs a Student's t-test on the data
+
+##### Usage
+Input projection|.
+:---|:---
+`color`   | represents the groups to compare
+`y-axis`| measurement value
+
+Input parameters|.
+:---|:---
+`alternative`   | A character string specifying the alternative hypothesis, default is "two.sided"
+`mu`  | A number indicating the true value of the mean (or difference in means if you are performing a two sample test), default 0.0
+`var.equal`  |logical, indicating whether to treat the two variances as being equal. If `TRUE` then the pooled variance is used to estimate the variance otherwise the Welch (or Satterthwaite) approximation to the degrees of freedom is used, default `FALSE`
+`conf.level`  |numeric, confidence level of the interval, default 0.95
+
+Output relations|.
+:---|:---
+`pv`| numeric, p-value calculated per cell
+
+##### Details
+The operator is the `t.test` function in base R .
+
+
+##### References
+see the `base::t.test` function of the R package for the documentation, 
+
+
+##### See Also
+[anova](https://github.com/tercen/anova_operator),[rfImp](https://github.com/tercen/rfImp_operator)
+
+##### Examples
+
+
+
+
+##### GitHub link
+
+[ttest_operator on GitHub](https://github.com/tercen/ttest_operator) 
+
+## twogroupttest operator
+
+##### Description
+`twogroupttest` operator performs a Student's t-test on the data.
+
+##### Usage
+Input projection|.
+:---|:---
+`y-axis`  | measurement value
+`x-axis`  | represents the two groups to compare
+`color`   | represents the pairing
+
+Input parameters|.
+:---|:---
+`reverse`   | logical, indicating whether to reverse the calculation on the x-axis, default `FALSE`
+`paired`    | logical, indicating whether to perform pairing, default `FALSE`
+`alternative`   | A character string specifying the alternative hypothesis, default is "two.sided"
+`mu`  | A number indicating the true value of the mean (or difference in means if you are performing a two sample test), default 0.0
+`var.equal`  |logical, indicating whether to treat the two variances as being equal. If `TRUE` then the pooled variance is used to estimate the variance otherwise the Welch (or Satterthwaite) approximation to the degrees of freedom is used, default `FALSE`
+`conf.level`  |numeric, confidence level of the interval, default 0.95
+
+Output relations|.
+:---|:---
+`p_value`| numeric, p-value calculated per cell
+
+##### Details
+The operator is the `t.test` function in base R .
+
+
+##### References
+see the `base::t.test` function of the R package for the documentation, 
+
+
+##### See Also
+[anova](https://github.com/tercen/anova_operator),[rfImp](https://github.com/tercen/rfImp_operator)
+
+##### Examples
+
+
+
+
+##### GitHub link
+
+[twogroupttest_operator on GitHub](https://github.com/tercen/twogroupttest_operator) 
+
+## Upper and lower bounds operator
+
+##### Description
+
+`upperandlowerbounds` operator computes an upper and lower bound values as a fraction of a given data point.
+
+##### Usage
+
+Input projection|.
+:---|:---
+`y-axis`             | is the input data for the multiplication per cell
+
+Input parameters|.
+:---|:---
+`fraction`           | numeric, fraction value
+`percentage`         | boolean, the relative values are returned as percentages
+
+Output relations|.
+:---|:---
+`upperbound_absolute`| numeric, upper absolute bound value
+`lowbound_absolute`  | numeric, lower absolute bound value
+`upperbound_relative`| numeric, upper relative bound value
+`lowbound_relative`  | numeric, lower relative bound value
+
+##### Details
+
+The operator takes the mean value of a cell and calculates an upper bound and a lowerbound.
+The computation is done per cell. There are four values colculated and returned for each of the input cell.
+
+The operator takes the mean value and calculates an upper bound by adding to it
+```
+  upperbound_absolute = value + (value * fraction)
+  lowerbound_absolute = value + (value * fraction)
+  
+  upperbound_relative = (value * fraction)
+  lowerbound_relative = (value * fraction)
+```
+Use this operator when wanting to determine upper and lower bounds. These generated bounds are usually used in a downstream data step for a graphics representation using grid lines which correspond to the boundary values (see horizontal grid lines feature)
+
+
+##### GitHub link
+
+[upperandlowerbounds_operator on GitHub](https://github.com/tercen/upperandlowerbounds_operator) 
 
 ## Setup packrat 
 
@@ -804,7 +1554,11 @@ shiny::runApp(port=3044, launch.browser = TRUE)
 
 
 
- 
+
+
+##### GitHub link
+
+[venn_shiny_operator on GitHub](https://github.com/tercen/venn_shiny_operator) 
 
 ## Word count operator
 
@@ -826,10 +1580,15 @@ Output relations|.
 ##### Details
 The operator count the occurences of each words in one or more documents.
 
-#### References
+##### References
 
 
 ##### See Also
 
 
-#### Examples
+##### Examples
+
+
+##### GitHub link
+
+[wordcount_operator on GitHub](https://github.com/tercen/wordcount_operator)
