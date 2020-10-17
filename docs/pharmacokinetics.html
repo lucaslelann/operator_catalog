@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="template.html"/>
+<link rel="prev" href="bioinformatics.html"/>
 <link rel="next" href="forensics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -245,9 +245,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="bioinformatics.html"><a href="bioinformatics.html#read-fasta-operator-1"><i class="fa fa-check"></i>Read FASTA operator</a></li>
 <li class="chapter" data-level="" data-path="bioinformatics.html"><a href="bioinformatics.html#sequence-to-table-operator"><i class="fa fa-check"></i>Sequence to table operator</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="template.html"><a href="template.html"><i class="fa fa-check"></i>Template</a><ul>
-<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template-shiny-operator-for-tercen"><i class="fa fa-check"></i>Template Shiny operator for Tercen</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="pharmacokinetics.html"><a href="pharmacokinetics.html"><i class="fa fa-check"></i>Pharmacokinetics</a><ul>
 <li class="chapter" data-level="" data-path="pharmacokinetics.html"><a href="pharmacokinetics.html#base-change-operator-1"><i class="fa fa-check"></i>Base change operator</a></li>
 <li class="chapter" data-level="" data-path="pharmacokinetics.html"><a href="pharmacokinetics.html#egfr-operator"><i class="fa fa-check"></i>eGFR operator</a></li>
@@ -258,8 +255,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="forensics.html"><a href="forensics.html"><i class="fa fa-check"></i>Forensics</a><ul>
 <li class="chapter" data-level="" data-path="forensics.html"><a href="forensics.html#forensic-parameters-operator"><i class="fa fa-check"></i>Forensic parameters operator</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="template-1.html"><a href="template-1.html"><i class="fa fa-check"></i>Template</a><ul>
-<li class="chapter" data-level="" data-path="template-1.html"><a href="template-1.html#template-shiny-operator-for-tercen-1"><i class="fa fa-check"></i>Template Shiny operator for Tercen</a></li>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html"><i class="fa fa-check"></i>Template</a><ul>
+<li class="chapter" data-level="" data-path="template.html"><a href="template.html#template-shiny-operator-for-tercen"><i class="fa fa-check"></i>Template Shiny operator for Tercen</a></li>
 </ul></li>
 </ul>
 
@@ -282,11 +279,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Pharmacokinetics</h1>
 <div id="base-change-operator-1" class="section level2">
 <h2>Base change operator</h2>
-<div id="description-96" class="section level5">
+<div id="description-95" class="section level5">
 <h5>Description</h5>
 <p><code>basechange</code> operator performs a basechange calculation of a base value compared to a given data point.</p>
 </div>
-<div id="usage-96" class="section level5">
+<div id="usage-95" class="section level5">
 <h5>Usage</h5>
 <table>
 <thead>
@@ -339,22 +336,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="details-88" class="section level5">
+<div id="details-87" class="section level5">
 <h5>Details</h5>
 <p><code>basechange</code> operator performs a basechange calculation of a base value compared to a given data point.</p>
 </div>
-<div id="github-link-98" class="section level5">
+<div id="github-link-97" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/basechange_operator">basechange_operator on GitHub</a></p>
 </div>
 </div>
 <div id="egfr-operator" class="section level2">
 <h2>eGFR operator</h2>
-<div id="description-97" class="section level5">
+<div id="description-96" class="section level5">
 <h5>Description</h5>
 <p><code>eGFR</code> operator calculates the glomerular filtration rate.</p>
 </div>
-<div id="usage-97" class="section level5">
+<div id="usage-96" class="section level5">
 <h5>Usage</h5>
 <table>
 <thead>
@@ -409,7 +406,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="details-89" class="section level5">
+<div id="details-88" class="section level5">
 <h5>Details</h5>
 <p><code>gfr</code> operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
 Four equations are used to calculate four eGFR values.</p>
@@ -449,11 +446,11 @@ Four equations are used to calculate four eGFR values.</p>
 <span id="cb8-12"><a href="pharmacokinetics.html#cb8-12"></a>    }</span>
 <span id="cb8-13"><a href="pharmacokinetics.html#cb8-13"></a>      eGFR &lt;-<span class="st"> </span><span class="kw">ifelse</span> (race<span class="op">==</span><span class="st">&quot;Black&quot;</span>,<span class="fl">1.159</span> <span class="op">*</span><span class="st"> </span>eGFR, eGFR)</span></code></pre></div>
 </div>
-<div id="references-71" class="section level5">
+<div id="references-70" class="section level5">
 <h5>References</h5>
 <p>ref for equation 0: [<a href="https://www.kidney.org/professionals/kdoqi/gfr_calculator" class="uri">https://www.kidney.org/professionals/kdoqi/gfr_calculator</a>]</p>
 </div>
-<div id="github-link-99" class="section level5">
+<div id="github-link-98" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/gfr_operator">gfr_operator on GitHub</a></p>
 </div>
@@ -461,18 +458,18 @@ Four equations are used to calculate four eGFR values.</p>
 <div id="non-compartmental-pk-modelling" class="section level2">
 <h2>Non Compartmental PK Modelling</h2>
 <p>Non Compartmental PK Modelling operator.</p>
-<div id="github-link-100" class="section level5">
+<div id="github-link-99" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/nca_operator">nca_operator on GitHub</a></p>
 </div>
 </div>
 <div id="snca-operator" class="section level2">
 <h2>sNCA operator</h2>
-<div id="description-98" class="section level5">
+<div id="description-97" class="section level5">
 <h5>Description</h5>
 <p><code>snca</code> operator calculates a single non compartamental model for a dose/time series.</p>
 </div>
-<div id="usage-98" class="section level5">
+<div id="usage-97" class="section level5">
 <h5>Usage</h5>
 <table>
 <thead>
@@ -539,33 +536,33 @@ Four equations are used to calculate four eGFR values.</p>
 </tbody>
 </table>
 </div>
-<div id="details-90" class="section level5">
+<div id="details-89" class="section level5">
 <h5>Details</h5>
 <p><code>snca</code> operator estimates Glomerular filtration rate (GFR) is the best overall index of kidney function.
 Four equations are used to calculate four eGFR values.</p>
 </div>
-<div id="references-72" class="section level5">
+<div id="references-71" class="section level5">
 <h5>References</h5>
 <p>ref for equation 0: [<a href="https://www.kidney.org/professionals/kdoqi/gfr_calculator" class="uri">https://www.kidney.org/professionals/kdoqi/gfr_calculator</a>]</p>
 </div>
-<div id="see-also-78" class="section level5">
+<div id="see-also-77" class="section level5">
 <h5>See Also</h5>
 </div>
 <div id="examples-46" class="section level5">
 <h5>Examples</h5>
 </div>
-<div id="github-link-101" class="section level5">
+<div id="github-link-100" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/snca_operator">snca_operator on GitHub</a></p>
 </div>
 </div>
 <div id="upper-and-lower-bounds-operator-1" class="section level2">
 <h2>Upper and lower bounds operator</h2>
-<div id="description-99" class="section level5">
+<div id="description-98" class="section level5">
 <h5>Description</h5>
 <p><code>upperandlowerbounds</code> operator computes an upper and lower bound values as a fraction of a given data point.</p>
 </div>
-<div id="usage-99" class="section level5">
+<div id="usage-98" class="section level5">
 <h5>Usage</h5>
 <table>
 <thead>
@@ -626,7 +623,7 @@ Four equations are used to calculate four eGFR values.</p>
 </tbody>
 </table>
 </div>
-<div id="details-91" class="section level5">
+<div id="details-90" class="section level5">
 <h5>Details</h5>
 <p>The operator takes the mean value of a cell and calculates an upper bound and a lowerbound.
 The computation is done per cell. There are four values colculated and returned for each of the input cell.</p>
@@ -638,7 +635,7 @@ The computation is done per cell. There are four values colculated and returned 
   lowerbound_relative = (value * fraction)</code></pre>
 <p>Use this operator when wanting to determine upper and lower bounds. These generated bounds are usually used in a downstream data step for a graphics representation using grid lines which correspond to the boundary values (see horizontal grid lines feature)</p>
 </div>
-<div id="github-link-102" class="section level5">
+<div id="github-link-101" class="section level5">
 <h5>GitHub link</h5>
 <p><a href="https://github.com/tercen/upperandlowerbounds_operator">upperandlowerbounds_operator on GitHub</a></p>
 
@@ -650,7 +647,7 @@ The computation is done per cell. There are four values colculated and returned 
           </div>
         </div>
       </div>
-<a href="template.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bioinformatics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="forensics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
