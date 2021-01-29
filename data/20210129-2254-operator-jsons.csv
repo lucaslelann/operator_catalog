@@ -1,0 +1,133 @@
+name,description,tags,authors,urls,container,isWebApp
+Add,Returns the sum of two values,basic operations,NA,https://github.com/tercen/add_operator,NA,NA
+Sequence alignment metrics,Returns alignment metrics,bioinformatics,NA,https://github.com/tercen/alignment_metrics_operator,NA,NA
+ANOVA,Analysis of variance,statistical testing; test; linear model,NA,https://github.com/tercen/anova_operator,NA,NA
+asinh,asinh transformation a given data,data transformation; data wrangling; transform,NA,https://github.com/tercen/asinh_operator,NA,NA
+ATSNE,Approximated-tSNE is a method for constructing a low dimensional embedding of high-dimensional data,multivariate statistics,NA,https://github.com/tercen/atsne_docker_operator,tercen/atsne:1.1.11,NA
+ATSNE,Approximated-tSNE is a method for constructing a low dimensional embedding of high-dimensional data,multivariate statistics,NA,https://github.com/tercen/atsne_operator,NA,NA
+base change,base change,data wrangling; Pharma; transform; data transformation,NA,https://github.com/tercen/basechange_operator,NA,NA
+Boxplot Shiny Operator,Create boxplots in Tercen.,plot,NA,https://github.com/tercen/boxplot_shiny_operator,NA,NA
+calcnormfactors,calculate normal factors,normalization; rnaseq,NA,https://github.com/tercen/calcnormfactors_operator,NA,NA
+Cell Plot,A typical usage scenario is plotting the enrichment of Gene Ontology terms, with individual cells reflecting the differential regulation of the constituent genes.,basic statistics,NA,https://github.com/tercen/cellplot_shiny_operator,NA,NA
+Chi-square test,Performs a chi-square test on a set of data points.,statistical testing; test,NA,https://github.com/tercen/chisquare_test_operator,NA,NA
+Clustering metrics,Returns various clustering metrics,clustering,NA,https://github.com/tercen/clustering_metrics_operator/,NA,NA
+Hierarchical clustering tree,Returns a hierarchical clustering tree to be projected in Tercen.,clustering; tree,NA,https://github.com/tercen/clustering_tree_operator,NA,NA
+clusterx,Fast clustering by automatic search and find of density peaks,multivariate statistics,NA,https://github.com/tercen/clusterx_operator,NA,NA
+Concatenate operator,Concatenate different columns into a single one.,data wrangling; text processing; text manipulation,NA,https://github.com/tercen/concatenate_operator,NA,NA
+Constant,Define a constant value per cell,basic statistics,NA,https://github.com/tercen/constant_operator,NA,NA
+Count,Count the number of data point per cell,simple statistics,NA,https://github.com/tercen/count_operator,NA,NA
+CV,Compute the coefficient of variance per cell,basic statistics,NA,https://github.com/tercen/cv_operator,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+Density plot Shiny Operator,Create density plots in Tercen.,plot,NA,https://github.com/tercen/densityplot_shiny_operator,NA,NA
+Density,Compute the density on x and y axis per cell,basic statistics,NA,https://github.com/tercen/density_operator,NA,NA
+DESeq2_two_conditions,DESeq2 two condition comparison,RNA-seq; differential expression; genomics,NA,https://github.com/tercen/DESeq2_two_conditions_operator,NA,NA
+diffcyt,Differential discovery in high-dimensional cytometry via high-resolution clustering,flowcytometry; rnaseq,NA,https://github.com/tercen/diffcyt_operator,NA,NA
+Distance between aligned sequences,Computes the distance between aligned biological sequences,bioinformatics,NA,https://github.com/tercen/dist_alignment_operator,NA,NA
+Downsample,Downsample data,sampling,NA,https://github.com/tercen/downsample_operator,NA,NA
+Fast t-SNE operator,Fast FFT Interpolation-based tSNE operator,multivariate statistics,NA,https://github.com/tercen/fast_tSNE_operator,agouy/fast_tSNE_operator:0.0.1,FALSE
+Fast t-SNE,Fast Fourier Transform Interpolation-based t-SNE,dimensionality reduction,NA,https://github.com/tercen/fast_tSNE_operator,NA,NA
+fgsea,Perform fast gene set enrichment analysis,enrichment,NA,https://github.com/tercen/fsgea_operator,NA,NA
+Flag operator,Flag text or numerical values based on a condition.,data wrangling; text processing,NA,https://github.com/tercen/flag_operator,NA,NA
+flowai,flowai quality control operator,flowcytometry,NA,https://github.com/agouy/flowai_operator,NA,NA
+flowClean,Quality control for flowcytometry data,flowcytometry,NA,https://github.com/tercen/template_R_operator,NA,NA
+flowsomtuning,FlowSOM tuning,flowcytometry; rnaseq,NA,https://github.com/tercen/flowsomtuning_operator,NA,NA
+FlowSOM MST Shiny Operator,FlowSOM MST Shiny Operator in Tercen.,flowsom,NA,https://github.com/tercen/flowsom_mst_shiny_operator,NA,NA
+FlowSOM,Returns FlowSOM clusters,flow cytometry,NA,https://github.com/tercen/flowsom_operator,NA,NA
+fold change,fold change,simple statistics,NA,https://github.com/tercen/foldchange_operator,NA,NA
+Genome join operator,Join two tables based on overlapping genomic interval.,bioinformatics; import,NA,https://github.com/tercen/genome_join_operator,NA,NA
+GFR,Glomerular filtration rate estimate ,pharmacokinetics; Pharma,NA,https://github.com/tercen/gfr_operator,NA,NA
+GSEA,Gene Set Enrichment Analysis,bioinformatics,NA,https://github.com/tercen/gsea_operator,NA,NA
+hclust,Hierarchical Cluster,multivariate statistics,NA,https://github.com/tercen/hclust_operator,NA,NA
+Shiny Heatmap,Create a clustered heatmap.,heatmap,NA,https://github.com/tercen/heatmap_shiny_operator,NA,NA
+Hierarchical clustering operator,Perform the hierarchical clustering of a set of datapoints based on provided variable values.,clustering,NA,https://github.com/tercen/hierarchical_clustering_operator,NA,NA
+Histogram operator,Create a 1D or 2D histogram,data visualisation; plot; basic statistics,NA,https://github.com/tercen/histogram_operator,NA,NA
+Impute,Impute NA to zero per cell,data wrangling,NA,https://github.com/tercen/impute_operator,NA,NA
+IQR (interquartile range),Returns the interquartile range of a cell,basic statistics,NA,https://github.com/tercen/IQR_operator,NA,NA
+Join GFF operator,Join a range-based GFF annotation file to position-based genomic data.,bioinformatics; import,NA,https://github.com/tercen/join_GFF_operator,NA,NA
+Kruskal-Wallis test,Performs Kruskal-Wallis test,statistical testing; test,NA,https://github.com/tercen/kruskaltest_operator,NA,NA
+lagpad operator,Computes a lagged version of a data series along columns, shifting the data back by a given number of observations.,data wrangling,NA,https://github.com/tercen/lagpad_operator,NA,NA
+Linear regression,Returns the intercept and slope of a linear regression in a cell,linear model,NA,https://github.com/agouy/lm_operator,NA,NA
+LOESS smoothing,Performs a loess curve fitting.,data visualisation; smoothing; modelling,NA,https://github.com/tercen/loess_smoothing_operator,NA,NA
+log fold change,log fold change,simple statistics,NA,https://github.com/tercen/logfoldchange_operator,NA,NA
+Logistic regression operator,Perform a logistic regression on a set of data points.,statistical testing; linear model; test,NA,https://github.com/tercen/logistic_regression_operator,NA,NA
+Logit transform,Logit transform of proportion data,data wrangling; data transformation; transform,NA,https://github.com/rdewijn/logit_operator,NA,NA
+Log,Log transform the given data,data wrangling; data transformation; transform,NA,https://github.com/tercen/log_operator,NA,NA
+Max,Return the max value of a cell,basic statistics,NA,https://github.com/tercen/max_operator,NA,NA
+MDS,Multidimensional Scaling,multivariate statistics,NA,https://github.com/tercen/mds_operator,NA,NA
+Mean imputation operator,Replace missing values by the column mean,basic statistics,NA,https://github.com/tercen/mean_imputation_operator,NA,NA
+Mean,Compute the mean per cell,basic statistics,NA,https://github.com/tercen/mean_operator,NA,NA
+Mean and SD,Compute the mean and standard deviation per cell,basic statistics,NA,https://github.com/tercen/mean_sd_operator,NA,NA
+Median,Return the medium value of a cell,basic statistics,NA,https://github.com/tercen/median_operator,NA,NA
+Median,Compute the meadian per cell,basic statistics,NA,https://github.com/tercen/median_operator,NA,NA
+MEM operator,Marker Enrichment Modeling,flow cytometry,NA,https://github.com/tercen/MEM_operator,NA,NA
+minmax scale operator,Returns values scaled between 0 and 1,data wrangling,NA,https://github.com/tercen/minmax_scale_operator,NA,NA
+Linear mixed model,Perform linear mixed effects analyses,,NA,https://github.com/tercen/mixed_model_operator,NA,NA
+Multiple Sequence Alignment operator,Performs Multiple Sequence Alignment in Tercen,bioinformatics,NA,https://github.com/tercen/msa_operator,NA,NA
+MSA Shiny Operator,Plot Multiple Sequence Alignment.,bioinformatics,NA,https://github.com/tercen/msa_shiny_operator,NA,NA
+Multiple testing operator,Correct for multiple testing.,statistical testing; test,NA,https://github.com/tercen/template_R_operator,NA,NA
+Multiply,Returns the product of two values,basic operations,NA,https://github.com/tercen/multiply_operator,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+non compartment analysis,Noncompartmental Analysis for Pharmacokinetic Data,pharmacokinetics; Pharmacokinetic; Pharma,NA,https://github.com/tercen/nca_operator,NA,NA
+Negative,Negative transformation of the given data,simple statistics,NA,https://github.com/tercen/negative_operator,NA,NA
+neighbouRhood,Performs cell neighbourhood enrichment analysis on cell clusters,flowcytometry; image flowcytometry,NA,https://github.com/tercen/neighbourhood_operator,NA,NA
+normalyzer_operator,Normalization methods from the NormalyzerDE R package,normalization,NA,https://github.com/tercen/normalyzer_operator,NA,NA
+som,clustering algorithm from the flowSOM R package,clustering; flow cytometry,NA,https://github.com/tercen/somflow_operator,NA,NA
+Optics11,Optics11 data analysis,,NA,https://github.com/tercen/optics11_operator,NA,NA
+OrderBy,Order data according to row- or column-wise metrics.,basic operations,NA,https://github.com/tercen/orderBy_operator,NA,NA
+Pairwise distance,Compute pairwise distances between variables.,basic statistics,NA,https://github.com/tercen/pairwise_distance_operator,NA,NA
+PCA,Performs a principal components analysis on the given data,multivariate statistics,NA,https://github.com/tercen/pca_operator,NA,NA
+Pearson,Pearson correlation,basic statistics; statistical testing; test,NA,https://github.com/tercen/pearson_operator,NA,NA
+Percentile,Return the percentile value of a cell,basic statistics,NA,https://github.com/tercen/percentile_operator,NA,NA
+product,Compute the product (i.e. multiplication) of all datapoints in a  cell,simple arithmetic,NA,https://github.com/tercen/product_operator,NA,NA
+Proportion operator,Computes counts and relative proportions per row, per column and overall,data wrangling; basic operations,NA,https://github.com/tercen/proportion_operator,NA,NA
+QQ-plot operator,Create a quantile-quantile plot.,data visualisation; statistical testing,NA,https://github.com/tercen/qqplot_operator,NA,NA
+Random label,Returns random labels to sample data,sampling,NA,https://github.com/tercen/randomlabel_operator,NA,NA
+Ratio,Compute Y/X per data point,simple arithmetic,NA,https://github.com/tercen/ratio_operator,NA,NA
+AnnotatedDataFrame,Converts a RData file containing an AnnotatedDataFrame object to a Tercen dataset.,file conversion,NA,https://github.com/tercen/readAnnotatedDataFrame_operator,NA,NA
+readRDS,Convert RDS data document to tercen data set,rds; import,NA,https://github.com/tercen/readrds_operator,NA,NA
+Excel,Convert an Excel document to a Tercen data set. Files from Excel versions 2007 - 365 are accepted (.xlsx and .xlsm). Older .xls files are not supported.,excel; import,NA,https://github.com/tercen/readxl_operator,NA,NA
+Read FASTA,Reads a fasta file,import; bioinformatics; sequence analysis,NA,https://github.com/tercen/read_fasta_operator,NA,NA
+FCS ZIP operator,Transforms zipped FCS files to Tercen datasets,import,NA,https://github.com/tercen/read_FCSzip_operator,NA,NA
+Read FCS file,Transform fcs files to tercen dataset. Flow Cytometry Standard is a data file standard for the reading and writing of data from flow cytometry experiments.,import; flow cytometry,NA,https://github.com/tercen/read_fcs_operator,NA,NA
+Read GMT operator,Reads a GMT file containing a gene set annotation,file conversion,NA,https://github.com/tercen/read_gmt_operator,NA,NA
+STRAF to Tercen,Import a STRAF input file into Tercen,file conversion,NA,https://github.com/tercen/read_STRAF_operator,NA,NA
+Read VCF,Import a VCF file into Tercen.,import; file conversion; bioinformatics,NA,https://github.com/tercen/read_VCF_operator,NA,NA
+Replace operator,Performs the replacement of the first or all matches of a string.,text manipulation,NA,https://github.com/tercen/replace_operator,NA,NA
+Random forest Imp,Compute Random forest importance values,multivariate analysis,NA,https://github.com/tercen/rfImp_operator,NA,NA
+RMSD,Relative Mean Square Deviation,basic statistics,NA,https://github.com/tercen/RMSD_operator,NA,NA
+Round,Rounding of numbers,data wrangling; transform; data transformation,NA,https://github.com/tercen/round_operator,NA,NA
+rphenograph,clustering algorithm from the rphenograph R package,clustering; flow cytometry,NA,https://github.com/tercen/rphenograph_operator,NA,NA
+Sample,Return sample,basic statistics,NA,https://github.com/tercen/sample_operator,NA,NA
+Scale,Scale and center the given data,simple statistics,NA,https://github.com/tercen/scale_operator,NA,NA
+Scatter plot operator,Scatter plots.,data visualisation,NA,https://github.com/tercen/scatterplot_shiny_operator,NA,NA
+Standard deviation,Compute the standard deviation per cell,basic statistics,NA,https://github.com/tercen/sd_operator,NA,NA
+Separate,Separate a character column into multiple columns with a regular expression or numeric locations,data wrangling,NA,https://github.com/tercen/separate_operator,NA,NA
+Sequence to table operator,Converts a biological sequence to a tabular format,bioinformatics,NA,https://github.com/tercen/seq2table_operator,NA,NA
+Seqlen,Return sequence number of a data series,basic statistics,NA,https://github.com/tercen/seqlen_operator,NA,NA
+shift,shift the data by a constant,simple statistics,NA,https://github.com/tercen/shift_operator,NA,NA
+Docker Shiny Mean,Compute the mean per cell,template; example,NA,https://github.com/tercen/shiny_docker_operator,tercen/shiny_docker_operator:0.10.0.1,TRUE
+NA,NA,NA,NA,NA,NA,NA
+Shiny Mean,Compute the mean per cell,basic statistics,NA,https://github.com/tercen/shiny_operator2,NA,NA
+Sign change,Changes the sign given data,simple statistics,NA,https://github.com/tercen/signchange_operator,NA,NA
+single non compartment analysis,Noncompartmental Analysis for Pharmacokinetic Data,Pharmacokinetic; Pharma,NA,https://github.com/tercen/nca_operator,NA,NA
+somflow,clustering algorithm from the flowSOM R package,clustering; flow cytometry,NA,https://github.com/tercen/somflow_operator,NA,NA
+Sqrt,Square root of the given data,data wrangling; data transformation; transform,NA,https://github.com/tercen/sqrt_operator,NA,NA
+Forensic parameters,Return STRAF forensic parameters,forensics,NA,https://github.com/tercen/straf_forensicparameters_operator,NA,NA
+Substract,Compute Y - X per data point,simple arithmetic,NA,https://github.com/tercen/subtract_operator,NA,NA
+Sum,Compute the sum per cell,simple arithmetic,NA,https://github.com/tercen/sum_operator,NA,NA
+OPERATOR NAME,DESCRIPTION,template,NA,https://github.com/tercen/OPERATOR_NAME,tercen/CONTAINER_NAME:TAG,FALSE
+Template R operator,Return the medium value of a cell,template,NA,https://github.com/tercen/template_R_operator,NA,NA
+Template Shiny Operator,Template to create a Shiny operator in Tercen.,template,NA,https://github.com/tercen/template_shiny_operator,NA,NA
+topn,Return the top element of a cell,basic statistics,NA,https://github.com/tercen/topn_operator,NA,NA
+TSNE,TSNE is a method for constructing a low dimensional embedding of high-dimensional data,multivariate statistics,NA,https://github.com/tercen/tsne_operator,NA,NA
+ttest,Student's t-test,statistical testing; test,NA,https://github.com/tercen/ttest_operator,NA,NA
+twogroupttest,two group Student's t-test,statistical testing; test,NA,https://github.com/tercen/twogroupttest_operator,NA,NA
+umap,Uniform Manifold Approximation and Projection (UMAP) method,flowcytometry; rnaseq,NA,https://github.com/tercen/umap_operator,NA,NA
+Upper and lower bounds,Upper and lower bounds as a percentage of a value,simple statistics; Pharma,NA,https://github.com/tercen/upperandlowerbounds_operator,NA,NA
+Venn diagram,A Venn diagram is a diagram that shows all possible logical relations between a finite collection of different sets,basic statistics,NA,https://github.com/tercen/venn_shiny_operator,NA,NA
+Vroom,Read a delimited file,import,NA,https://github.com/tercen/vroom_operator,NA,NA
+vsn,perform vsn factors,normalization; rnaseq,NA,https://github.com/tercen/vsn_operator,NA,NA
+Wilcoxon test,Wilcoxon Rank Sum and Signed Rank Tests,statistical testing; test,NA,https://github.com/tercen/wilcoxtest_operator,NA,NA
+Word count,Count words in a document,basic statistics,NA,https://github.com/tercen/wordcount_operator,NA,NA
+Worldmap,Shiny world map representation,data visualisation; map,NA,https://github.com/tercen/worldmap_shiny_docker_operator,agouy/worldmap:0.1.0,TRUE
+Shiny Worldmap,Worldmap,map,NA,https://github.com/tercen/shiny_worldmap_operator,NA,NA

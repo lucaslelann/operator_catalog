@@ -102,6 +102,25 @@ save(op_jsons, file = "./data/last-op_jsons.rda")
 save(op_jsons, file = paste0("./data/",tstamp,"-op_jsons.rda"))
 
 ######
+## 4. get tags 
+op_tags <- lapply(repo_list, function(x) {
+  ct <- try(gh(paste0("GET /repos/tercen/", x, "/git/refs/tags"), .token = tk))
+  if(class(ct) == "try-error") {
+    out <- NA
+  } else {
+    tgs <- vapply(ct, "[[", "", "ref")
+    tgs <- sort(sub(pattern = "refs/tags/",replacement =  "", x = tgs), decreasing = TRUE)
+    
+    out <- tgs[1]
+  }
+  return(out)
+})
+
+names(op_tags) <- repo_list
+save(op_tags, file = "./data/last-op_tags.rda")
+save(op_tags, file = paste0("./data/",tstamp,"-op_tags.rda"))
+
+######
 ## 5. merge readmes and jsons for catalog generation
 df <- data.frame(
   name = names(op_readmes),
