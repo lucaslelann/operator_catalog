@@ -9,7 +9,8 @@ load(file = "./data/last-op_tags.rda")
 # load op_jsons df
 
 cnames <- unique(unlist(lapply(op_jsons, names)))
-cnames <- cnames[!cnames %in% c("properties")]
+# columns to exclude
+cnames <- cnames[!cnames %in% c("properties", "authors")]
 
 mat <- matrix(NA, nrow = length(op_jsons), ncol = length(cnames))
 df <- as.data.frame(mat)
@@ -31,7 +32,17 @@ df$latest_tag <- unlist(op_tags)
 
 df$description <- gsub(",", ";", df$description)
 
+df$name_from_url <- basename(df$urls)
+
 tstamp <- format(Sys.time(), "%Y%m%d-%H%M")
 out.name <-  paste0("./data/", tstamp, "-operator-jsons.csv")
+out.name.xl <-  paste0("./data/", tstamp, "-operator-jsons.xlsx")
 
 write.table(df, file = out.name, sep = ",", quote=FALSE, row.names = FALSE)
+library(xlsx)
+write.xlsx(df, file=out.name.xl,
+           sheetName = "Operato_info",
+           col.names = TRUE,
+           row.names = FALSE,
+           append = FALSE,
+           showNA = TRUE)

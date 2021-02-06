@@ -109,9 +109,17 @@ op_tags <- lapply(repo_list, function(x) {
     out <- NA
   } else {
     tgs <- vapply(ct, "[[", "", "ref")
-    tgs <- sort(sub(pattern = "refs/tags/",replacement =  "", x = tgs), decreasing = TRUE)
+    tgs <- sub(pattern = "refs/tags/",replacement =  "", x = tgs)
     
-    out <- tgs[1]
+    tgs_df <- as.data.frame(do.call(rbind, strsplit(tgs, "[.]")))
+    tgs_df <- data.frame(lapply(tgs_df, as.numeric))
+    nver <- ncol(tgs_df)
+    if(nver == 1) ord_tgs <- order(tgs_df[,1], decreasing = TRUE)
+    if(nver == 2) ord_tgs <- order(tgs_df[,1], tgs_df[,2], decreasing = TRUE)
+    if(nver == 3) ord_tgs <- order(tgs_df[,1], tgs_df[,2], tgs_df[,3], decreasing = TRUE)
+    if(nver == 4) ord_tgs <- order(tgs_df[,1], tgs_df[,2], tgs_df[,3], tgs_df[,4], decreasing = TRUE)
+    
+    out <- tgs[ord_tgs][1]
   }
   return(out)
 })
