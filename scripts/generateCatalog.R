@@ -1,5 +1,5 @@
 ### script to generate markdown page
-load(file = "./data/op_data.rda")
+load(file = "./data/last-op_data.rda")
 
 tag_map <- read.table("./tag_list.csv", sep=",", header = TRUE)
 std_cat <- tag_map$category[tag_map$type == "standard"]
