@@ -19,6 +19,6 @@ source("./scripts/retrieveOperators.R")
 The next script gets relevant information from operators repositories and generates the book.
 
 ```r
-source("./generateCatalog.R")
+source("./scripts/generateCatalog.R")
 bookdown::render_book(input = "index.Rmd", output_dir = "docs")
 ```
